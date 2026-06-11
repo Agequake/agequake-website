@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ソリューション | Agequake株式会社</title>
+  <meta name="description" content="Agequakeの施術院経営支援プロジェクト。整巡湯を活用した付加価値創造・価格戦略・リピート導線設計など、施術院の経営改善を仕組みで実現します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="_shared.css">
+  <style>
+    .sol-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .sol-intro__photo {
+      aspect-ratio: 4/3;
+      background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80&fit=crop&crop=center');
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .sol-intro__photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(11,21,38,0.50) 100%);
+    }
+    .sol-intro__photo-frame {
+      position: absolute;
+      top: -12px; right: -12px;
+      width: calc(100% - 24px); height: calc(100% - 24px);
+      border: 1px solid rgba(168,137,60,0.35);
+      border-radius: var(--radius-lg);
+      pointer-events: none;
+    }
+    .sol-intro__note {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(168,137,60,0.10);
+      border: 1px solid rgba(168,137,60,0.30);
+      border-radius: var(--radius-sm);
+      font-size: 0.76rem;
+      color: var(--gold-light);
+      font-family: var(--serif);
+      margin-bottom: 24px;
+    }
+    .sol-intro__body {
+      font-size: 0.90rem;
+      color: var(--text-muted);
+      line-height: 2.2;
+      margin-bottom: 28px;
+    }
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .ch-card {
+      padding: 28px 24px;
+      background: var(--white);
+      border: 1px solid var(--beige-dark);
+      border-radius: var(--radius-lg);
+      transition: var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .ch-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .ch-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .ch-card:hover::after { transform: scaleX(1); }
+    .ch-card__q {
+      font-family: var(--serif);
+      font-size: 1.6rem; color: var(--gold-light);
+      margin-bottom: 10px; line-height: 1;
+    }
+    .ch-card__title {
+      font-family: var(--serif);
+      font-size: 0.96rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 10px; line-height: 1.6;
+    }
+    .ch-card__body {
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.9;
+    }
+    .seijunto-hero {
+      position: relative;
+      background: linear-gradient(145deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .seijunto-hero__photo {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=80&fit=crop');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.10;
+    }
+    .seijunto-hero__inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+      padding: 60px 56px;
+    }
+    .seijunto-hero__tag {
+      font-family: var(--caps);
+      font-size: 0.57rem; letter-spacing: 0.26em;
+      color: var(--gold); margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .seijunto-hero__title {
+      font-family: var(--serif);
+      font-size: 1.9rem; font-weight: 600;
+      color: var(--white); line-height: 1.4; margin-bottom: 18px;
+    }
+    .seijunto-hero__body {
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.68);
+      line-height: 2.1; margin-bottom: 28px;
+    }
+    .seijunto-hero__points {
+      display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 32px;
+    }
+    .seijunto-hero__points li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.84rem; line-height: 1.7; color: rgba(255,255,255,0.82);
+    }
+    .seijunto-hero__points li::before {
+      content: '';
+      display: block; width: 16px; height: 16px;
+      flex-shrink: 0; margin-top: 3px;
+      background: var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E") center/10px no-repeat;
+      border-radius: 50%;
+    }
+    .seijunto-hero__steps-head {
+      font-family: var(--caps);
+      font-size: 0.57rem; letter-spacing: 0.22em;
+      color: var(--gold); margin-bottom: 18px;
+    }
+    .sol-steps { display: flex; flex-direction: column; gap: 10px; }
+    .sol-step {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius-sm);
+      border-left: 2px solid rgba(168,137,60,0.45);
+    }
+    .sol-step__num {
+      font-family: var(--caps);
+      font-size: 1.0rem; color: var(--gold-light);
+      min-width: 24px; flex-shrink: 0;
+    }
+    .sol-step__text { font-size: 0.82rem; color: rgba(255,255,255,0.72); line-height: 1.65; }
+    .sol-step__text strong { display: block; color: var(--white); font-size: 0.86rem; margin-bottom: 2px; }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .value-card {
+      background: var(--white);
+      border: 1px solid var(--beige-dark);
+      border-radius: var(--radius-lg);
+      padding: 32px 26px;
+      text-align: center;
+      transition: var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .value-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .value-card__num {
+      font-family: var(--caps);
+      font-size: 2.5rem; color: var(--gold-light);
+      opacity: 0.30; line-height: 1;
+      position: absolute; top: 16px; right: 20px;
+    }
+    .value-card__icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .value-card__title {
+      font-family: var(--serif);
+      font-size: 1.0rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 10px;
+    }
+    .value-card__body {
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.9;
+    }
+    .flow {
+      display: flex; flex-direction: column; gap: 0;
+      position: relative;
+    }
+    .flow::before {
+      content: '';
+      position: absolute; left: 29px; top: 30px; bottom: 30px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), var(--gold-light), transparent);
+    }
+    .flow-item {
+      display: flex; align-items: flex-start; gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--beige-dark);
+    }
+    .flow-item:last-child { border-bottom: none; }
+    .flow-item__num {
+      width: 60px; height: 60px; flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--caps); font-size: 1.0rem; color: var(--white);
+      box-shadow: 0 4px 16px rgba(168,137,60,0.25);
+      position: relative; z-index: 1;
+    }
+    .flow-item__title {
+      font-family: var(--serif);
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 8px;
+    }
+    .flow-item__body {
+      font-size: 0.84rem; color: var(--text-muted); line-height: 1.9;
+    }
+    .sol-cta {
+      background: linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-mid) 100%);
+      border-radius: var(--radius-lg);
+      padding: 60px 52px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .sol-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(168,137,60,0.08), transparent 70%);
+    }
+    .sol-cta__inner { position: relative; z-index: 1; }
+    .sol-cta__title {
+      font-family: var(--serif);
+      font-size: 1.6rem; font-weight: 600;
+      color: var(--white); margin-bottom: 16px;
+    }
+    .sol-cta__body {
+      font-size: 0.88rem; color: rgba(255,255,255,0.60);
+      line-height: 2.1; margin-bottom: 36px;
+      max-width: 480px; margin-left: auto; margin-right: auto;
+    }
+    .sol-cta__buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+    @media (max-width: 960px) {
+      .sol-intro { grid-template-columns: 1fr; gap: 40px; }
+      .challenge-grid { grid-template-columns: repeat(2, 1fr); }
+      .seijunto-hero__inner { grid-template-columns: 1fr; gap: 36px; padding: 40px 28px; }
+      .value-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .challenge-grid { grid-template-columns: 1fr; }
+      .value-grid { grid-template-columns: 1fr; }
+      .sol-cta { padding: 48px 24px; }
+      .sol-cta__buttons { flex-direction: column; align-items: center; }
+      .sol-cta__buttons .btn { width: 100%; max-width: 300px; justify-content: center; }
+    }
+    /* partner card responsive */
+    @media (max-width: 640px) {
+      .partner-card-grid { grid-template-columns: 1fr !important; }
+      .partner-card-photo { min-height: 180px !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo-wrap"><img src="logo.png" alt="Agequake株式会社" class="logo-img"></a>
+      <nav class="gnav">
+        <div class="gnav__item active"><a href="solution.html">ソリューション</a></div>
+        <div class="gnav__item"><a href="knowledge.html">ナレッジ</a></div>
+        <div class="gnav__item"><a href="projects.html">プロジェクト</a></div>
+        <div class="gnav__item"><a href="company.html">会社情報</a></div>
+        <div class="gnav__cta"><a href="contact.html" class="btn btn-gold">お問い合わせ</a></div>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="solution.html" class="mnav-link">ソリューション</a>
+    <a href="knowledge.html" class="mnav-link">ナレッジ</a>
+    <a href="projects.html" class="mnav-link">プロジェクト</a>
+    <a href="company.html" class="mnav-link">会社情報</a>
+    <a href="contact.html" class="btn btn-gold mnav-link">お問い合わせ</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">Solutions</div>
+      <h1 class="page-hero__title">施術院経営支援<br>プロジェクト</h1>
+      <p class="page-hero__sub">整巡湯は「手段」です。本質は、施術院が持続的に成長できる経営の仕組みをつくること。</p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <div class="sol-intro">
+        <div style="position:relative;" class="fade-in">
+          <div class="sol-intro__photo"></div>
+          <div class="sol-intro__photo-frame"></div>
+        </div>
+        <div class="fade-in fd2">
+          <span class="sec-label">Our Approach</span>
+          <div class="gold-line"></div>
+          <p class="sol-intro__note">整巡湯は経営改善のツールであり、目的ではありません</p>
+          <h2 class="sec-title">「商品を売る」ではなく<br>「仕組みをつくる」</h2>
+          <p class="sol-intro__body">
+            Agequakeは施術院に対し、単に整巡湯を販売するわけではありません。
+            整巡湯を経営改善の道具として活用し、付加価値の創造・価格戦略・リピート導線・顧客満足度向上を一体的に設計する「仕組み」を提供します。<br><br>
+            結果として得られるのは「商品の売上」ではなく、「院の経営体力の向上」です。
+          </p>
+          <a href="contact.html" class="btn btn-gold">
+            無料相談する
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--beige">
+    <div class="container">
+      <div class="fade-in sec-center" style="margin-bottom:48px;">
+        <span class="sec-label">Challenges We Solve</span>
+        <div class="gold-line gold-line--center"></div>
+        <h2 class="sec-title">こんな悩みはありませんか？</h2>
+        <p class="sec-body">施術院経営者が直面する「あるある」の課題に、仕組みで向き合います。</p>
+      </div>
+      <div class="challenge-grid">
+        <div class="ch-card fade-in fd2">
+          <div class="ch-card__q">Q.</div>
+          <div class="ch-card__title">物価上昇で値上げしたいが、患者離れが怖い</div>
+          <div class="ch-card__body">単純な値上げではなく付加価値を加えることで、患者様が納得できる価格改定を設計します。</div>
+        </div>
+        <div class="ch-card fade-in fd3">
+          <div class="ch-card__q">Q.</div>
+          <div class="ch-card__title">施術以外の付加価値・収益源を作りたい</div>
+          <div class="ch-card__body">整巡湯を活用したセルフケア提案・院販で、施術の価値をご自宅まで拡張します。</div>
+        </div>
+        <div class="ch-card fade-in fd4">
+          <div class="ch-card__q">Q.</div>
+          <div class="ch-card__title">店販を始めたいが提案しづらい</div>
+          <div class="ch-card__body">院独自のオリジナル商品化と、患者様に自然に勧められるトークスクリプトをご提供します。</div>
+        </div>
+        <div class="ch-card fade-in fd2">
+          <div class="ch-card__q">Q.</div>
+          <div class="ch-card__title">顧客満足度・口コミ数を上げたい</div>
+          <div class="ch-card__body">施術後の体験設計と温浴習慣の提案で、患者様の満足度向上・紹介促進につなげます。</div>
+        </div>
+        <div class="ch-card fade-in fd3">
+          <div class="ch-card__q">Q.</div>
+          <div class="ch-card__title">リピート率が伸び悩んでいる</div>
+          <div class="ch-card__body">次回来院への動機づけになるセルフケアツール・体験設計・導線をトータルで支援します。</div>
+        </div>
+        <div class="ch-card fade-in fd4">
+          <div class="ch-card__q">Q.</div>
+          <div class="ch-card__title">経営全体の数字を改善したい</div>
+          <div class="ch-card__body">メニュー・価格・導線・販促の全体設計を整理し、収益改善につながる仕組みをご提案します。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="seijunto">
+    <div class="container">
+      <div class="fade-in sec-center" style="margin-bottom:40px;">
+        <span class="sec-label">Featured Tool</span>
+        <div class="gold-line gold-line--center"></div>
+        <h2 class="sec-title">整巡湯という「道具」</h2>
+        <p class="sec-body">温泉研究所監修・処方の入浴剤「整巡湯」は、施術院経営改善の強力なツールです。</p>
+      </div>
+      <div class="seijunto-hero fade-in">
+        <div class="seijunto-hero__photo"></div>
+        <div class="seijunto-hero__inner">
+          <div>
+            <div class="seijunto-hero__tag">Seijunto — Management Tool</div>
+            <h3 class="seijunto-hero__title">整巡湯導入で<br>実現できること</h3>
+            <p class="seijunto-hero__body">
+              整巡湯は、温泉研究所が監修・処方した本格入浴剤です。Agequakeでは単なる販売ではなく、施術院が「温浴習慣の提案」「新メニューの開発」「料金改定の根拠づくり」として活用できる一体型の経営支援を提供しています。
+            </p>
+            <ul class="seijunto-hero__points">
+              <li>温泉研究所監修の本格処方で差別化できる</li>
+              <li>セルフケア提案として院外体験を拡張できる</li>
+              <li>オリジナル院販商品として店頭展開できる</li>
+              <li>新コース・新メニューの核として活用できる</li>
+              <li>値上げの根拠となる付加価値を創出できる</li>
+            </ul>
+            <a href="contact.html" class="btn btn-gold">整巡湯の資料を請求する</a>
+          </div>
+          <div>
+            <div class="seijunto-hero__steps-head">導入後の変化ステップ</div>
+            <div class="sol-steps">
+              <div class="sol-step">
+                <div class="sol-step__num">01</div>
+                <div class="sol-step__text"><strong>施術後のセルフケア提案</strong>温浴習慣を患者様に提案し、院との接点を自宅まで拡張する</div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-step__num">02</div>
+                <div class="sol-step__text"><strong>新メニュー・付加価値の創出</strong>院オリジナルコースや院販商品として展開し差別化を実現</div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-step__num">03</div>
+                <div class="sol-step__text"><strong>価格改定の根拠を設計</strong>患者様が納得できる価値の基準を整備し、値上げを実現する</div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-step__num">04</div>
+                <div class="sol-step__text"><strong>リピート・紹介の接点を増やす</strong>来院動機となるお土産・セルフケアツールの導線を構築</div>
+              </div>
+              <div class="sol-step">
+                <div class="sol-step__num">05</div>
+                <div class="sol-step__text"><strong>経営数字の改善</strong>単価向上・リピート率向上・店販売上の三軸で収益を改善</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARTNER ===== -->
+  <section class="section section--white" style="padding: 72px 0;">
+    <div class="container">
+      <div class="fade-in sec-center" style="margin-bottom:48px;">
+        <span class="sec-label">Partner</span>
+        <div class="gold-line gold-line--center"></div>
+        <h2 class="sec-title">パートナー企業</h2>
+        <p class="sec-body">
+          Agequakeは専門機関と連携し、根拠ある価値を提供しています。
+        </p>
+      </div>
+      <div class="fade-in" style="max-width:720px; margin: 0 auto;">
+        <div class="partner-card-grid" style="
+          display: grid;
+          grid-template-columns: 260px 1fr;
+          gap: 0;
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          border: 1px solid var(--beige-dark);
+          box-shadow: var(--shadow);
+        ">
+          <!-- 写真 -->
+          <div class="partner-card-photo" style="
+            background-image: url('partner-onsen.jpg');
+            background-size: cover;
+            background-position: center left;
+            min-height: 240px;
+            position: relative;
+          ">
+            <div style="position:absolute;inset:0;background:linear-gradient(to right, transparent 60%, rgba(248,244,237,0.15) 100%);"></div>
+          </div>
+          <!-- テキスト -->
+          <div style="
+            padding: 36px 36px;
+            background: var(--white);
+            display: flex; flex-direction: column; justify-content: center;
+            border-left: 3px solid var(--gold);
+          ">
+            <div style="
+              font-family: var(--caps);
+              font-size: 0.56rem; letter-spacing: 0.24em;
+              color: var(--gold); margin-bottom: 10px;
+            ">Supervised Partner</div>
+            <h3 style="
+              font-family: var(--serif);
+              font-size: 1.35rem; font-weight: 600;
+              color: var(--navy); margin-bottom: 14px; line-height: 1.5;
+            ">温泉研究所</h3>
+            <p style="
+              font-size: 0.82rem; color: var(--text-muted); line-height: 2.0;
+              margin-bottom: 18px;
+            ">
+              整巡湯は、温泉研究所の監修・処方のもと開発された本格入浴剤です。
+              温泉成分の効能・配合バランスについて専門的な知見に基づいた品質管理を実施。
+              施術院が患者様に自信を持って提案できる根拠を支えています。
+            </p>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <span style="
+                padding: 4px 12px;
+                background: rgba(168,137,60,0.08);
+                border: 1px solid rgba(168,137,60,0.25);
+                border-radius: 50px;
+                font-size: 0.72rem; color: var(--gold);
+              ">監修・処方</span>
+              <span style="
+                padding: 4px 12px;
+                background: rgba(168,137,60,0.08);
+                border: 1px solid rgba(168,137,60,0.25);
+                border-radius: 50px;
+                font-size: 0.72rem; color: var(--gold);
+              ">品質管理</span>
+              <span style="
+                padding: 4px 12px;
+                background: rgba(168,137,60,0.08);
+                border: 1px solid rgba(168,137,60,0.25);
+                border-radius: 50px;
+                font-size: 0.72rem; color: var(--gold);
+              ">温泉成分研究</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--beige">
+    <div class="container">
+      <div class="sol-cta fade-in">
+        <div class="sol-cta__inner">
+          <span class="sec-label" style="justify-content:center; color:var(--gold-light);">Get Started</span>
+          <h2 class="sol-cta__title">まずは無料相談から。</h2>
+          <p class="sol-cta__body">整巡湯の導入、施術院の値上げ対策、新メニュー作成など、お気軽にご相談ください。</p>
+          <div class="sol-cta__buttons">
+            <a href="contact.html" class="btn btn-gold btn-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+              無料相談する
+            </a>
+            <a href="https://lin.ee/YtDaTxB" class="btn-line" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#06C755" d="M24 4C13 4 4 11.8 4 21.4c0 8.6 7.6 15.8 17.9 17.2.7.15 1.6.46 1.85 1.06.22.54.14 1.38.07 1.92l-.3 1.78c-.09.54-.42 2.1 1.84 1.15C27.42 42.47 40 35.1 44 29.7c1-1.3 0-5 0-8.3C44 11.8 35 4 24 4z"/><g fill="white"><path d="M37.5 25.3h-5.3a.5.5 0 0 1-.5-.5v-8.2a.5.5 0 0 1 .5-.5h5.3a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.5h-3.5v1.3h3.5a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.5h-3.5v1.3h3.5a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.2zM20.3 25.3a.5.5 0 0 1-.5-.5v-8.2a.5.5 0 0 1 1 0v8.2a.5.5 0 0 1-.5.5zM29 25.3a.5.5 0 0 1-.4-.2l-3.8-5.2v4.9a.5.5 0 0 1-1 0v-8.2a.5.5 0 0 1 .9-.3l3.8 5.2v-4.9a.5.5 0 0 1 1 0v8.2a.5.5 0 0 1-.5.5zM17.5 25.3h-5.3a.5.5 0 0 1-.5-.5v-8.2a.5.5 0 0 1 .5-.5h1.3a.5.5 0 0 1 .5.5v6.4h3.5a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.5z"/></g></svg>
+              LINEで相談する
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="logo.png" alt="Agequake株式会社" class="footer__logo-img">
+          <p class="footer__tagline">社会の変化を、地域の可能性に変える。<br>経営コンサルティング会社</p>
+        </div>
+        <nav class="footer__nav">
+          <div class="footer__nav-col"><h4>Solutions</h4><ul><li><a href="solution.html">施術院経営支援</a></li><li><a href="solution.html">整巡湯導入支援</a></li><li><a href="solution.html">メニュー設計支援</a></li></ul></div>
+          <div class="footer__nav-col"><h4>Company</h4><ul><li><a href="company.html">会社情報</a></li><li><a href="projects.html">プロジェクト</a></li><li><a href="knowledge.html">ナレッジ</a></li></ul></div>
+          <div class="footer__nav-col"><h4>Contact</h4><ul><li><a href="contact.html">無料相談する</a></li><li><a href="mailto:agequake@outlook.com">メールで相談</a></li><li><a href="https://lin.ee/YtDaTxB" target="_blank" rel="noopener">LINEで相談</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 Agequake Inc. All Rights Reserved.</p>
+        <div class="footer__legal"><a href="#">プライバシーポリシー</a><a href="#">特定商取引法に基づく表記</a></div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+    document.querySelectorAll('.mnav-link').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }));
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }}); }, { threshold: 0.10 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

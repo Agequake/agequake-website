@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プロジェクト | Agequake株式会社</title>
+  <meta name="description" content="Agequakeのプロジェクト一覧。施術院経営支援を起点に、AI×地域経済・シニアマーケット・地域課題可視化など、社会変化を可能性に変える仕組みを展開します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="_shared.css">
+  <style>
+    /* ─── ACTIVE PROJECT ─── */
+    .active-project {
+      position: relative;
+      background: linear-gradient(145deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 80px;
+    }
+    .active-project__photo {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80&fit=crop');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.09;
+    }
+    .active-project__inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      padding: 64px 60px;
+      align-items: center;
+    }
+    .active-project__left {}
+    .active-project__status {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 20px;
+    }
+    .active-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.25); }
+      50%       { box-shadow: 0 0 0 6px rgba(34,197,94,0.10); }
+    }
+    .active-project__phase {
+      font-family: var(--caps);
+      font-size: 0.56rem; letter-spacing: 0.22em;
+      color: #22c55e;
+    }
+    .active-project__title {
+      font-family: var(--serif);
+      font-size: 2.0rem; font-weight: 600;
+      color: var(--white); line-height: 1.4; margin-bottom: 20px;
+    }
+    .active-project__body {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.68);
+      line-height: 2.1; margin-bottom: 30px;
+    }
+    .active-project__tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 32px;
+    }
+    .tag {
+      padding: 5px 14px;
+      background: rgba(168,137,60,0.12);
+      border: 1px solid rgba(168,137,60,0.28);
+      border-radius: 50px;
+      font-size: 0.75rem; color: var(--gold-light);
+    }
+    .active-project__right {}
+    .active-project__kpi-head {
+      font-family: var(--caps);
+      font-size: 0.57rem; letter-spacing: 0.22em;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .kpi-list { display: flex; flex-direction: column; gap: 12px; }
+    .kpi-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius-sm);
+      border-left: 2px solid rgba(168,137,60,0.45);
+    }
+    .kpi-item__icon { font-size: 1.2rem; flex-shrink: 0; }
+    .kpi-item__text {}
+    .kpi-item__title { font-size: 0.86rem; color: var(--white); font-weight: 500; margin-bottom: 3px; }
+    .kpi-item__body { font-size: 0.76rem; color: rgba(255,255,255,0.60); line-height: 1.6; }
+
+    /* ─── FUTURE PROJECTS ─── */
+    .future-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .fp-card {
+      background: var(--white);
+      border: 1px solid var(--beige-dark);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+    .fp-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .fp-card__thumb {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .fp-card__thumb::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(11,21,38,0.60) 100%);
+    }
+    .fp-card__overlay-badge {
+      position: absolute; bottom: 14px; left: 16px; z-index: 1;
+    }
+    .fp-card__body { padding: 28px 24px; }
+    .fp-card__title {
+      font-family: var(--serif);
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 12px; line-height: 1.55;
+    }
+    .fp-card__body-text {
+      font-size: 0.80rem; color: var(--text-muted); line-height: 1.9;
+      margin-bottom: 18px;
+    }
+    .fp-card__horizon {
+      font-family: var(--caps);
+      font-size: 0.56rem; letter-spacing: 0.18em;
+      color: var(--silver);
+    }
+
+    /* ─── PHILOSOPHY ─── */
+    .philosophy {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .philosophy-item {
+      text-align: center; padding: 36px 24px;
+      border: 1px solid var(--beige-dark);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      transition: var(--transition);
+    }
+    .philosophy-item:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .philosophy-item__num {
+      font-family: var(--caps);
+      font-size: 2.8rem; color: var(--gold-light);
+      opacity: 0.25; line-height: 1; margin-bottom: 16px;
+    }
+    .philosophy-item__title {
+      font-family: var(--serif);
+      font-size: 1.0rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 10px;
+    }
+    .philosophy-item__body {
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.9;
+    }
+
+    @media (max-width: 960px) {
+      .active-project__inner { grid-template-columns: 1fr; gap: 40px; padding: 40px 32px; }
+      .future-projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .philosophy { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .future-projects-grid { grid-template-columns: 1fr; }
+      .philosophy { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo-wrap"><img src="logo.png" alt="Agequake株式会社" class="logo-img"></a>
+      <nav class="gnav">
+        <div class="gnav__item"><a href="solution.html">ソリューション</a></div>
+        <div class="gnav__item"><a href="knowledge.html">ナレッジ</a></div>
+        <div class="gnav__item active"><a href="projects.html">プロジェクト</a></div>
+        <div class="gnav__item"><a href="company.html">会社情報</a></div>
+        <div class="gnav__cta"><a href="contact.html" class="btn btn-gold">お問い合わせ</a></div>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="solution.html" class="mnav-link">ソリューション</a>
+    <a href="knowledge.html" class="mnav-link">ナレッジ</a>
+    <a href="projects.html" class="mnav-link">プロジェクト</a>
+    <a href="company.html" class="mnav-link">会社情報</a>
+    <a href="contact.html" class="btn btn-gold mnav-link">お問い合わせ</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">Projects</div>
+      <h1 class="page-hero__title">プロジェクト</h1>
+      <p class="page-hero__sub">
+        「商品」ではなく「プロジェクト」として、社会課題に向き合います。<br>
+        施術院支援を起点に、地域経済・AI・シニアマーケットへと展開します。
+      </p>
+    </div>
+  </section>
+
+  <!-- ACTIVE PROJECT -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="fade-in sec-center" style="margin-bottom:48px;">
+        <span class="sec-label">Phase 1 — Active</span>
+        <div class="gold-line gold-line--center"></div>
+        <h2 class="sec-title">現在進行中のプロジェクト</h2>
+      </div>
+
+      <div class="active-project fade-in">
+        <div class="active-project__photo"></div>
+        <div class="active-project__inner" style="grid-template-columns:1fr; gap:0; padding:44px 52px;">
+          <div class="active-project__left">
+            <div class="active-project__status">
+              <div class="active-dot"></div>
+              <div class="active-project__phase">Phase 1 — Currently Active</div>
+            </div>
+            <h2 class="active-project__title" style="font-size:1.6rem;">施術院経営支援プロジェクト</h2>
+            <p class="active-project__body" style="max-width:640px;">
+              整巡湯を活用し、施術院の付加価値向上・新メニュー開発・価格戦略・リピート導線・顧客満足度向上を一体的に支援する、Agequakeの現在進行中のプロジェクトです。「整巡湯を売る」のではなく、「施術院の経営を変える仕組み」として展開しています。
+            </p>
+            <a href="solution.html#seijunto" class="btn btn-gold">
+              整巡湯導入で実現できることを見る
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE PROJECTS -->
+  <section class="section section--beige">
+    <div class="container">
+      <div class="fade-in sec-center" style="margin-bottom:48px;">
+        <span class="sec-label">Future Pipeline</span>
+        <div class="gold-line gold-line--center"></div>
+        <h2 class="sec-title">Agequake Lab</h2>
+        <p class="sec-body">
+          私たちは社会の変化から生まれる課題を研究し、<br>新たな価値創造の仕組みを開発しています。
+        </p>
+      </div>
+      <div class="future-projects-grid">
+        <div class="fp-card fade-in fd2">
+          <div class="fp-card__thumb" style="background-image:url('lab-ai.jpg');">
+            <div class="fp-card__overlay-badge"><span class="badge badge--coming">Coming Soon</span></div>
+          </div>
+          <div class="fp-card__body">
+            <h3 class="fp-card__title">AI×地域経済プロジェクト</h3>
+            <p class="fp-card__body-text">
+              地域事業者へのAI導入を支援し、業務効率化・集客・データ活用によって地域経済全体の底上げを目指します。施術院でのAI活用ノウハウを横展開します。
+            </p>
+            <div class="fp-card__horizon">Phase 2 Horizon — 2026</div>
+          </div>
+        </div>
+        <div class="fp-card fade-in fd3">
+          <div class="fp-card__thumb" style="background-image:url('lab-senior.jpg');">
+            <div class="fp-card__overlay-badge"><span class="badge badge--coming">Coming Soon</span></div>
+          </div>
+          <div class="fp-card__body">
+            <h3 class="fp-card__title">シニアマーケット研究プロジェクト</h3>
+            <p class="fp-card__body-text">
+              高齢化を「課題」ではなく「機会」として捉え、シニア向け商品・サービス・地域連携の可能性を研究・実装します。2040年の日本市場を見据えた中長期プロジェクト。
+            </p>
+            <div class="fp-card__horizon">Phase 2 Horizon — 2026</div>
+          </div>
+        </div>
+        <div class="fp-card fade-in fd4">
+          <div class="fp-card__thumb" style="background-image:url('lab-region.jpg');">
+            <div class="fp-card__overlay-badge"><span class="badge badge--coming">Coming Soon</span></div>
+          </div>
+          <div class="fp-card__body">
+            <h3 class="fp-card__title">地域課題可視化プロジェクト</h3>
+            <p class="fp-card__body-text">
+              地域の経済・人口・産業データを可視化し、行政・企業・地域団体が連携して課題解決できる仕組みを構築します。データドリブンな地域経営を支援します。
+            </p>
+            <div class="fp-card__horizon">Phase 3 Horizon — 2027+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="fade-in sec-center" style="margin-bottom:52px;">
+        <span class="sec-label">Project Philosophy</span>
+        <div class="gold-line gold-line--center"></div>
+        <h2 class="sec-title">プロジェクトの哲学</h2>
+      </div>
+      <div class="philosophy">
+        <div class="philosophy-item fade-in fd2">
+          <div class="philosophy-item__num">01</div>
+          <div class="philosophy-item__title">変化を機会として捉える</div>
+          <div class="philosophy-item__body">人口減少・高齢化・AI化——すべての変化には、いち早く動いた者だけが手にできる機会が存在します。</div>
+        </div>
+        <div class="philosophy-item fade-in fd3">
+          <div class="philosophy-item__num">02</div>
+          <div class="philosophy-item__title">仕組みで解決する</div>
+          <div class="philosophy-item__body">一時的な施策ではなく、地域や事業者が自走できる仕組みをつくることにこだわります。</div>
+        </div>
+        <div class="philosophy-item fade-in fd4">
+          <div class="philosophy-item__num">03</div>
+          <div class="philosophy-item__title">現場から始める</div>
+          <div class="philosophy-item__body">理論ではなく、現場の課題と向き合うことから。施術院支援はその実践の場です。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-mid) 100%); padding: 100px 0; text-align: center; position: relative; overflow: hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(168,137,60,0.08), transparent 70%);"></div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="fade-in">
+        <span class="sec-label" style="justify-content:center; color:var(--gold-light);">Join Us</span>
+        <h2 style="font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:600;color:var(--white);margin-bottom:18px;line-height:1.7;">
+          あなたの地域・事業の課題を<br>一緒に解決しませんか？
+        </h2>
+        <p style="font-size:0.90rem;color:rgba(255,255,255,0.60);line-height:2.2;margin-bottom:44px;max-width:480px;margin-left:auto;margin-right:auto;">
+          施術院経営支援への参加、または今後のプロジェクトへのご関心など、<br>お気軽にお問い合わせください。
+        </p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+          <a href="contact.html" class="btn btn-gold btn-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            無料相談する
+          </a>
+          <a href="solution.html" class="btn btn-outline-white btn-lg">施術院経営支援を見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="logo.png" alt="Agequake株式会社" class="footer__logo-img">
+          <p class="footer__tagline">社会の変化を、地域の可能性に変える。<br>経営コンサルティング会社</p>
+        </div>
+        <nav class="footer__nav">
+          <div class="footer__nav-col"><h4>Solutions</h4><ul><li><a href="solution.html">施術院経営支援</a></li><li><a href="solution.html">整巡湯導入支援</a></li></ul></div>
+          <div class="footer__nav-col"><h4>Company</h4><ul><li><a href="company.html">会社情報</a></li><li><a href="projects.html">プロジェクト</a></li><li><a href="knowledge.html">ナレッジ</a></li></ul></div>
+          <div class="footer__nav-col"><h4>Contact</h4><ul><li><a href="contact.html">無料相談する</a></li><li><a href="mailto:agequake@outlook.com">メールで相談</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 Agequake Inc. All Rights Reserved.</p>
+        <div class="footer__legal"><a href="#">プライバシーポリシー</a><a href="#">特定商取引法に基づく表記</a></div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+    document.querySelectorAll('.mnav-link').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }));
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }}); }, { threshold: 0.10 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

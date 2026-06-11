@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>パートナー募集 | Agequake株式会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="_shared.css">
+  <style>
+    .page-hero { background: linear-gradient(148deg,#0f1a2e 0%,#1c2b4a 100%); padding: calc(var(--header-h) + 64px) 0 72px; color: var(--white); }
+    .page-hero__title { font-family: var(--serif); font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 600; line-height: 1.5; margin-top: 12px; }
+    .page-hero__body  { font-size: 0.92rem; color: rgba(255,255,255,0.64); line-height: 2.1; margin-top: 16px; max-width: 540px; }
+
+    .partner-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; margin-top: 48px; }
+    .partner-card {
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--beige-dark);
+      border-radius: var(--radius-lg);
+      transition: var(--transition);
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .partner-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .partner-card__icon { font-size: 2rem; flex-shrink: 0; }
+    .partner-card__title { font-family: var(--serif); font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: var(--navy); }
+    .partner-card__body { font-size: 0.82rem; color: var(--text-muted); line-height: 1.85; }
+
+    .merit-list { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .merit-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 20px 24px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--gold);
+      box-shadow: var(--shadow);
+    }
+    .merit-item__num { font-family: var(--caps); font-size: 1.3rem; color: var(--gold-light); min-width: 32px; }
+    .merit-item__title { font-family: var(--serif); font-size: 0.96rem; font-weight: 600; margin-bottom: 6px; }
+    .merit-item__body { font-size: 0.82rem; color: var(--text-muted); line-height: 1.8; }
+
+    @media (max-width: 600px) { .partner-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo-wrap"><img src="logo.png" alt="Agequake株式会社" class="logo-img"></a>
+      <nav class="gnav">
+        <div class="gnav__item"><a href="solution.html">ソリューション</a></div>
+        <div class="gnav__item"><a href="knowledge.html">ナレッジ</a></div>
+        <div class="gnav__item"><a href="projects.html">プロジェクト</a></div>
+        <div class="gnav__item active"><a href="partner.html">パートナー募集</a></div>
+        <div class="gnav__item"><a href="company.html">会社情報</a></div>
+        <div class="gnav__item gnav__cta"><a href="contact.html" class="btn btn-gold">お問い合わせ</a></div>
+      </nav>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="solution.html" class="mnav-link">ソリューション</a>
+    <a href="knowledge.html" class="mnav-link">ナレッジ</a>
+    <a href="projects.html" class="mnav-link">プロジェクト</a>
+    <a href="partner.html" class="mnav-link">パートナー募集</a>
+    <a href="company.html" class="mnav-link">会社情報</a>
+    <a href="contact.html" class="btn btn-gold mnav-link">お問い合わせ</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="sec-label" style="color:var(--gold);">Partner</span>
+      <h1 class="page-hero__title">一緒に地域を変える<br>パートナーを募集しています。</h1>
+      <p class="page-hero__body">Agequakeは、整巡湯の導入支援にとどまらず、地域経済・AI活用・シニアマーケットなど、さまざまな領域で協働できるパートナーを広く募集しています。</p>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="container">
+      <div class="fade-in">
+        <span class="sec-label">Partner Types</span>
+        <div class="gold-line"></div>
+        <h2 class="sec-title">こんな方を探しています</h2>
+      </div>
+      <div class="partner-grid">
+        <div class="partner-card fade-in fd2">
+          <div class="partner-card__icon">🏥</div>
+          <div>
+            <div class="partner-card__title">鍼灸院・整体院・リラクゼーションサロン</div>
+            <div class="partner-card__body">整巡湯を活用した新メニュー導入・値上げ・店販に取り組みたい施術院様。現場の状況に合わせて支援します。</div>
+          </div>
+        </div>
+        <div class="partner-card fade-in fd3">
+          <div class="partner-card__icon">♨️</div>
+          <div>
+            <div class="partner-card__title">温浴・スパ関連事業者</div>
+            <div class="partner-card__body">温浴習慣・入浴文化の普及に共感いただける事業者様。整巡湯の活用方法を一緒に広げていきたいと考えています。</div>
+          </div>
+        </div>
+        <div class="partner-card fade-in fd2">
+          <div class="partner-card__icon">🏘️</div>
+          <div>
+            <div class="partner-card__title">地域事業者・商店街・地域団体</div>
+            <div class="partner-card__body">地域経済の活性化に取り組む事業者様。Agequakeの仕組みを地域全体の価値向上につなげたい方を歓迎します。</div>
+          </div>
+        </div>
+        <div class="partner-card fade-in fd3">
+          <div class="partner-card__icon">⚖️</div>
+          <div>
+            <div class="partner-card__title">士業・専門家・コンサルタント</div>
+            <div class="partner-card__body">税理士・社会保険労務士・中小企業診断士など、地域事業者を支援する専門家の方々との連携を求めています。</div>
+          </div>
+        </div>
+        <div class="partner-card fade-in fd2">
+          <div class="partner-card__icon">🤖</div>
+          <div>
+            <div class="partner-card__title">AI・IT事業者</div>
+            <div class="partner-card__body">地域事業者や施術院向けのAIツール・SaaSを展開している事業者様。Agequakeの顧客基盤と連携したビジネス展開を検討しています。</div>
+          </div>
+        </div>
+        <div class="partner-card fade-in fd3">
+          <div class="partner-card__icon">🏛️</div>
+          <div>
+            <div class="partner-card__title">行政・地域団体と連携する企業</div>
+            <div class="partner-card__body">地域課題の解決に行政・団体と連携して取り組む企業様。官民協働のプロジェクトを一緒に推進したい方を歓迎します。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--beige">
+    <div class="container">
+      <div class="fade-in">
+        <span class="sec-label">Benefits</span>
+        <div class="gold-line"></div>
+        <h2 class="sec-title">パートナーになるメリット</h2>
+      </div>
+      <div class="merit-list">
+        <div class="merit-item fade-in fd2">
+          <div class="merit-item__num">01</div>
+          <div>
+            <div class="merit-item__title">新しい収益源の確保</div>
+            <div class="merit-item__body">整巡湯の導入支援や院オリジナル商品化を通じて、既存ビジネスに新たな収益ラインを加えることができます。</div>
+          </div>
+        </div>
+        <div class="merit-item fade-in fd3">
+          <div class="merit-item__num">02</div>
+          <div>
+            <div class="merit-item__title">Agequakeの仕組みと知見を活用</div>
+            <div class="merit-item__body">メニュー設計・価格改定・販促物制作など、Agequakeが持つノウハウをパートナーとして活用いただけます。</div>
+          </div>
+        </div>
+        <div class="merit-item fade-in fd2">
+          <div class="merit-item__num">03</div>
+          <div>
+            <div class="merit-item__title">将来の事業拡張への参画</div>
+            <div class="merit-item__body">AI活用・シニアマーケット・地域経済など、今後Agequakeが展開するプロジェクトへの早期参画の機会があります。</div>
+          </div>
+        </div>
+        <div class="merit-item fade-in fd3">
+          <div class="merit-item__num">04</div>
+          <div>
+            <div class="merit-item__title">地域ネットワークの共有</div>
+            <div class="merit-item__body">Agequakeが持つ施術院・地域事業者・専門家のネットワークを通じた連携・紹介の機会があります。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="container sec-center fade-in">
+      <span class="sec-label" style="justify-content:center;color:var(--gold);">Contact</span>
+      <div class="gold-line gold-line--center"></div>
+      <h2 class="sec-title" style="color:var(--white);">パートナー相談をする</h2>
+      <p class="sec-body" style="margin-bottom:36px;color:rgba(255,255,255,0.64);">まずはお気軽にご連絡ください。ご状況をお聞きした上で、最適な連携の形をご提案します。</p>
+      <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+        <a href="contact.html?type=partner" class="btn btn-gold btn-lg">パートナー相談をする</a>
+        <a href="https://lin.ee/YtDaTxB" class="btn-line" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#06C755" d="M24 4C13 4 4 11.8 4 21.4c0 8.6 7.6 15.8 17.9 17.2.7.15 1.6.46 1.85 1.06.22.54.14 1.38.07 1.92l-.3 1.78c-.09.54-.42 2.1 1.84 1.15C27.42 42.47 40 35.1 44 29.7c1-1.3 0-5 0-8.3C44 11.8 35 4 24 4z"/><g fill="white"><path d="M37.5 25.3h-5.3a.5.5 0 0 1-.5-.5v-8.2a.5.5 0 0 1 .5-.5h5.3a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.5h-3.5v1.3h3.5a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.5h-3.5v1.3h3.5a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.2zM20.3 25.3a.5.5 0 0 1-.5-.5v-8.2a.5.5 0 0 1 1 0v8.2a.5.5 0 0 1-.5.5zM29 25.3a.5.5 0 0 1-.4-.2l-3.8-5.2v4.9a.5.5 0 0 1-1 0v-8.2a.5.5 0 0 1 .9-.3l3.8 5.2v-4.9a.5.5 0 0 1 1 0v8.2a.5.5 0 0 1-.5.5zM17.5 25.3h-5.3a.5.5 0 0 1-.5-.5v-8.2a.5.5 0 0 1 .5-.5h1.3a.5.5 0 0 1 .5.5v6.4h3.5a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.5z"/></g></svg>
+          LINEで相談する
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container"><div class="footer__inner"><div><img src="logo.png" alt="Agequake株式会社" class="footer__logo-img"><p class="footer__tagline">地域の課題を、仕組みで解決する。</p></div><div class="footer__nav"><div class="footer__nav-col"><h4>Solutions</h4><ul><li><a href="solution.html">整巡湯導入支援</a></li></ul></div><div class="footer__nav-col"><h4>Company</h4><ul><li><a href="company.html">会社情報</a></li><li><a href="projects.html">プロジェクト</a></li></ul></div><div class="footer__nav-col"><h4>Contact</h4><ul><li><a href="contact.html">無料相談する</a></li></ul></div></div></div><div class="footer__bottom"><p class="footer__copy">© 2025 Agequake Inc. All Rights Reserved.</p><div class="footer__legal"><a href="#">プライバシーポリシー</a></div></div></div></footer>
+  <script>
+    const header = document.getElementById('header'); window.addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 20), { passive: true });
+    const hamburger = document.getElementById('hamburger'); const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+    document.querySelectorAll('.mnav-link').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}), {threshold:0.10});
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
