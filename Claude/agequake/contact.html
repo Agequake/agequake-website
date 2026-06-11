@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | Agequake株式会社</title>
+  <meta name="description" content="Agequake株式会社へのお問い合わせ。施術院経営支援・整巡湯導入・地域課題解決など、まずはお気軽にご相談ください。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="_shared.css">
+  <style>
+    /* ─── CONTACT LAYOUT ─── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 72px;
+      align-items: start;
+    }
+
+    /* ─── FORM ─── */
+    .contact-form-wrap {
+      background: var(--white);
+      border: 1px solid var(--beige-dark);
+      border-radius: var(--radius-lg);
+      padding: 48px 44px;
+      box-shadow: var(--shadow);
+    }
+    .form-title {
+      font-family: var(--serif);
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 8px;
+    }
+    .form-subtitle {
+      font-size: 0.82rem; color: var(--text-muted); line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .form-group { margin-bottom: 24px; }
+    .form-label {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.80rem; font-weight: 500;
+      color: var(--navy); margin-bottom: 8px;
+    }
+    .form-required {
+      display: inline-block;
+      padding: 2px 7px;
+      background: rgba(168,137,60,0.12);
+      border: 1px solid rgba(168,137,60,0.28);
+      border-radius: 3px;
+      font-family: var(--caps);
+      font-size: 0.50rem; letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--beige);
+      border: 1.5px solid var(--beige-dark);
+      border-radius: var(--radius-sm);
+      font-size: 0.86rem;
+      font-family: var(--sans);
+      color: var(--text);
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+      appearance: none;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--gold);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(168,137,60,0.08);
+    }
+    .form-textarea { min-height: 140px; resize: vertical; line-height: 1.8; }
+
+    /* select arrow */
+    .form-select-wrap { position: relative; }
+    .form-select-wrap::after {
+      content: '';
+      position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--gold);
+      pointer-events: none;
+    }
+    .form-select { cursor: pointer; padding-right: 36px; }
+
+    /* Privacy checkbox */
+    .form-check {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 16px 18px;
+      background: var(--beige);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--beige-dark);
+      cursor: pointer;
+    }
+    .form-check input[type="checkbox"] {
+      width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+    .form-check-label {
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.8;
+    }
+    .form-check-label a { color: var(--gold); }
+
+    .form-submit-wrap { margin-top: 8px; }
+    .btn-submit {
+      width: 100%;
+      padding: 17px;
+      font-size: 0.94rem; font-weight: 600;
+      justify-content: center;
+      letter-spacing: 0.08em;
+    }
+    .form-note {
+      margin-top: 14px;
+      font-size: 0.72rem; color: var(--text-muted);
+      text-align: center; line-height: 1.8;
+    }
+
+    /* ─── SIDEBAR ─── */
+    .contact-sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--beige-dark);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      position: relative; overflow: hidden;
+    }
+    .sidebar-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+    .sidebar-card__title {
+      font-family: var(--serif);
+      font-size: 0.96rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 12px;
+    }
+    .sidebar-card__body {
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .sidebar-card__link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.80rem; color: var(--gold);
+      transition: gap var(--transition);
+    }
+    .sidebar-card__link:hover { gap: 10px; }
+
+    /* LINE card */
+    .sidebar-line {
+      background: linear-gradient(135deg, #06C755 0%, #05a548 100%);
+      border: none;
+      color: var(--white);
+    }
+    .sidebar-line::before { display: none; }
+    .sidebar-line .sidebar-card__title { color: var(--white); }
+    .sidebar-line .sidebar-card__body { color: rgba(255,255,255,0.80); }
+    .sidebar-line__btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%;
+      padding: 13px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.30);
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-size: 0.86rem; font-weight: 500;
+      transition: background var(--transition);
+    }
+    .sidebar-line__btn:hover { background: rgba(255,255,255,0.25); }
+    .sidebar-line__btn svg { width: 22px; height: 22px; }
+
+    /* Navy info card */
+    .sidebar-navy {
+      background: linear-gradient(145deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border: none;
+    }
+    .sidebar-navy::before { background: linear-gradient(to bottom, var(--gold), transparent); }
+    .sidebar-navy .sidebar-card__title { color: var(--white); }
+    .sidebar-navy .sidebar-card__body { color: rgba(255,255,255,0.60); }
+    .sidebar-faq { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {}
+    .faq-q {
+      font-size: 0.80rem; font-weight: 500;
+      color: var(--white); margin-bottom: 4px;
+    }
+    .faq-a {
+      font-size: 0.76rem; color: rgba(255,255,255,0.55); line-height: 1.75;
+    }
+
+    /* ─── SUCCESS MSG ─── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 60px 40px;
+    }
+    .form-success__icon { font-size: 3rem; margin-bottom: 16px; }
+    .form-success__title {
+      font-family: var(--serif);
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--navy); margin-bottom: 12px;
+    }
+    .form-success__body {
+      font-size: 0.86rem; color: var(--text-muted); line-height: 2.0;
+    }
+
+    @media (max-width: 960px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-sidebar { order: -1; }
+      .contact-form-wrap { padding: 36px 28px; }
+    }
+    @media (max-width: 640px) {
+      .contact-form-wrap { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo-wrap"><img src="logo.png" alt="Agequake株式会社" class="logo-img"></a>
+      <nav class="gnav">
+        <div class="gnav__item"><a href="solution.html">ソリューション</a></div>
+        <div class="gnav__item"><a href="knowledge.html">ナレッジ</a></div>
+        <div class="gnav__item"><a href="projects.html">プロジェクト</a></div>
+        <div class="gnav__item"><a href="company.html">会社情報</a></div>
+        <div class="gnav__cta"><a href="contact.html" class="btn btn-gold">お問い合わせ</a></div>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="solution.html" class="mnav-link">ソリューション</a>
+    <a href="knowledge.html" class="mnav-link">ナレッジ</a>
+    <a href="projects.html" class="mnav-link">プロジェクト</a>
+    <a href="company.html" class="mnav-link">会社情報</a>
+    <a href="contact.html" class="btn btn-gold mnav-link">お問い合わせ</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__label">Contact</div>
+      <h1 class="page-hero__title">お問い合わせ</h1>
+      <p class="page-hero__sub">
+        まずは、あなたの地域や事業の課題をお聞かせください。<br>
+        相談・資料請求はすべて無料です。
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--beige">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- FORM -->
+        <div class="contact-form-wrap fade-in">
+          <div id="formContent">
+            <div class="form-title">お問い合わせフォーム</div>
+            <p class="form-subtitle">
+              内容を確認後、担当者よりご連絡いたします。<br>
+              通常2〜3営業日以内にご返答します。
+            </p>
+
+            <form id="contactForm" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="name">
+                  お名前
+                  <span class="form-required">Required</span>
+                </label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="山田 太郎" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="company">
+                  会社名・院名
+                </label>
+                <input type="text" id="company" name="company" class="form-input" placeholder="○○整骨院">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">
+                  メールアドレス
+                  <span class="form-required">Required</span>
+                </label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="type">
+                  お問い合わせ種別
+                  <span class="form-required">Required</span>
+                </label>
+                <div class="form-select-wrap">
+                  <select id="type" name="type" class="form-select" required>
+                    <option value="" disabled selected>お問い合わせの種類を選択してください</option>
+                    <option value="clinic">施術院経営支援</option>
+                    <option value="seijunto">整巡湯導入</option>
+                    <option value="region">地域課題解決</option>
+                    <option value="ai">AI活用支援</option>
+                    <option value="other">その他</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">
+                  お問い合わせ内容
+                  <span class="form-required">Required</span>
+                </label>
+                <textarea id="message" name="message" class="form-textarea" placeholder="ご相談内容をご記入ください。どんな些細なことでも構いません。" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-check">
+                  <input type="checkbox" id="privacy" name="privacy" required>
+                  <span class="form-check-label">
+                    <a href="#">プライバシーポリシー</a>に同意の上、送信します。
+                    お客様の個人情報は、お問い合わせへの回答目的のみに使用し、第三者への提供は行いません。
+                  </span>
+                </label>
+              </div>
+
+              <div class="form-submit-wrap">
+                <button type="submit" class="btn btn-gold btn-submit btn-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  送信する
+                </button>
+                <p class="form-note">※ 相談・資料請求はすべて無料です</p>
+              </div>
+            </form>
+          </div>
+
+          <!-- SUCCESS STATE (hidden initially) -->
+          <div class="form-success" id="formSuccess">
+            <div class="form-success__icon">✅</div>
+            <div class="form-success__title">送信が完了しました</div>
+            <p class="form-success__body">
+              お問い合わせいただきありがとうございます。<br>
+              内容を確認の上、2〜3営業日以内にご連絡いたします。<br><br>
+              急ぎの場合はLINEよりお気軽にご連絡ください。
+            </p>
+            <a href="https://lin.ee/YtDaTxB" class="btn-line" style="margin: 24px auto 0; display:inline-flex;" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#06C755" d="M24 4C13 4 4 11.8 4 21.4c0 8.6 7.6 15.8 17.9 17.2.7.15 1.6.46 1.85 1.06.22.54.14 1.38.07 1.92l-.3 1.78c-.09.54-.42 2.1 1.84 1.15C27.42 42.47 40 35.1 44 29.7c1-1.3 0-5 0-8.3C44 11.8 35 4 24 4z"/><g fill="white"><path d="M37.5 25.3h-5.3a.5.5 0 0 1-.5-.5v-8.2a.5.5 0 0 1 .5-.5h5.3a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.5h-3.5v1.3h3.5a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.5h-3.5v1.3h3.5a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.2zM20.3 25.3a.5.5 0 0 1-.5-.5v-8.2a.5.5 0 0 1 1 0v8.2a.5.5 0 0 1-.5.5zM29 25.3a.5.5 0 0 1-.4-.2l-3.8-5.2v4.9a.5.5 0 0 1-1 0v-8.2a.5.5 0 0 1 .9-.3l3.8 5.2v-4.9a.5.5 0 0 1 1 0v8.2a.5.5 0 0 1-.5.5zM17.5 25.3h-5.3a.5.5 0 0 1-.5-.5v-8.2a.5.5 0 0 1 .5-.5h1.3a.5.5 0 0 1 .5.5v6.4h3.5a.5.5 0 0 1 .5.5v1.3a.5.5 0 0 1-.5.5z"/></g></svg>
+              LINEで連絡する
+            </a>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="contact-sidebar fade-in fd2">
+
+          <div class="sidebar-card sidebar-line">
+            <div class="sidebar-card__title">LINEで相談する</div>
+            <p class="sidebar-card__body">
+              フォームより手軽に相談したい方は、LINE公式アカウントからお気軽にメッセージください。
+            </p>
+            <a href="https://lin.ee/YtDaTxB" class="sidebar-line__btn" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="white" d="M24 4C13 4 4 11.8 4 21.4c0 8.6 7.6 15.8 17.9 17.2.7.15 1.6.46 1.85 1.06.22.54.14 1.38.07 1.92l-.3 1.78c-.09.54-.42 2.1 1.84 1.15C27.42 42.47 40 35.1 44 29.7c1-1.3 0-5 0-8.3C44 11.8 35 4 24 4z"/></svg>
+              LINEで相談する（無料）
+            </a>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="sidebar-card__title">メールで相談する</div>
+            <p class="sidebar-card__body">
+              メールでのお問い合わせも受け付けています。<br>
+              通常2〜3営業日以内にご返信します。
+            </p>
+            <a href="mailto:agequake@outlook.com" class="sidebar-card__link">
+              agequake@outlook.com
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <div class="sidebar-card sidebar-navy">
+            <div class="sidebar-card__title">よくあるご質問</div>
+            <div class="sidebar-faq">
+              <div class="faq-item">
+                <div class="faq-q">Q. 相談は無料ですか？</div>
+                <div class="faq-a">はい、初回相談・資料請求はすべて無料です。</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q">Q. 施術院以外でも相談できますか？</div>
+                <div class="faq-a">地域課題・AI活用など幅広くご相談をお受けします。</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q">Q. 整巡湯の資料はもらえますか？</div>
+                <div class="faq-a">種別で「整巡湯導入」をお選びいただければ資料をお送りします。</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img src="logo.png" alt="Agequake株式会社" class="footer__logo-img">
+          <p class="footer__tagline">社会の変化を、地域の可能性に変える。<br>経営コンサルティング会社</p>
+        </div>
+        <nav class="footer__nav">
+          <div class="footer__nav-col"><h4>Solutions</h4><ul><li><a href="solution.html">施術院経営支援</a></li><li><a href="solution.html">整巡湯導入支援</a></li></ul></div>
+          <div class="footer__nav-col"><h4>Company</h4><ul><li><a href="company.html">会社情報</a></li><li><a href="projects.html">プロジェクト</a></li><li><a href="knowledge.html">ナレッジ</a></li></ul></div>
+          <div class="footer__nav-col"><h4>Contact</h4><ul><li><a href="contact.html">無料相談する</a></li><li><a href="mailto:agequake@outlook.com">メールで相談</a></li></ul></div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 Agequake Inc. All Rights Reserved.</p>
+        <div class="footer__legal"><a href="#">プライバシーポリシー</a><a href="#">特定商取引法に基づく表記</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+    document.querySelectorAll('.mnav-link').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }));
+    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }}); }, { threshold: 0.10 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Form submit (demo — shows success state)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const type = document.getElementById('type').value;
+      const message = document.getElementById('message').value.trim();
+      const privacy = document.getElementById('privacy').checked;
+      if (!name || !email || !type || !message || !privacy) {
+        alert('必須項目をすべてご入力ください。');
+        return;
+      }
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      window.scrollTo({ top: document.querySelector('.contact-form-wrap').offsetTop - 100, behavior: 'smooth' });
+    });
+
+    // Pre-select type from URL param
+    const urlParams = new URLSearchParams(window.location.search);
+    const typeParam = urlParams.get('type');
+    if (typeParam) {
+      const sel = document.getElementById('type');
+      for (let opt of sel.options) {
+        if (opt.value === typeParam) { opt.selected = true; break; }
+      }
+    }
+  </script>
+</body>
+</html>
