@@ -8,6 +8,11 @@ https://agequake.jp
 GitHubへPush後はNetlifyへ自動反映される。
 変更作業時は本番環境への影響を考慮すること。
 
+【Netlify公開設定】
+公開ディレクトリ = リポジトリのルート（このフォルダ直下）。
+2026-06-12に旧サブフォルダ参照の設定ミスを修正済み。
+このフォルダ直下のファイルを編集してpushすれば、そのまま本番に反映される。
+
 ## ページ構成
 
 - [index.html](index.html) - トップページ
@@ -18,6 +23,15 @@ GitHubへPush後はNetlifyへ自動反映される。
 - [partner.html](partner.html) - パートナー
 - [contact.html](contact.html) - お問い合わせ
 - [_shared.css](_shared.css) - 共通スタイルシート
+
+## フォルダ構成
+
+- 上記HTML/CSS/画像 … 公開対象（このフォルダ直下がそのまま本番に反映される）
+- [assets-design/](assets-design/) … デザイン参考画像・ロゴ・スクリーンショット（公開ページからは直接参照されない作業用フォルダ）
+
+関連フォルダ（projectフォルダ直下、Gitリポジトリ外）:
+- `../agequake-outreach/` … 営業先リストCSV（メール送信先抽出用、個人情報を含むためGit管理外）
+- `../agequake-line/` … 公式LINE関連（今後Claude Codeで編集予定）
 
 ## ローカルでの確認方法
 
