@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料サンプル申し込み | Agequake｜鍼灸院の売上向上支援</title>
+<meta name="description" content="整巡湯（温泉研究所監修の入浴剤）の無料サンプルお申し込みフォームです。完全無料・営業電話なし。1分で入力完了します。">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  background: #faf8f3;
+  color: #1a1a2e;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ========== NAV ========== */
+nav {
+  background: white;
+  padding: 16px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.nav-logo { font-size: 20px; font-weight: 900; color: #1a1a2e; letter-spacing: 3px; }
+.nav-tagline { font-size: 10px; color: #aaa; letter-spacing: 2px; margin-top: 2px; }
+.nav-cta {
+  background: #c9a84c; color: #1a1a2e; padding: 10px 22px; border-radius: 4px;
+  font-size: 13px; font-weight: bold; letter-spacing: 1px; cursor: pointer;
+  border: none; text-decoration: none; transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ========== PAGE HERO ========== */
+.page-hero {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1a1a2e 45%, #0f3460 100%);
+  color: white;
+  padding: 72px 80px 64px;
+  text-align: center;
+}
+.page-hero .sec-label {
+  font-size: 10px; letter-spacing: 4px; color: rgba(201,168,76,0.7);
+  text-transform: uppercase; display: block; margin-bottom: 16px;
+}
+.gold-divider { width: 48px; height: 2px; background: #c9a84c; margin: 0 auto 24px; }
+.page-hero h1 { font-size: 32px; font-weight: 900; margin-bottom: 16px; }
+.page-hero p { font-size: 15px; color: rgba(255,255,255,0.7); max-width: 520px; margin: 0 auto; }
+
+/* ========== FORM SECTION ========== */
+.form-sec { padding: 64px 24px 96px; }
+.form-wrap {
+  max-width: 560px; margin: 0 auto;
+  background: white; border: 1px solid #e8e3d8; border-radius: 8px;
+  padding: 40px 36px; box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+.form-wrap h2 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+.form-intro { font-size: 13px; color: #777; line-height: 1.9; margin-bottom: 32px; }
+.form-group { margin-bottom: 22px; }
+.form-label {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: bold; color: #1a1a2e; margin-bottom: 8px;
+}
+.form-required {
+  display: inline-block; padding: 2px 8px; background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.35); border-radius: 3px;
+  font-size: 10px; letter-spacing: 1px; color: #a8893c;
+}
+.form-optional {
+  display: inline-block; padding: 2px 8px; background: #f1efe8;
+  border: 1px solid #e8e3d8; border-radius: 3px;
+  font-size: 10px; letter-spacing: 1px; color: #999;
+}
+.form-input, .form-textarea {
+  width: 100%; padding: 13px 16px; background: #faf8f3;
+  border: 1.5px solid #e8e3d8; border-radius: 4px;
+  font-size: 15px; font-family: inherit; color: #1a1a2e; outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.form-input:focus, .form-textarea:focus {
+  border-color: #c9a84c; background: white;
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+}
+.form-textarea { min-height: 100px; resize: vertical; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-check {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 16px 18px; background: #faf8f3; border: 1px solid #e8e3d8;
+  border-radius: 4px; cursor: pointer;
+}
+.form-check input[type="checkbox"] {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+  accent-color: #c9a84c; cursor: pointer;
+}
+.form-check-label { font-size: 12px; color: #777; line-height: 1.8; }
+.form-check-label a { color: #a8893c; text-decoration: underline; }
+.form-submit {
+  display: block; width: 100%; background: #c9a84c; color: #1a1a2e;
+  padding: 16px; border: none; border-radius: 4px; font-size: 16px;
+  font-weight: bold; letter-spacing: 1px; cursor: pointer;
+  box-shadow: 0 6px 24px rgba(201,168,76,0.35);
+  transition: opacity 0.2s, transform 0.1s; margin-top: 8px;
+}
+.form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
+.form-note {
+  margin-top: 16px; font-size: 12px; color: #999; text-align: center; line-height: 1.8;
+}
+
+/* ========== SUCCESS ========== */
+.form-success { display: none; text-align: center; padding: 40px 0; }
+.form-success__icon { font-size: 44px; margin-bottom: 16px; }
+.form-success__title { font-size: 20px; font-weight: 900; margin-bottom: 12px; }
+.form-success__body { font-size: 14px; color: #777; line-height: 2; }
+.back-link {
+  display: inline-block; margin-top: 28px; font-size: 13px; color: #a8893c;
+  text-decoration: none; border-bottom: 1px solid currentColor;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: #0d1b2a; color: rgba(255,255,255,0.4);
+  padding: 48px 80px; font-size: 12px; line-height: 2;
+}
+.footer-logo { font-size: 18px; font-weight: 900; color: white; letter-spacing: 3px; margin-bottom: 6px; }
+.footer-tag { font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 2px; margin-bottom: 24px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 16px; font-size: 11px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 20px; }
+.footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+.footer-links a:hover { color: #c9a84c; }
+.footer-sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-tagline { display: none; }
+  .nav-cta { padding: 8px 14px; font-size: 12px; letter-spacing: 0; }
+  .page-hero { padding: 48px 24px; }
+  .page-hero h1 { font-size: 24px; }
+  .form-sec { padding: 40px 20px 64px; }
+  .form-wrap { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  footer { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="lp-shinkyu.html" style="text-decoration:none; color:inherit;">
+    <div class="nav-logo">Agequake</div>
+    <div class="nav-tagline">鍼灸院経営支援</div>
+  </a>
+  <a href="lp-shinkyu.html" class="nav-cta">◀ ページに戻る</a>
+</nav>
+
+<!-- ========== PAGE HERO ========== -->
+<section class="page-hero">
+  <span class="sec-label">Free Sample</span>
+  <div class="gold-divider"></div>
+  <h1>整巡湯　無料サンプル申し込み</h1>
+  <p>
+    温泉研究所監修の入浴剤「整巡湯」を、まずはお試しください。<br>
+    完全無料・営業電話なし・ご入力は1分程度です。
+  </p>
+</section>
+
+<!-- ========== FORM ========== -->
+<section class="form-sec">
+  <div class="form-wrap">
+    <div id="formContent">
+      <h2>お届け先情報のご入力</h2>
+      <p class="form-intro">
+        ご入力いただいた情報は、整巡湯の無料サンプルお届けと、関連するご案内のみに使用します。<br>
+        押し売り・営業電話は一切ございません。
+      </p>
+
+      <form id="sampleForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="clinicName">
+            院名
+            <span class="form-required">必須</span>
+          </label>
+          <input type="text" id="clinicName" name="clinicName" class="form-input" placeholder="○○鍼灸院" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="name">
+            ご担当者名
+            <span class="form-required">必須</span>
+          </label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="山田 太郎" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="zip">
+              郵便番号
+              <span class="form-required">必須</span>
+            </label>
+            <input type="text" id="zip" name="zip" class="form-input" placeholder="123-4567" inputmode="numeric" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="tel">
+              電話番号
+              <span class="form-required">必須</span>
+            </label>
+            <input type="tel" id="tel" name="tel" class="form-input" placeholder="00-0000-0000" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="address">
+            ご住所（サンプルお届け先）
+            <span class="form-required">必須</span>
+          </label>
+          <input type="text" id="address" name="address" class="form-input" placeholder="都道府県・市区町村・番地・建物名" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">
+            メールアドレス
+            <span class="form-required">必須</span>
+          </label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">
+            ご要望・ご質問
+            <span class="form-optional">任意</span>
+          </label>
+          <textarea id="message" name="message" class="form-textarea" placeholder="ご質問やご要望があればご記入ください"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-check">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <span class="form-check-label">
+              <a href="privacy.html">プライバシーポリシー</a>に同意の上、申し込みます。
+              ご入力いただいた情報は、サンプルのお届けおよび関連するご案内以外には使用しません。
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="form-submit">▶ 無料サンプルを申し込む</button>
+        <p class="form-note">✓ 完全無料　✓ 営業電話なし　✓ 送料無料</p>
+      </form>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="form-success" id="formSuccess">
+      <div class="form-success__icon">✅</div>
+      <div class="form-success__title">お申し込みありがとうございます</div>
+      <p class="form-success__body">
+        整巡湯の無料サンプルお申し込みを受け付けました。<br>
+        ご入力いただいたお届け先に、担当よりご連絡のうえお送りいたします。<br><br>
+        ご不明点があれば、お気軽にお問い合わせください。
+      </p>
+      <a href="lp-shinkyu.html" class="back-link">◀ ページに戻る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-logo">Agequake</div>
+  <div class="footer-tag">社会の変化を、地域の可能性に変える。</div>
+  <div style="margin-bottom:28px;">
+    施術院経営支援を起点に、AI活用・地域経済・シニアマーケットなど<br>
+    社会の変化から生まれる課題を解決する仕組みを研究・開発しています。
+  </div>
+  <div class="footer-links">
+    <a href="company.html">会社概要</a>
+    <span class="footer-sep">|</span>
+    <a href="legal.html">特定商取引法に基づく表記</a>
+    <span class="footer-sep">|</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <span class="footer-sep">|</span>
+    <a href="lp-shinkyu.html">鍼灸院経営支援ページへ</a>
+  </div>
+  <div class="footer-bottom">© 2022-2026 Agequake All Rights Reserved.</div>
+</footer>
+
+<script>
+document.getElementById('sampleForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  window.scrollTo({ top: document.querySelector('.form-wrap').offsetTop - 80, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
