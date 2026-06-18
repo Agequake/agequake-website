@@ -222,7 +222,8 @@ footer {
         押し売り・営業電話は一切ございません。
       </p>
 
-      <form id="sampleForm" novalidate>
+      <form id="sampleForm" name="sample-form" method="POST" netlify novalidate>
+        <input type="hidden" name="form-name" value="sample-form">
         <div class="form-group">
           <label class="form-label" for="clinicName">
             院名
@@ -476,15 +477,34 @@ zipInput.addEventListener('input', function() {
 });
 zipBtn.addEventListener('click', lookupZip);
 
-document.getElementById('sampleForm').addEventListener('submit', function(e) {
+document.getElementById('sampleForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   if (!this.checkValidity()) {
     this.reportValidity();
     return;
   }
-  document.getElementById('formContent').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-  window.scrollTo({ top: document.querySelector('.form-wrap').offsetTop - 80, behavior: 'smooth' });
+  const submitBtn = this.querySelector('.form-submit');
+  submitBtn.disabled = true;
+  submitBtn.textContent = '送信中...';
+  try {
+    const formData = new FormData(this);
+    // citySelectがdisabledの場合は手動で値を追加
+    if (citySelect.disabled && citySelect.value) {
+      formData.set('city', citySelect.value);
+    }
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    });
+    document.getElementById('formContent').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    window.scrollTo({ top: document.querySelector('.form-wrap').offsetTop - 80, behavior: 'smooth' });
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = '▶ 無料サンプルを申し込む';
+    alert('送信に失敗しました。お手数ですが、しばらく経ってから再度お試しください。');
+  }
 });
 </script>
 </body>
