@@ -19,14 +19,21 @@ nav {
   background: white; padding: 16px 48px; display: flex; justify-content: space-between;
   align-items: center; box-shadow: 0 1px 8px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 200;
 }
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-mark { height: 32px; width: auto; display: block; }
 .nav-logo { font-size: 20px; font-weight: 900; color: #1a1a2e; letter-spacing: 3px; }
 .nav-tagline { font-size: 10px; color: #aaa; letter-spacing: 2px; margin-top: 2px; }
+.nav-logo-text { height: 34px; width: auto; display: block; }
 .nav-cta {
   background: #c9a84c; color: #1a1a2e; padding: 10px 22px; border-radius: 4px;
   font-size: 13px; font-weight: bold; letter-spacing: 1px; cursor: pointer;
   border: none; text-decoration: none; transition: opacity 0.2s;
 }
 .nav-cta:hover { opacity: 0.85; }
+.nav-links { display: flex; align-items: center; gap: 14px; }
+.nav-links a { color: rgba(26,26,46,0.45); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+.nav-links a:hover { color: #c9a84c; }
+.nav-sep { color: rgba(26,26,46,0.15); font-size: 11px; }
 .page-hero {
   background: linear-gradient(135deg, #0d1b2a 0%, #1a1a2e 45%, #0f3460 100%);
   color: white; padding: 64px 80px; text-align: center;
@@ -50,7 +57,11 @@ nav {
 footer {
   background: #0d1b2a; color: rgba(255,255,255,0.4); padding: 48px 80px; font-size: 12px; line-height: 2;
 }
-.footer-logo { font-size: 18px; font-weight: 900; color: white; letter-spacing: 3px; margin-bottom: 6px; }
+.footer-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 6px; }
+.footer-logo-mark { height: 28px; width: auto; display: block; }
+.footer-logo { font-size: 18px; font-weight: 900; color: white; letter-spacing: 3px; }
+.footer-logo-text-wrap { background: #faf8f3; padding: 6px 14px; border-radius: 4px; display: inline-flex; align-items: center; }
+.footer-logo-text { height: 22px; width: auto; display: block; }
 .footer-tag { font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 2px; margin-bottom: 24px; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 16px; font-size: 11px; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 20px; }
@@ -59,7 +70,8 @@ footer {
 .footer-sep { color: rgba(255,255,255,0.15); font-size: 11px; }
 @media (max-width: 768px) {
   nav { padding: 14px 20px; }
-  .nav-tagline { display: none; }
+  .nav-logo-text { height: 26px; }
+  .nav-links { display: none; }
   .nav-cta { padding: 8px 14px; font-size: 12px; letter-spacing: 0; }
   .page-hero { padding: 48px 24px; }
   .page-hero h1 { font-size: 22px; }
@@ -72,10 +84,19 @@ footer {
 <body>
 
 <nav>
-  <a href="lp-shinkyu.html" style="text-decoration:none; color:inherit;">
-    <div class="nav-logo">Agequake</div>
-    <div class="nav-tagline">鍼灸院経営支援</div>
+  <a href="lp-shinkyu.html" class="nav-brand">
+    <img src="logo-mark.png" alt="Agequake" class="nav-logo-mark">
+    <img src="logo-text.png" alt="Agequake Management Consulting" class="nav-logo-text">
   </a>
+  <div class="nav-links">
+    <a href="company.html">会社概要</a>
+    <span class="nav-sep">|</span>
+    <a href="legal.html">特定商取引法に基づく表記</a>
+    <span class="nav-sep">|</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <span class="nav-sep">|</span>
+    <a href="form.html">無料サンプル申し込み</a>
+  </div>
   <a href="form.html" class="nav-cta">▶ 無料サンプルを申し込む</a>
 </nav>
 
@@ -148,7 +169,12 @@ footer {
 </section>
 
 <footer>
-  <div class="footer-logo">Agequake</div>
+  <a href="lp-shinkyu.html" class="footer-brand">
+    <img src="logo-mark.png" alt="Agequake" class="footer-logo-mark">
+    <div class="footer-logo-text-wrap">
+      <img src="logo-text.png" alt="Agequake Management Consulting" class="footer-logo-text">
+    </div>
+  </a>
   <div class="footer-tag">社会の変化を、地域の可能性に変える。</div>
   <div style="margin-bottom:28px;">
     施術院経営支援を起点に、AI活用・地域経済・シニアマーケットなど<br>

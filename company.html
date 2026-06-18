@@ -1,456 +1,410 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>会社情報 | Agequake株式会社</title>
-  <meta name="description" content="Agequake株式会社の会社情報。社会の変化を地域の可能性に変える経営コンサルティング会社。施術院経営支援・地域課題解決・AI活用支援・シニアマーケット研究。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Yuji+Syuku&family=Yuji+Boku&family=Yuji+Mai&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="_shared.css">
-  <style>
-    /* ─── VISION ─── */
-    .vision-section {
-      position: relative;
-      overflow: hidden;
-    }
-    .vision-section__photo {
-      position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80&fit=crop');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.10;
-    }
-    .vision-section__overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
-      opacity: 0.93;
-    }
-    .vision__inner {
-      position: relative; z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .vision__text {}
-    .vision__quote {
-      font-family: var(--serif);
-      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.7; margin-bottom: 28px;
-      letter-spacing: 0.04em;
-    }
-    .vision__quote em {
-      font-style: normal;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-shine) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .vision__body {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.60);
-      line-height: 2.2;
-    }
-    .vision__values { display: flex; flex-direction: column; gap: 16px; }
-    .vision-value {
-      padding: 28px 28px;
-      background: var(--beige);
-      border: 1px solid rgba(168,137,60,0.25);
-      border-radius: var(--radius);
-      border-left: 4px solid var(--gold);
-    }
-    .vision-value__label {
-      font-family: var(--caps);
-      font-size: 0.8rem; letter-spacing: 0.2em; font-weight: 600;
-      color: var(--gold-shine); margin-bottom: 10px;
-    }
-    .vision-value__title {
-      font-family: var(--serif);
-      font-size: 1.32rem; font-weight: 700;
-      color: var(--navy); margin-bottom: 12px; line-height: 1.6;
-    }
-    .vision-value__body {
-      font-size: 0.98rem; color: var(--navy-mid); line-height: 1.95;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会社概要 | Agequake｜鍼灸院の売上向上支援</title>
+<meta name="description" content="Agequake株式会社の経営理念（Philosophy）・Mission・Vision・Valueをご紹介します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  background: #faf8f3;
+  color: #1a1a2e;
+  font-size: 16px;
+  line-height: 1.8;
+}
+nav {
+  background: white; padding: 16px 48px; display: flex; justify-content: space-between;
+  align-items: center; box-shadow: 0 1px 8px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 200;
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-mark { height: 32px; width: auto; display: block; }
+.nav-logo { font-size: 20px; font-weight: 900; color: #1a1a2e; letter-spacing: 3px; }
+.nav-tagline { font-size: 10px; color: #aaa; letter-spacing: 2px; margin-top: 2px; }
+.nav-logo-text { height: 34px; width: auto; display: block; }
+.nav-cta {
+  background: #c9a84c; color: #1a1a2e; padding: 10px 22px; border-radius: 4px;
+  font-size: 13px; font-weight: bold; letter-spacing: 1px; cursor: pointer;
+  border: none; text-decoration: none; transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.85; }
+.nav-links { display: flex; align-items: center; gap: 14px; }
+.nav-links a { color: rgba(26,26,46,0.45); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+.nav-links a:hover { color: #c9a84c; }
+.nav-sep { color: rgba(26,26,46,0.15); font-size: 11px; }
 
-    /* ─── DOMAINS ─── */
-    .domain-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-    .domain-card {
-      background: var(--white);
-      border: 1px solid var(--beige-dark);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      transition: var(--transition);
-      position: relative; overflow: hidden;
-    }
-    .domain-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-    .domain-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.35s ease;
-    }
-    .domain-card:hover::before { transform: scaleX(1); }
-    .domain-card--active {
-      background: linear-gradient(145deg, var(--navy) 0%, var(--navy-mid) 100%);
-      border: none; color: var(--white);
-    }
-    .domain-card--active::before { background: linear-gradient(90deg, var(--gold), var(--gold-shine)); }
-    .domain-card__icon { font-size: 2rem; margin-bottom: 14px; }
-    .domain-card__status {
-      margin-bottom: 12px;
-    }
-    .domain-card__title {
-      font-family: var(--serif);
-      font-size: 1.1rem; font-weight: 600;
-      color: var(--navy); margin-bottom: 10px;
-    }
-    .domain-card--active .domain-card__title { color: var(--white); }
-    .domain-card__body {
-      font-size: 0.80rem; color: var(--text-muted); line-height: 1.9;
-    }
-    .domain-card--active .domain-card__body { color: rgba(255,255,255,0.65); }
+.page-hero {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1a1a2e 45%, #0f3460 100%);
+  color: white; padding: 64px 80px; text-align: center;
+}
+.page-hero .sec-label {
+  font-size: 10px; letter-spacing: 4px; color: rgba(201,168,76,0.7);
+  text-transform: uppercase; display: block; margin-bottom: 16px;
+}
+.gold-divider { width: 48px; height: 2px; background: #c9a84c; margin: 0 auto 24px; }
+.page-hero h1 { font-size: 28px; font-weight: 900; }
 
-    /* ─── COMPANY INFO TABLE ─── */
-    .company-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .company-table tr {
-      border-bottom: 1px solid var(--beige-dark);
-    }
-    .company-table tr:last-child { border-bottom: none; }
-    .company-table th {
-      width: 200px; padding: 20px 0;
-      font-family: var(--serif);
-      font-size: 0.84rem; font-weight: 600;
-      color: var(--navy);
-      text-align: left;
-      vertical-align: top;
-    }
-    .company-table td {
-      padding: 20px 0 20px 24px;
-      font-size: 0.84rem; color: var(--text-muted);
-      line-height: 1.9; vertical-align: top;
-    }
-    .company-table td a { color: var(--gold); }
-    .company-table td a:hover { text-decoration: underline; }
+/* ===== Philosophy（経営理念）: 最上段の特別ブロック ===== */
+.philosophy-block {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1a1a2e 45%, #0f3460 100%);
+  color: white; padding: 80px 24px 96px; text-align: center;
+}
+.ph-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 18px;
+}
+.ph-headline {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 auto 28px;
+}
+.ph-body {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  line-height: 2.1;
+}
+.ph-body .accent { color: #c9a84c; }
 
-    /* ─── APPROACH ─── */
-    .approach-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .approach-step {
-      padding: 32px 26px;
-      text-align: center;
-      border: 1px solid var(--beige-dark);
-      border-radius: var(--radius-lg);
-      background: var(--white);
-      transition: var(--transition);
-    }
-    .approach-step:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-    .approach-step__num {
-      width: 64px; height: 64px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--caps); font-size: 1.1rem; color: var(--white);
-      margin: 0 auto 20px;
-      box-shadow: 0 4px 16px rgba(168,137,60,0.25);
-    }
-    .approach-step__title {
-      font-family: var(--serif);
-      font-size: 1.0rem; font-weight: 600;
-      color: var(--navy); margin-bottom: 10px;
-    }
-    .approach-step__body {
-      font-size: 0.78rem; color: var(--text-muted); line-height: 1.9;
-    }
+/* ===== Mission / Vision ===== */
+.doc-sec { padding: 64px 24px 0; }
+.doc-sec:last-of-type { padding-bottom: 96px; }
+.doc-wrap {
+  max-width: 720px; margin: 0 auto 32px; background: white; border: 1px solid #e8e3d8;
+  border-radius: 8px; padding: 48px 40px; box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+.doc-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #a8893c;
+  display: block;
+  margin-bottom: 12px;
+}
+.doc-catch {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: #1a1a2e;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.doc-wrap p { font-size: 14px; color: #555; line-height: 2; }
+.doc-wrap p + p { margin-top: 4px; }
 
-    @media (max-width: 960px) {
-      .vision__inner { grid-template-columns: 1fr; gap: 48px; }
-      .domain-grid { grid-template-columns: 1fr; }
-      .approach-steps { grid-template-columns: 1fr; }
-      .company-table th { width: 120px; }
-    }
-    @media (max-width: 640px) {
-      .company-table th { display: block; padding-bottom: 4px; }
-      .company-table td { display: block; padding-left: 0; padding-top: 4px; }
-    }
-  </style>
+/* ===== Value（行動指針） ===== */
+.value-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.value-item { display: flex; gap: 20px; align-items: flex-start; }
+.value-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-style: italic;
+  color: #c9a84c;
+  line-height: 1.4;
+  flex-shrink: 0;
+  min-width: 36px;
+}
+.value-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.value-body { font-size: 14px; color: #555; line-height: 2; }
+
+/* ===== 基本情報（Company Profile） ===== */
+.info-table { width: 100%; border-collapse: collapse; }
+.info-table tr { border-bottom: 1px solid #f0ece1; }
+.info-table tr:last-child { border-bottom: none; }
+.info-table th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: bold;
+  color: #a8893c;
+  letter-spacing: 1px;
+  padding: 16px 24px 16px 0;
+  width: 160px;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.info-table td { font-size: 14px; color: #333; padding: 16px 0; line-height: 1.9; }
+
+/* ===== 事業内容（Business） ===== */
+.business-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.business-item { display: flex; gap: 20px; align-items: flex-start; }
+.business-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: #c9a84c;
+  line-height: 1.5;
+  flex-shrink: 0;
+  min-width: 32px;
+}
+.business-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.business-body { font-size: 14px; color: #555; line-height: 2; }
+
+footer {
+  background: #0d1b2a; color: rgba(255,255,255,0.4); padding: 48px 80px; font-size: 12px; line-height: 2;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 6px; }
+.footer-logo-mark { height: 28px; width: auto; display: block; }
+.footer-logo { font-size: 18px; font-weight: 900; color: white; letter-spacing: 3px; }
+.footer-logo-text-wrap { background: #faf8f3; padding: 6px 14px; border-radius: 4px; display: inline-flex; align-items: center; }
+.footer-logo-text { height: 22px; width: auto; display: block; }
+.footer-tag { font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 2px; margin-bottom: 24px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 16px; font-size: 11px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 20px; }
+.footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+.footer-links a:hover { color: #c9a84c; }
+.footer-sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-logo-text { height: 26px; }
+  .nav-links { display: none; }
+  .nav-cta { padding: 8px 14px; font-size: 12px; letter-spacing: 0; }
+  .page-hero { padding: 48px 24px; }
+  .page-hero h1 { font-size: 22px; }
+  .philosophy-block { padding: 56px 20px 64px; }
+  .ph-headline { font-size: 22px; }
+  .doc-sec { padding: 40px 20px 0; }
+  .doc-sec:last-of-type { padding-bottom: 64px; }
+  .doc-wrap { padding: 28px 20px; }
+  .doc-catch { font-size: 18px; }
+  .value-item { gap: 14px; }
+  .value-num { font-size: 22px; min-width: 28px; }
+  .info-table th, .info-table td { display: block; width: 100%; padding: 0; white-space: normal; }
+  .info-table th { padding-top: 16px; padding-bottom: 4px; }
+  .info-table td { padding-bottom: 16px; }
+  .business-item { gap: 14px; }
+  .business-num { font-size: 20px; min-width: 26px; }
+  footer { padding: 40px 24px; }
+}
+</style>
 </head>
 <body>
-  <header class="header" id="header">
-    <div class="header__inner">
-      <a href="index.html" class="logo-wrap"><img src="logo.png" alt="Agequake株式会社" class="logo-img"></a>
-      <nav class="gnav">
-        <div class="gnav__item"><a href="solution.html">ソリューション</a></div>
-        <div class="gnav__item"><a href="knowledge.html">ナレッジ</a></div>
-        <div class="gnav__item"><a href="projects.html">プロジェクト</a></div>
-        <div class="gnav__item active"><a href="company.html">会社情報</a></div>
-        <div class="gnav__cta"><a href="contact.html" class="btn btn-gold">お問い合わせ</a></div>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
-    </div>
-  </header>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="solution.html" class="mnav-link">ソリューション</a>
-    <a href="knowledge.html" class="mnav-link">ナレッジ</a>
-    <a href="projects.html" class="mnav-link">プロジェクト</a>
-    <a href="company.html" class="mnav-link">会社情報</a>
-    <a href="contact.html" class="btn btn-gold mnav-link">お問い合わせ</a>
+
+<nav>
+  <a href="lp-shinkyu.html" class="nav-brand">
+    <img src="logo-mark.png" alt="Agequake" class="nav-logo-mark">
+    <img src="logo-text.png" alt="Agequake Management Consulting" class="nav-logo-text">
+  </a>
+  <div class="nav-links">
+    <a href="company.html">会社概要</a>
+    <span class="nav-sep">|</span>
+    <a href="legal.html">特定商取引法に基づく表記</a>
+    <span class="nav-sep">|</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <span class="nav-sep">|</span>
+    <a href="form.html">無料サンプル申し込み</a>
   </div>
+  <a href="form.html" class="nav-cta">▶ 無料サンプルを申し込む</a>
+</nav>
 
-  <section class="page-hero">
-    <div class="container">
-      <div class="page-hero__label">Company</div>
-      <h1 class="page-hero__title">Agequake株式会社</h1>
-      <p class="page-hero__sub">
-        社会の変化を、地域の可能性に変える。<br>
-        経営コンサルティング会社として、仕組みをつくり続けます。
-      </p>
-    </div>
-  </section>
+<section class="page-hero">
+  <span class="sec-label">Company</span>
+  <div class="gold-divider"></div>
+  <h1>会社概要</h1>
+</section>
 
-  <!-- VISION -->
-  <!-- CEO MESSAGE -->
-  <section class="section section--beige">
-    <div class="container" style="position:relative; z-index:1;">
-      <div class="fade-in sec-center" style="margin-bottom:44px;">
-        <span class="sec-label">Message from CEO</span>
-        <div class="gold-line gold-line--center"></div>
-        <h2 class="sec-title">代表者メッセージ</h2>
-      </div>
-      <div class="fade-in fd2" style="max-width:760px; margin:0 auto; background:#fffdf8; border:1px solid rgba(168,137,60,0.30); border-radius:var(--radius-lg); padding:clamp(32px,5vw,64px); box-shadow:0 18px 50px rgba(11,21,38,0.10);">
-        <p style="font-family:'HG行書体','HGGyoshotai','Yuji Boku',var(--serif); font-weight:500; font-size:clamp(1.1rem,2.1vw,1.28rem); line-height:1.7; color:#1a1a1a; letter-spacing:0.03em;">
-          人口減少、高齢化、人手不足。<br>
-          日本はこれまで経験したことのない<span style="white-space:nowrap;">大きな社会変化の中にあります。</span><br>
-          多くの人は、それらを「課題」として捉えます。しかし私は、その変化の中にこそ新しい可能性があると考えています。<br><br>
-          これまで金融業界で多くの個人や企業と関わる中で感じてきたのは、目の前に起きている問題の多くが、能力や努力の不足ではなく、「仕組み」の不足によって生まれているということでした。<br><br>
-          良い商品があっても伝わらない。<br>
-          良いサービスがあっても継続しない。<br>
-          地域に資源があっても活かされない。<br><br>
-          その背景には、価値を生み出し続ける仕組みが存在していないケースが少なくありません。<br><br>
-          Agequakeは、社会の変化を分析し、その中にある課題と可能性を見つけ出し、人・サービス・地域資源・テクノロジーを結び付けながら、持続可能な仕組みとして実装する会社です。<br><br>
-          私たちは、<span style="white-space:nowrap;">一時的な解決策を提供することを目的としていません。</span><br>
-          地域が自立し、<br>
-          事業者が成長し、<br>
-          人々が安心して暮らせる。<br>
-          そんな未来を実現するための<span style="white-space:nowrap;">仕組みを創り続けたいと考えています。</span><br><br>
-          現在は施術院経営支援プロジェクトを中心に取り組んでいますが、その本質は商品販売ではなく、「社会課題を持続可能な仕組みに変える」という私たちの挑戦の第一歩です。<br><br>
-          現場から学び、小さく始め、共に育てる。<br>
-          Agequakeは、地域とともに未来のモデルを創り続けます。<br><br>
-          皆さまと新しい可能性を<span style="white-space:nowrap;">共創できることを心より楽しみにしています。</span>
-        </p>
-        <div style="margin-top:40px; text-align:right; font-family:'HG行書体','HGGyoshotai','Yuji Boku',var(--serif); color:#1a1a1a;">
-          <div style="font-size:1rem; font-weight:500; margin-bottom:6px;">Agequake株式会社</div>
-          <div style="font-size:1.7rem; font-weight:700; letter-spacing:0.08em;">代表者　新堀 博</div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Philosophy（経営理念） -->
+<section class="philosophy-block">
+  <span class="ph-eyebrow">Philosophy</span>
+  <h2 class="ph-headline">人と地域の未来を、<br>未病から豊かにする。</h2>
+  <p class="ph-body">
+    私たちは、社会の変化の中に新たな可能性を見出し、<br>
+    <span class="accent">未病</span>という視点から人と地域の課題に向き合います。<br>
+    人生100年時代を、より健康に、より豊かに、<br>
+    より面白く生きるための価値と仕組みを創造します。
+  </p>
+</section>
 
-  <!-- PHILOSOPHY / MVV -->
-  <section class="section section--white">
-    <div class="container">
-      <div class="fade-in sec-center" style="margin-bottom:8px;">
-        <span class="sec-label">Philosophy</span>
-        <div class="gold-line gold-line--center"></div>
-        <h2 class="sec-title">経営理念</h2>
-      </div>
-      <div class="fade-in fd2" style="max-width:760px; margin:0 auto 64px; text-align:center;">
-        <p style="font-family:var(--serif); font-size:clamp(1.2rem,2.4vw,1.5rem); font-weight:600; color:var(--navy); line-height:1.8; margin-bottom:28px;">
-          社会の変化を、地域の可能性に変える。
-        </p>
-        <p style="font-size:0.98rem; line-height:2.05; color:var(--navy-mid);">
-          人口減少、高齢化、人手不足。<br>
-          社会の変化は、多くの場合「課題」として語られます。<br>
-          しかし私たちは、その変化の中に新しい価値と可能性が存在すると考えます。<br><br>
-          Agequakeは、人・サービス・地域資源・テクノロジーを結び付け、<br>
-          持続可能な仕組みを創り出すことで、地域と事業者の未来に貢献します。
-        </p>
-      </div>
+<!-- 基本情報（Company Profile） -->
+<section class="doc-sec">
+  <div class="doc-wrap">
+    <span class="doc-eyebrow">Company Profile（基本情報）</span>
+    <table class="info-table">
+      <tr>
+        <th>会社名</th>
+        <td>Agequake（エイジクエイク）</td>
+      </tr>
+      <tr>
+        <th>代表者</th>
+        <td>新堀 博</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>大阪府茨木市総持寺10</td>
+      </tr>
+      <tr>
+        <th>設立年月</th>
+        <td>2022年9月</td>
+      </tr>
+      <tr>
+        <th>お問い合わせ先</th>
+        <td>090-4658-1863</td>
+      </tr>
+    </table>
+  </div>
+</section>
 
-      <div class="vision__values fade-in fd3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
-        <div class="vision-value">
-          <div class="vision-value__label">Mission（使命）</div>
-          <div class="vision-value__title">社会課題を、持続可能な仕組みに変える。</div>
-          <div class="vision-value__body">私たちは社会の変化を分析し、そこから生まれる課題を可視化し、人・企業・地域をつなぐ仕組みとして実装します。</div>
-        </div>
-        <div class="vision-value">
-          <div class="vision-value__label">Vision（目指す未来）</div>
-          <div class="vision-value__title">地域から、未来のモデルを創る。</div>
-          <div class="vision-value__body">人口減少社会においても、地域が自立し、事業者が成長し、人々が安心して暮らせる。そんな未来のモデルを全国へ広げていきます。</div>
-        </div>
-        <div class="vision-value">
-          <div class="vision-value__label">Value（行動指針）</div>
-          <div class="vision-value__title">私たちが大切にする5つの姿勢</div>
-          <div class="vision-value__body">本質を見る。仕組みを創る。小さく始め大きく育てる。現場から学ぶ。共創する。</div>
+<!-- 事業内容（Business） -->
+<section class="doc-sec">
+  <div class="doc-wrap">
+    <span class="doc-eyebrow">Business（事業内容）</span>
+    <div class="business-list">
+      <div class="business-item">
+        <div class="business-num">①</div>
+        <div>
+          <div class="business-title">施術院経営支援事業</div>
+          <div class="business-body">鍼灸・整体・マッサージ院向けに、客単価改善・ホームケア導線・メニュー設計を一気通貫で支援。</div>
         </div>
       </div>
-
-      <div class="fade-in fd4" style="margin-top:56px; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px;">
-        <div style="background:var(--beige); border-left:4px solid var(--gold); border-radius:var(--radius); padding:26px 28px;">
-          <div style="font-family:var(--caps); color:var(--gold-shine); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:8px;">01 ― 課題の奥にある本質を見る</div>
-          <div style="color:var(--navy-mid); font-size:0.92rem; line-height:1.8;">目の前の問題ではなく、構造的な原因を見つめる。</div>
+      <div class="business-item">
+        <div class="business-num">②</div>
+        <div>
+          <div class="business-title">未病ソリューション事業</div>
+          <div class="business-body">病気になる前の段階に着目し、温浴・食・運動の分野で予防的ライフスタイルを提案する商品・サービスを開発。</div>
         </div>
-        <div style="background:var(--beige); border-left:4px solid var(--gold); border-radius:var(--radius); padding:26px 28px;">
-          <div style="font-family:var(--caps); color:var(--gold-shine); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:8px;">02 ― 解決ではなく仕組みを創る</div>
-          <div style="color:var(--navy-mid); font-size:0.92rem; line-height:1.8;">一時的な改善ではなく、持続可能な仕組みを設計する。</div>
-        </div>
-        <div style="background:var(--beige); border-left:4px solid var(--gold); border-radius:var(--radius); padding:26px 28px;">
-          <div style="font-family:var(--caps); color:var(--gold-shine); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:8px;">03 ― 小さく始めて大きく育てる</div>
-          <div style="color:var(--navy-mid); font-size:0.92rem; line-height:1.8;">まず実証する。成果を積み重ねて社会へ広げる。</div>
-        </div>
-        <div style="background:var(--beige); border-left:4px solid var(--gold); border-radius:var(--radius); padding:26px 28px;">
-          <div style="font-family:var(--caps); color:var(--gold-shine); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:8px;">04 ― 現場から学ぶ</div>
-          <div style="color:var(--navy-mid); font-size:0.92rem; line-height:1.8;">机上の理論ではなく、現場の声を起点に考える。</div>
-        </div>
-        <div style="background:var(--beige); border-left:4px solid var(--gold); border-radius:var(--radius); padding:26px 28px;">
-          <div style="font-family:var(--caps); color:var(--gold-shine); font-size:0.85rem; letter-spacing:0.08em; margin-bottom:8px;">05 ― 共創する</div>
-          <div style="color:var(--navy-mid); font-size:0.92rem; line-height:1.8;">一社で解決しない。地域、企業、専門家とともに価値を創る。</div>
+      </div>
+      <div class="business-item">
+        <div class="business-num">③</div>
+        <div>
+          <div class="business-title">エイジングデザイン事業</div>
+          <div class="business-body">"老い"を課題ではなく豊かさとして再定義し、地域コミュニティ・学習・生きがいづくりの場を設計。</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- APPROACH -->
-  <section class="section section--beige">
-    <div class="container">
-      <div class="fade-in sec-center" style="margin-bottom:52px;">
-        <span class="sec-label">Our Approach</span>
-        <div class="gold-line gold-line--center"></div>
-        <h2 class="sec-title">Agequakeのアプローチ</h2>
+<!-- Mission -->
+<section class="doc-sec">
+  <div class="doc-wrap">
+    <span class="doc-eyebrow">Mission（使命）</span>
+    <h2 class="doc-catch">未病と地域課題を、仕組みで解決する。</h2>
+    <p>
+      病気になる前。<br>
+      介護が必要になる前。<br>
+      地域の活力が失われる前。
+    </p>
+    <p>
+      私たちは制度の対象になる前の課題に着目し、<br>
+      持続可能な仕組みとして社会に実装します。
+    </p>
+  </div>
+</section>
+
+<!-- Vision -->
+<section class="doc-sec">
+  <div class="doc-wrap">
+    <span class="doc-eyebrow">Vision（目指す未来）</span>
+    <h2 class="doc-catch">人生100年時代の可能性を広げるプラットフォームになる。</h2>
+    <p>
+      健康。学び。交流。地域文化。
+    </p>
+    <p>
+      私たちは、日本の養生文化と地域資源を活かし、<br>
+      人生後半戦をもっと楽しめる社会を実現します。
+    </p>
+  </div>
+</section>
+
+<!-- Value -->
+<section class="doc-sec">
+  <div class="doc-wrap">
+    <span class="doc-eyebrow">Value（行動指針）</span>
+    <div class="value-list">
+      <div class="value-item">
+        <div class="value-num">01</div>
+        <div>
+          <div class="value-title">変化を可能性として捉える</div>
+          <div class="value-body">社会課題を悲観しない。変化の中に新しい価値を見出す。</div>
+        </div>
       </div>
-      <div class="approach-steps">
-        <div class="approach-step fade-in fd2">
-          <div class="approach-step__num">01</div>
-          <div class="approach-step__title">課題を可視化する</div>
-          <div class="approach-step__body">社会の変化と事業者の現状を重ね合わせ、真の課題と潜在的な機会を明確にします。</div>
+      <div class="value-item">
+        <div class="value-num">02</div>
+        <div>
+          <div class="value-title">課題の一歩手前を見る</div>
+          <div class="value-body">制度が動く前に。問題が深刻化する前に。未病の段階から向き合う。</div>
         </div>
-        <div class="approach-step fade-in fd3">
-          <div class="approach-step__num">02</div>
-          <div class="approach-step__title">価値を再設計する</div>
-          <div class="approach-step__body">既存のリソースを組み合わせ、顧客・地域が求める新しい価値を設計・提案します。</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">03</div>
+        <div>
+          <div class="value-title">仕組みで解決する</div>
+          <div class="value-body">一時的な対症療法ではなく、継続可能な仕組みを創る。</div>
         </div>
-        <div class="approach-step fade-in fd4">
-          <div class="approach-step__num">03</div>
-          <div class="approach-step__title">仕組みとして定着させる</div>
-          <div class="approach-step__body">一時的な改善で終わらせず、継続的に成果を生み出す仕組みとして実装・定着させます。</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">04</div>
+        <div>
+          <div class="value-title">地域に根ざす</div>
+          <div class="value-body">地域に眠る文化や資源を活かし、地域の未来に貢献する。</div>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">05</div>
+        <div>
+          <div class="value-title">人生を豊かにする</div>
+          <div class="value-body">健康は目的ではなく手段。人が学び、出会い、挑戦し続けられる社会を目指す。</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- COMPANY INFO -->
-  <section class="section section--white">
-    <div class="container">
-      <div class="fade-in sec-center" style="margin-bottom:52px;">
-        <span class="sec-label">Company Profile</span>
-        <div class="gold-line gold-line--center"></div>
-        <h2 class="sec-title">会社概要</h2>
-      </div>
-      <div class="fade-in" style="max-width:720px; margin:0 auto;">
-        <table class="company-table">
-          <tr>
-            <th>会社名</th>
-            <td>Agequake株式会社</td>
-          </tr>
-          <tr>
-            <th>英語表記</th>
-            <td>Agequake Inc.</td>
-          </tr>
-          <tr>
-            <th>事業内容</th>
-            <td>
-              経営コンサルティング<br>
-              施術院経営支援<br>
-              地域課題解決支援<br>
-              AI活用支援<br>
-              シニアマーケット研究
-            </td>
-          </tr>
-          <tr>
-            <th>コンセプト</th>
-            <td>社会の変化を、地域の可能性に変える。</td>
-          </tr>
-          <tr>
-            <th>お問い合わせ</th>
-            <td>
-              <a href="mailto:agequake@outlook.com">agequake@outlook.com</a><br>
-              <a href="https://lin.ee/YtDaTxB" target="_blank" rel="noopener">LINE公式アカウント</a>
-            </td>
-          </tr>
-        </table>
-      </div>
+<footer>
+  <a href="lp-shinkyu.html" class="footer-brand">
+    <img src="logo-mark.png" alt="Agequake" class="footer-logo-mark">
+    <div class="footer-logo-text-wrap">
+      <img src="logo-text.png" alt="Agequake Management Consulting" class="footer-logo-text">
     </div>
-  </section>
-
-  <!-- CTA -->
-  <section style="background: linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-mid) 100%); padding: 100px 0; text-align: center; position: relative; overflow: hidden;">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(168,137,60,0.08), transparent 70%);"></div>
-    <div class="container" style="position:relative;z-index:1;">
-      <div class="fade-in">
-        <span class="sec-label" style="justify-content:center; color:var(--gold-light);">Contact</span>
-        <h2 style="font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.1rem);font-weight:600;color:var(--white);margin-bottom:18px;line-height:1.7;">
-          まずは、お気軽に<br>ご相談ください。
-        </h2>
-        <p style="font-size:0.90rem;color:rgba(255,255,255,0.60);line-height:2.2;margin-bottom:44px;max-width:480px;margin-left:auto;margin-right:auto;">
-          施術院経営支援、地域課題解決、AI活用など、<br>どんなご相談もお聞きします。
-        </p>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
-          <a href="contact.html" class="btn btn-gold btn-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-            無料相談する
-          </a>
-          <a href="projects.html" class="btn btn-outline-white btn-lg">プロジェクトを見る</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <img src="logo.png" alt="Agequake株式会社" class="footer__logo-img">
-          <p class="footer__tagline">社会の変化を、地域の可能性に変える。<br>経営コンサルティング会社</p>
-        </div>
-        <nav class="footer__nav">
-          <div class="footer__nav-col"><h4>Solutions</h4><ul><li><a href="solution.html">施術院経営支援</a></li><li><a href="solution.html">整巡湯導入支援</a></li></ul></div>
-          <div class="footer__nav-col"><h4>Company</h4><ul><li><a href="company.html">会社情報</a></li><li><a href="projects.html">プロジェクト</a></li><li><a href="knowledge.html">ナレッジ</a></li></ul></div>
-          <div class="footer__nav-col"><h4>Contact</h4><ul><li><a href="contact.html">無料相談する</a></li><li><a href="mailto:agequake@outlook.com">メールで相談</a></li></ul></div>
-        </nav>
-      </div>
-      <div class="footer__bottom">
-        <p class="footer__copy">© 2025 Agequake Inc. All Rights Reserved.</p>
-        <div class="footer__legal"><a href="#">プライバシーポリシー</a><a href="#">特定商取引法に基づく表記</a></div>
-      </div>
-    </div>
-  </footer>
-  <script>
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
-    document.querySelectorAll('.mnav-link').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }));
-    const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }}); }, { threshold: 0.10 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
+  </a>
+  <div class="footer-tag">社会の変化を、地域の可能性に変える。</div>
+  <div style="margin-bottom:28px;">
+    施術院経営支援を起点に、AI活用・地域経済・シニアマーケットなど<br>
+    社会の変化から生まれる課題を解決する仕組みを研究・開発しています。
+  </div>
+  <div class="footer-links">
+    <a href="company.html">会社概要</a>
+    <span class="footer-sep">|</span>
+    <a href="legal.html">特定商取引法に基づく表記</a>
+    <span class="footer-sep">|</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <span class="footer-sep">|</span>
+    <a href="form.html">無料サンプル申し込み</a>
+  </div>
+  <div class="footer-bottom">© 2022-2026 Agequake All Rights Reserved.</div>
+</footer>
 </body>
 </html>
-<!-- cache refresh -->
-

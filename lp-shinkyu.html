@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -20,6 +20,9 @@
 <meta name="twitter:title" content="Agequake｜鍼灸院の売上向上支援">
 <meta name="twitter:description" content="腕を上げるほど値上げが怖くなるのは、技術と料金が別の話だから。整巡湯の無料サンプルで、院外接点づくりと単価改善のきっかけをお試しください。完全無料・営業電話なし。">
 <meta name="twitter:image" content="https://agequake.jp/lp-shinkyu-hero.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -43,6 +46,17 @@ nav {
   top: 0;
   z-index: 200;
 }
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  height: 32px;
+  width: auto;
+  display: block;
+}
 .nav-logo {
   font-size: 20px;
   font-weight: 900;
@@ -54,6 +68,11 @@ nav {
   color: #aaa;
   letter-spacing: 2px;
   margin-top: 2px;
+}
+.nav-logo-text {
+  height: 34px;
+  width: auto;
+  display: block;
 }
 .nav-cta {
   background: #c9a84c;
@@ -67,6 +86,19 @@ nav {
   border: none;
   text-decoration: none;
 }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nav-links a {
+  color: rgba(26,26,46,0.45);
+  text-decoration: none;
+  font-size: 12px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #c9a84c; }
+.nav-sep { color: rgba(26,26,46,0.15); font-size: 11px; }
 
 /* ========== FIRSTVIEW ========== */
 .firstview {
@@ -77,28 +109,11 @@ nav {
   align-items: center;
   overflow: hidden;
 }
-.fv-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-}
-.fv-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(100deg,
-    #0d1b2a 0%,
-    #0d1b2a 32%,
-    rgba(13,27,42,0.88) 48%,
-    rgba(17,40,68,0.55) 68%,
-    rgba(20,52,90,0.25) 100%);
-}
 .fv-content {
   position: relative;
   z-index: 2;
   padding: 0 48px 0 80px;
-  max-width: 640px;
+  max-width: 800px;
 }
 .fv-eyebrow {
   font-size: 11px;
@@ -108,7 +123,7 @@ nav {
   margin-bottom: 32px;
 }
 .fv-main {
-  font-size: 56px;
+  font-size: 48px;
   font-weight: 900;
   color: white;
   line-height: 1.25;
@@ -175,6 +190,144 @@ nav {
   margin: 10px auto 0;
 }
 
+/* ========== HERO SLIDER ========== */
+.hero-slider {
+  position: relative;
+  height: 33vh;
+  min-height: 240px;
+  max-height: 420px;
+  overflow: hidden;
+  background: #0d1f3c;
+}
+.hs-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s ease;
+  z-index: 1;
+}
+.hs-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+.hs-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.hs-slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,22,41,0.42) 0%, rgba(8,22,41,0.62) 100%);
+}
+.hs-content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+  color: white;
+}
+.hs-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #c9a84c;
+  margin-bottom: 14px;
+}
+.hs-title {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+/* gradient strip connecting slider to firstview */
+.hero-slider::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(13,27,42,0) 0%, #0d1b2a 100%);
+  z-index: 4;
+  pointer-events: none;
+}
+/* arrows */
+.hs-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13,27,42,0.35);
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 50%;
+  color: #c9a84c;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.hs-arrow:hover { background: rgba(13,27,42,0.6); }
+.hs-arrow--prev { left: 16px; }
+.hs-arrow--next { right: 16px; }
+/* bottom bar: philosophy label + dots */
+.hs-bottombar {
+  position: absolute;
+  left: 0; right: 0; bottom: 14px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+.hs-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.hs-dots {
+  display: flex;
+  gap: 8px;
+}
+.hs-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+.hs-dot.is-active { background: #c9a84c; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-slide { transition: none; }
+}
+
+@media (max-width: 768px) {
+  .hero-slider { height: 30vh; min-height: 200px; }
+  .hs-title { font-size: 18px; letter-spacing: 1px; }
+  .hs-eyebrow { font-size: 12px; }
+  .hs-arrow { width: 30px; height: 30px; font-size: 12px; }
+}
+
 /* ========== SECTION BASE ========== */
 .sec {
   padding: 80px 80px;
@@ -209,6 +362,76 @@ nav {
   max-width: 700px;
 }
 .sec-dark .body-text { color: rgba(255,255,255,0.72); }
+
+/* ========== SECTION WITH IMAGE ========== */
+.sec-with-image {
+  position: relative;
+  overflow: hidden;
+}
+.sec-with-image .sec-text {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+.sec-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.sec-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg,
+    #fff 0%,
+    #fff 32%,
+    rgba(255,255,255,0.88) 48%,
+    rgba(255,255,255,0.55) 68%,
+    rgba(255,255,255,0.25) 100%);
+}
+.sec-dark .sec-image::after {
+  background: linear-gradient(100deg,
+    #0d1b2a 0%,
+    #0d1b2a 32%,
+    rgba(13,27,42,0.88) 48%,
+    rgba(17,40,68,0.55) 68%,
+    rgba(20,52,90,0.25) 100%);
+}
+.sec-seizyunto .sec-image::after {
+  background: linear-gradient(100deg,
+    #faf8f3 0%,
+    #faf8f3 32%,
+    rgba(250,248,243,0.88) 48%,
+    rgba(242,234,216,0.55) 68%,
+    rgba(242,234,216,0.25) 100%);
+}
+.sec-flow-bg {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 56%;
+  overflow: hidden;
+  z-index: 0;
+}
+.sec-flow-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0.85) 20%,
+    rgba(255,255,255,0.0) 45%);
+  z-index: 1;
+}
+.sec-flow-bg img {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: auto;
+  min-width: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
 
 /* ========== ACCORDION ========== */
 .accordion-wrap {
@@ -679,13 +902,15 @@ nav.scrolled {
 
   /* NAV */
   nav { padding: 14px 20px; }
-  .nav-tagline { display: none; }
+  .nav-logo-text { height: 26px; }
+  .nav-links { display: none; }
   .nav-cta { padding: 8px 14px; font-size: 12px; letter-spacing: 0; }
 
   /* FIRSTVIEW */
   .firstview { min-height: auto; padding: 60px 0 48px; }
-  .fv-bg { display: none; }
   .fv-content { max-width: 100%; padding: 0 24px; }
+  .sec-image { display: none; }
+  .sec-with-image .sec-text { max-width: 100%; }
   .fv-eyebrow { font-size: 10px; margin-bottom: 20px; }
   .fv-main { font-size: 34px; margin-bottom: 20px; letter-spacing: -0.5px; }
   .fv-sub { font-size: 15px; margin-bottom: 32px; }
@@ -717,6 +942,9 @@ nav.scrolled {
   .product-scene img { height: 200px; }
   .product-img { width: 100%; height: 160px; }
   .stats-row { flex-direction: column; gap: 12px; }
+
+  /* FLOW */
+  .sec-flow-bg { display: none; }
 
   /* FLOW STEPS */
   .flow-steps { flex-direction: column; gap: 20px; }
@@ -817,7 +1045,8 @@ nav.scrolled {
   color: #1a1a2e;
   margin-bottom: 8px;
 }
-.step-desc { font-size: 12px; color: #777; line-height: 1.7; }
+.step-desc { font-size: 11px; color: #777; line-height: 2.0; margin-top: 6px; min-height: 48px; }
+.sec-flow .sec-text { max-width: 880px; }
 
 /* ========== FOOTER ========== */
 footer {
@@ -827,12 +1056,35 @@ footer {
   font-size: 12px;
   line-height: 2;
 }
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
+.footer-logo-mark {
+  height: 28px;
+  width: auto;
+  display: block;
+}
 .footer-logo {
   font-size: 18px;
   font-weight: 900;
   color: white;
   letter-spacing: 3px;
-  margin-bottom: 6px;
+}
+.footer-logo-text-wrap {
+  background: #faf8f3;
+  padding: 6px 14px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+.footer-logo-text {
+  height: 22px;
+  width: auto;
+  display: block;
 }
 .footer-tag {
   font-size: 10px;
@@ -1100,21 +1352,63 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <div>
-    <div class="nav-logo">Agequake</div>
-    <div class="nav-tagline">鍼灸院経営支援</div>
+  <a href="#" class="nav-brand">
+    <img src="logo-mark.png" alt="Agequake" class="nav-logo-mark">
+    <img src="logo-text.png" alt="Agequake Management Consulting" class="nav-logo-text">
+  </a>
+  <div class="nav-links">
+    <a href="company.html">会社概要</a>
+    <span class="nav-sep">|</span>
+    <a href="legal.html">特定商取引法に基づく表記</a>
+    <span class="nav-sep">|</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <span class="nav-sep">|</span>
+    <a href="form.html">無料サンプル申し込み</a>
   </div>
   <a href="form.html" class="nav-cta">▶ 無料サンプルを申し込む</a>
 </nav>
 
+<!-- ========== HERO SLIDER ========== -->
+<section class="hero-slider" id="heroSlider">
+  <div class="hs-slide is-active">
+    <img src="lp-shinkyu-slide1.jpg" alt="ビジネス街の風景" loading="eager">
+    <div class="hs-content">
+      <div class="hs-eyebrow">Agequake Philosophy — 01</div>
+      <div class="hs-title">社会の変化を、地域の可能性に変える。</div>
+    </div>
+  </div>
+  <div class="hs-slide">
+    <img src="lp-shinkyu-slide2.jpg" alt="整巡湯" loading="lazy">
+    <div class="hs-content">
+      <div class="hs-eyebrow">Agequake Philosophy — 02</div>
+      <div class="hs-title">未病という、新しい価値。</div>
+    </div>
+  </div>
+  <div class="hs-slide">
+    <img src="lp-shinkyu-slide3.jpg" alt="湯治研究所" loading="lazy">
+    <div class="hs-content">
+      <div class="hs-eyebrow">Agequake Philosophy — 03</div>
+      <div class="hs-title">人生100年時代を、もっと面白く。</div>
+    </div>
+  </div>
+  <button class="hs-arrow hs-arrow--prev" aria-label="前のスライド">‹</button>
+  <button class="hs-arrow hs-arrow--next" aria-label="次のスライド">›</button>
+  <div class="hs-bottombar">
+    <div class="hs-label">Agequake Philosophy</div>
+    <div class="hs-dots">
+      <button class="hs-dot is-active" aria-label="スライド1へ"></button>
+      <button class="hs-dot" aria-label="スライド2へ"></button>
+      <button class="hs-dot" aria-label="スライド3へ"></button>
+    </div>
+  </div>
+</section>
+
 <!-- ========== FIRSTVIEW ========== -->
 <section class="firstview">
-  <div class="fv-bg" style="background-image:url('lp-shinkyu-hero.png');background-size:cover;background-position:center;"></div>
   <div class="fv-content">
     <div class="fv-eyebrow">鍼灸院経営支援 / Agequake</div>
     <div class="fv-main">
-      腕を上げるほど、<br>
-      なぜ<span class="accent">値上げ</span>が<br>
+      腕を上げるほど、なぜ<span class="accent">値上げ</span>が<br>
       怖くなるのか。
     </div>
     <div class="fv-sub">
@@ -1135,13 +1429,14 @@ footer {
 </section>
 
 <!-- ========== SECTION 2: 時間単価の限界 ========== -->
-<section class="sec sec-light">
+<section class="sec sec-light sec-with-image">
+  <div class="sec-text">
   <span class="sec-label">Section 01 — The Limit</span>
   <div class="gold-divider"></div>
   <h2>先生に、一つだけ<br>聞いてもいいですか。</h2>
 
   <div class="body-text" style="margin-bottom:32px;">
-    1日に診られる患者様の数、最大で何人ですか？<br>
+    1日に診られるお客様の数、最大で何人ですか？<br>
     少し、考えてみてください。
   </div>
 
@@ -1178,7 +1473,7 @@ footer {
           <div class="num-list">
             <div class="num-item">
               <div class="num-badge">1</div>
-              <div><span class="strike">患者様の数を増やす</span>　→ 体力・空間の限界がある</div>
+              <div><span class="strike">お客様の数を増やす</span>　→ 体力・空間の限界がある</div>
             </div>
             <div class="num-item">
               <div class="num-badge">2</div>
@@ -1211,8 +1506,8 @@ footer {
             　いつか値上げできる。」
           </div>
           でも現実には、技術を磨けば磨くほど<br>
-          患者様への責任感が増し、<br>
-          <strong>「この患者様が離れたらどうしよう」</strong><br>
+          お客様への責任感が増し、<br>
+          <strong>「このお客様が離れたらどうしよう」</strong><br>
           という恐怖も、一緒に大きくなっていく。<br><br>
           腕が上がれば上がるほど、<br>
           一人が離れたときの心理的ダメージは<br>
@@ -1228,6 +1523,8 @@ footer {
     </div>
 
   </div>
+  </div>
+  <div class="sec-image" style="background-image: url('lp-shinkyu-hero.png');" role="img" aria-label="施術の様子"></div>
 </section>
 
 <!-- ========== SECTION 3: サプライズ ========== -->
@@ -1351,7 +1648,7 @@ footer {
             <div class="factor">
               <span class="f-icon">📍</span>
               <span class="f-name">立地・外観・清潔感</span>
-              <span class="f-desc">患者様が来る前から、すでに価値の評価は始まっている。</span>
+              <span class="f-desc">お客様が来る前から、すでに価値の評価は始まっている。</span>
             </div>
             <div class="factor">
               <span class="f-icon">💬</span>
@@ -1396,7 +1693,7 @@ footer {
           </div>
           施術時間の「中」を磨くことが技術向上なら、<br>
           単価を上げるには施術時間の「外」を設計する。<br><br>
-          患者様が院に来る前の期待、<br>
+          お客様が院に来る前の期待、<br>
           院を出た後の体感、<br>
           自宅に帰ってからの日常。<br><br>
           この「外側の体験」が、<br>
@@ -1420,7 +1717,8 @@ footer {
 </div>
 
 <!-- ========== SECTION 5: 市場拡大 ========== -->
-<section class="sec sec-dark">
+<section class="sec sec-dark sec-with-image">
+  <div class="sec-text">
   <span class="sec-label">Section 04 — Market</span>
   <div class="gold-divider"></div>
   <h2>そして今、鍼灸院を取り巻く<br>市場は確実に拡大しています。</h2>
@@ -1477,9 +1775,9 @@ footer {
             先に「仕組み」を持っている院が<br>
             その恩恵を受けます。<br><br>
             技術だけで戦っている院は、<br>
-            患者様が増えても値上げできないまま疲弊していく。<br><br>
+            お客様が増えても値上げできないまま疲弊していく。<br><br>
             仕組みを持っている院は、<br>
-            患者様が増えるほど収益も、信頼も、積み上がっていく。
+            お客様が増えるほど収益も、信頼も、積み上がっていく。
           </div>
           波は、来ています。<br>
           あとは、乗る準備があるかどうかです。
@@ -1488,10 +1786,13 @@ footer {
     </div>
 
   </div>
+  </div>
+  <div class="sec-image" style="background-image: url('lp-shinkyu-market.jpg');" role="img" aria-label="市場の拡大"></div>
 </section>
 
 <!-- ========== SECTION 6: 整巡湯 ========== -->
-<section class="sec-seizyunto">
+<section class="sec-seizyunto sec-with-image">
+  <div class="sec-text">
   <span class="sec-label">Section 05 — Solution</span>
   <div class="gold-divider"></div>
   <h2>その仕組みを、<br>形にしたものがあります。</h2>
@@ -1506,8 +1807,8 @@ footer {
       <div class="product-desc">
         有効成分が温浴効果を高め、<br>
         肩のこり・冷え症・日々の疲れをやわらげます。<br><br>
-        施術後のホームケアとして患者様にお渡しすることで、<br>
-        院と患者様の関係を来院日以外にも続けるための「接点」です。
+        施術後のホームケアとしてお客様にお渡しすることで、<br>
+        院とお客様の関係を来院日以外にも続けるための「接点」です。
       </div>
       <div class="product-tags">
         <span class="tag">医薬部外品</span>
@@ -1515,17 +1816,6 @@ footer {
         <span class="tag">院名印字対応</span>
         <span class="tag">Agequake独占提供</span>
       </div>
-    </div>
-  </div>
-
-  <div class="product-scenes">
-    <div class="product-scene">
-      <img src="lp-shinkyu-seijunto-scene1.jpg" alt="整巡湯を手に取り、ご自宅のお風呂で使用するイメージ" loading="lazy">
-      <div class="product-scene-caption">施術後、ご自宅でのセルフケアとして患者様にお渡しするシーン。</div>
-    </div>
-    <div class="product-scene">
-      <img src="lp-shinkyu-seijunto-scene2.jpg" alt="整巡湯のパッケージと温泉のイメージ" loading="lazy">
-      <div class="product-scene-caption">温泉研究所監修の処方で、自宅のお風呂を温泉のような癒しの時間に。</div>
     </div>
   </div>
 
@@ -1541,9 +1831,9 @@ footer {
           Agequakeが設計する<br>
           「施術＋ホームケア提案」という仕組み。<br><br>
           その仕組みを院長先生が<br>
-          患者様に届けるための手段が、整巡湯です。<br><br>
+          お客様に届けるための手段が、整巡湯です。<br><br>
           <div class="highlight">
-            院を出た後も患者様の日常に関わり続ける。<br>
+            院を出た後もお客様の日常に関わり続ける。<br>
             その「外側の接点」を生み出すために、<br>
             整巡湯は存在しています。
           </div>
@@ -1595,7 +1885,7 @@ footer {
           日常的にケアを続ける。<br><br>
           <div class="highlight">
             「院での施術」と「自宅での温浴習慣」。<br>
-            この組み合わせが、患者様の日常に<br>
+            この組み合わせが、お客様の日常に<br>
             ホームケアの文化を根付かせます。<br><br>
             鍼灸院が整巡湯を活用することは、<br>
             業界の文化を作ることでもあります。
@@ -1605,6 +1895,8 @@ footer {
     </div>
 
   </div>
+  </div>
+  <div class="sec-image" style="background-image: url('lp-shinkyu-seijunto-scene2.jpg');" role="img" aria-label="整巡湯を温泉に注ぐ様子"></div>
 </section>
 
 <!-- ========== SECTION 6.7: 院長の声 ========== -->
@@ -1626,7 +1918,7 @@ footer {
     <div class="vs-divider"></div>
     <div class="vs-item">
       <div class="vs-num">関係性</div>
-      <div class="vs-label">患者様との信頼が<br>深まった</div>
+      <div class="vs-label">お客様との信頼が<br>深まった</div>
     </div>
     <div class="vs-divider"></div>
     <div class="vs-item">
@@ -1650,7 +1942,7 @@ footer {
           </div>
           <div class="acc-q" style="font-size:18px; line-height:1.6;">
             施術の「外側」に接点を作ったことで、<br>
-            患者様との関係が変わり、<br>
+            お客様との関係が変わり、<br>
             結果として客単価が上がりました。
           </div>
           <div style="margin-top:12px; font-size:13px; color:#888;">
@@ -1661,14 +1953,14 @@ footer {
       </button>
       <div class="accordion-body">
         <div class="accordion-body-inner" style="padding:0 0 32px; border-left:3px solid #e8e3d8; padding-left:20px; margin-left:4px;">
-          これまでは施術が終わると、次の予約まで患者様との接点がありませんでした。<br>
+          これまでは施術が終わると、次の予約までお客様との接点がありませんでした。<br>
           ホームケア提案という仕組みを取り入れてから、<br>
-          患者様が「自分でもケアを続けている」という意識を持つようになり、<br>
+          お客様が「自分でもケアを続けている」という意識を持つようになり、<br>
           来院の動機と頻度が自然と変わってきました。<br><br>
           仕組みとして設計することで、無理な売り込みをせずに<br>
           客単価の向上につながっています。
           <div class="highlight" style="margin-top:20px;">
-            導入して気づいた点：「売る」という意識がなくなったことが一番の変化でした。仕組みとして設計すると、患者様が自然に動いてくれる。押し売りではなく、患者様が自分で選んでいる感覚が生まれることに気づきました。
+            導入して気づいた点：「売る」という意識がなくなったことが一番の変化でした。仕組みとして設計すると、お客様が自然に動いてくれる。押し売りではなく、お客様が自分で選んでいる感覚が生まれることに気づきました。
           </div>
         </div>
       </div>
@@ -1699,15 +1991,15 @@ footer {
         <div class="accordion-body-inner" style="padding:0 0 32px; border-left:3px solid #e8e3d8; padding-left:20px; margin-left:4px;">
           光熱費や材料費の値上がり、スタッフの給与アップも考えると、<br>
           このままの料金体系では立ち行かないと感じていました。<br>
-          でも「値上げします」と告知するのは、患者様が離れそうで怖かった。<br><br>
+          でも「値上げします」と告知するのは、お客様が離れそうで怖かった。<br><br>
           ホームケアを組み込んだ新メニューを作ったことで、<br>
           「新しいメニューです」という形で自然に料金を上げることができました。<br>
-          患者様からも「内容が充実した」と受け取っていただけています。<br><br>
+          お客様からも「内容が充実した」と受け取っていただけています。<br><br>
           さらに、今後また物価が上がっても<br>
           メニューの内容を充実させることで対応できる。<br>
           値上げのための「布石」を打てた感覚があります。
           <div class="highlight" style="margin-top:20px;">
-            導入して気づいた点：値上げは「告知するもの」ではなく「設計するもの」だとわかりました。メニューに価値を乗せることで、患者様の側から「このコースにしたい」と言っていただける。値上げへの罪悪感がなくなったことが、一番大きな気づきでした。
+            導入して気づいた点：値上げは「告知するもの」ではなく「設計するもの」だとわかりました。メニューに価値を乗せることで、お客様の側から「このコースにしたい」と言っていただける。値上げへの罪悪感がなくなったことが、一番大きな気づきでした。
           </div>
         </div>
       </div>
@@ -1724,12 +2016,12 @@ footer {
             <div style="font-size:10px;letter-spacing:2px;color:#c9a84c;font-weight:bold;">施術院 C　／　院長 M.Y 様　／　ご利用歴 1年2ヶ月</div>
           </div>
           <div class="acc-q" style="font-size:18px; line-height:1.6;">
-            患者様をひとくくりにしていたことに<br>
+            お客様をひとくくりにしていたことに<br>
             気づきました。顧客目線で<br>
             メニューを設計し直したら、反応が変わりました。
           </div>
           <div style="margin-top:12px; font-size:13px; color:#888;">
-            導入のきっかけ：患者様全員に同じ提案をしていた現実に気づいたことが始まりでした。
+            導入のきっかけ：お客様全員に同じ提案をしていた現実に気づいたことが始まりでした。
           </div>
         </div>
         <span class="acc-icon" style="margin-top:4px;">+</span>
@@ -1737,17 +2029,17 @@ footer {
       <div class="accordion-body">
         <div class="accordion-body-inner" style="padding:0 0 32px; border-left:3px solid #e8e3d8; padding-left:20px; margin-left:4px;">
           これまでメニューは「施術の種類と時間」で作っていました。<br>
-          でも患者様をよく見ると、全員が同じ目的で来ているわけではない。<br><br>
+          でもお客様をよく見ると、全員が同じ目的で来ているわけではない。<br><br>
           症状の緩和を目的に来る方、会話を楽しみに来る方、<br>
           ただ気持ちよくなりたい方。目的は人それぞれです。<br><br>
-          そこから、メニューを患者様の目的別に設計し直しました。<br>
+          そこから、メニューをお客様の目的別に設計し直しました。<br>
           ホームケアに力を入れたい方には3日分のケアセット付きコース、<br>
           施術だけでいい方にはシンプルなコース。<br><br>
-          「選べる」というだけで、患者様の満足度が上がりました。<br>
-          押しつけではなく、患者様が自分で選ぶ設計にしたことで、<br>
+          「選べる」というだけで、お客様の満足度が上がりました。<br>
+          押しつけではなく、お客様が自分で選ぶ設計にしたことで、<br>
           ホームケア付きコースへの自然な誘導も生まれています。
           <div class="highlight" style="margin-top:20px;">
-            導入して気づいた点：患者様を「来院目的」で見るようになったことで、会話の質が変わりました。「この方は何を求めているのか」を意識するだけで、提案の仕方も変わる。メニューを変えたのではなく、自分の見方が変わったのだと気づきました。
+            導入して気づいた点：お客様を「来院目的」で見るようになったことで、会話の質が変わりました。「この方は何を求めているのか」を意識するだけで、提案の仕方も変わる。メニューを変えたのではなく、自分の見方が変わったのだと気づきました。
           </div>
         </div>
       </div>
@@ -1760,67 +2052,70 @@ footer {
 </section>
 
 <!-- ========== SECTION 7: 支援の流れ ========== -->
-<section class="sec sec-light">
-  <span class="sec-label">Section 06 — Flow</span>
-  <div class="gold-divider"></div>
-  <h2>まず、無料サンプルから<br>始めてください。</h2>
+<section class="sec sec-light sec-with-image sec-flow">
+  <div class="sec-text">
+    <span class="sec-label">Section 06 — Flow</span>
+    <div class="gold-divider"></div>
+    <h2>まず、無料サンプルから<br>始めてください。</h2>
 
-  <div class="flow-steps" style="margin-bottom:40px;">
-    <div class="flow-step">
-      <div class="step-num">01</div>
-      <div class="step-title">無料サンプル<br>を受け取る</div>
-      <div class="step-desc">申し込みフォームに入力。整巡湯2包をお届けします。</div>
+    <div class="flow-steps" style="margin-bottom:40px;">
+      <div class="flow-step">
+        <div class="step-num">01</div>
+        <div class="step-title">無料サンプル<br>を受け取る</div>
+        <div class="step-desc">申し込みフォームに入力。<br>整巡湯2包をお届けします。</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">02</div>
+        <div class="step-title">先生ご自身で<br>体感する</div>
+        <div class="step-desc">同梱の導入ガイドと共に、<br>お客様への提案イメージを掴みます。</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">03</div>
+        <div class="step-title">仕組みを<br>一緒に設計する</div>
+        <div class="step-desc">メニュー設計・価格設定・<br>伝え方まで個別にご支援します。</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-num">04</div>
+        <div class="step-title">お客様への<br>提案を始める</div>
+        <div class="step-desc">準備が整ったら、<br>ホームケア提案をスタートします。</div>
+      </div>
     </div>
-    <div class="flow-step">
-      <div class="step-num">02</div>
-      <div class="step-title">先生ご自身で<br>体感する</div>
-      <div class="step-desc">同梱の資料と共に、患者様への提案イメージを掴みます。</div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">03</div>
-      <div class="step-title">仕組みを<br>一緒に設計する</div>
-      <div class="step-desc">メニュー設計・価格設定・伝え方まで個別にご支援します。</div>
-    </div>
-    <div class="flow-step">
-      <div class="step-num">04</div>
-      <div class="step-title">患者様への<br>提案を始める</div>
-      <div class="step-desc">準備が整ったら、ホームケア提案をスタートします。</div>
-    </div>
-  </div>
 
-  <div class="accordion-wrap">
-
-    <div class="accordion-item">
-      <button class="accordion-trigger">
-        <span class="acc-q">よくある質問</span>
-        <span class="acc-icon">+</span>
-      </button>
-      <div class="accordion-body">
-        <div class="accordion-body-inner">
-          <div style="margin-bottom:18px;">
-            <strong>Q. 費用はかかりますか？</strong><br>
-            A. サンプルのお申し込み・ご相談はすべて無料です。
-          </div>
-          <div style="margin-bottom:18px;">
-            <strong>Q. 整骨院・整体院でも使えますか？</strong><br>
-            A. はい。現在は鍼灸院を中心にご支援していますが、施術を行う院であればご活用いただけます。
-          </div>
-          <div style="margin-bottom:18px;">
-            <strong>Q. 院名を入れたオリジナル仕様にできますか？</strong><br>
-            A. はい。院名・ロゴを印字したオリジナル仕様にも対応しています。
-          </div>
-          <div style="margin-bottom:18px;">
-            <strong>Q. サンプルだけ試して終わりにしても大丈夫ですか？</strong><br>
-            A. もちろんです。まず先生ご自身に体感していただくことを最優先に考えています。無理なご提案は一切いたしません。
-          </div>
-          <div>
-            <strong>Q. どのくらいの規模の院でも対応できますか？</strong><br>
-            A. 一人院長の小規模な院から、スタッフ複数名の院まで幅広くご支援しています。
+    <div class="accordion-wrap">
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span class="acc-q">よくある質問</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div style="margin-bottom:18px;">
+              <strong>Q. 費用はかかりますか？</strong><br>
+              A. サンプルのお申し込み・ご相談はすべて無料です。
+            </div>
+            <div style="margin-bottom:18px;">
+              <strong>Q. 整骨院・整体院でも使えますか？</strong><br>
+              A. はい。現在は鍼灸院を中心にご支援していますが、施術を行う院であればご活用いただけます。
+            </div>
+            <div style="margin-bottom:18px;">
+              <strong>Q. 院名を入れたオリジナル仕様にできますか？</strong><br>
+              A. はい。院名・ロゴを印字したオリジナル仕様にも対応しています。
+            </div>
+            <div style="margin-bottom:18px;">
+              <strong>Q. サンプルだけ試して終わりにしても大丈夫ですか？</strong><br>
+              A. もちろんです。まず先生ご自身に体感していただくことを最優先に考えています。無理なご提案は一切いたしません。
+            </div>
+            <div>
+              <strong>Q. どのくらいの規模の院でも対応できますか？</strong><br>
+              A. 一人院長の小規模な院から、スタッフ複数名の院まで幅広くご支援しています。
+            </div>
           </div>
         </div>
       </div>
     </div>
-
+  </div>
+  <div class="sec-flow-bg">
+    <img src="flow-sample.jpg" alt="整巡湯サンプル・導入ガイド">
   </div>
 </section>
 
@@ -1846,7 +2141,12 @@ footer {
 
 <!-- ========== FOOTER ========== -->
 <footer>
-  <div class="footer-logo">Agequake</div>
+  <a href="#" class="footer-brand">
+    <img src="logo-mark.png" alt="Agequake" class="footer-logo-mark">
+    <div class="footer-logo-text-wrap">
+      <img src="logo-text.png" alt="Agequake Management Consulting" class="footer-logo-text">
+    </div>
+  </a>
   <div class="footer-tag">社会の変化を、地域の可能性に変える。</div>
   <div style="margin-bottom:28px;">
     施術院経営支援を起点に、AI活用・地域経済・シニアマーケットなど<br>
@@ -1865,6 +2165,52 @@ footer {
 </footer>
 
 <script>
+// ヒーロースライダー
+(function() {
+  const slider = document.getElementById('heroSlider');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.hs-slide');
+  const dots = slider.querySelectorAll('.hs-dot');
+  const prevBtn = slider.querySelector('.hs-arrow--prev');
+  const nextBtn = slider.querySelector('.hs-arrow--next');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const interval = 5000;
+
+  let current = 0;
+  let timer = null;
+
+  function show(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  function startAutoplay() {
+    if (reduceMotion) return;
+    stopAutoplay();
+    timer = setInterval(next, interval);
+  }
+  function stopAutoplay() {
+    if (timer) clearInterval(timer);
+  }
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  nextBtn.addEventListener('click', () => { next(); restartAutoplay(); });
+  prevBtn.addEventListener('click', () => { prev(); restartAutoplay(); });
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { show(i); restartAutoplay(); });
+  });
+
+  startAutoplay();
+})();
+
 // NAVスクロール強調
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');

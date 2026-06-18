@@ -201,4 +201,77 @@ HP・LPの「文章構成」「言い回し」に応用できる考え方とし�
 ⑤AI活用支援事業
 　- 地域事業者・施術院等に対するAI活用支援事業（詳細未定）
 
+# lp-shinkyu.html（鍼灸院向けLP）改修メモ
+
+【現在の状態】
+- ローカルでの確認URL: http://localhost:3100/lp-shinkyu.html （`.\serve.ps1` 等でローカルサーバー起動中の場合）
+- ここ最近の改修内容はすべて **ローカルのみ・未push**。本番（agequake.jp）への反映は別途ユーザーの明示指示を待つこと。
+
+## デザイン・実装方針（決定事項）
+
+- 配色: ネイビー（#0d1b2a / #1a1a2e / #0f3460 のグラデーション）＋ゴールド（#c9a84c）＋クリーム（#faf8f3）。
+- フォント: 見出し系にCormorant Garamond（Google Fonts）＋和文は既存のYu Mincho/Noto Serif JP系。
+- 画像最適化: Pillow（`from PIL import Image`）でリサイズ＋JPEG再エンコード（quality 75-82）が標準ワークフロー。
+- 画像の埋め込みは「別ファイル＋`loading="lazy"`」方式を採用（base64埋め込みではない）。同一オリジンなのでリクエスト数増加の問題は小さく、キャッシュ・Lighthouse的に有利という判断をユーザーに説明済み・了承済み。
+- Hero Slider（ヒーロースライダー）パターン:
+  - `.hs-slide` / `.hs-slide.is-active` のトグルで切替
+  - `setInterval` による自動再生（5000ms）
+  - フェード切替（`opacity`/`visibility`）
+  - `prefers-reduced-motion` に対応
+  - 矢印・ドットでの手動操作＋`restartAutoplay()`
+- セクション背景画像パターン（`.sec-with-image` / `.sec-image`）:
+  - 元はFVの`.fv-bg`パターン（フルセクション背景＋斜めグラデーションオーバーレイで画像を薄く見せる）を、各セクションに展開したもの。
+  - セクションに`sec-with-image`クラスを追加し、本文を`.sec-text`（`max-width:720px`）で囲み、最後に`<div class="sec-image" style="background-image:url('...');" role="img" aria-label="...">`を追加する。
+  - `.sec-image`はセクション全体に`position:absolute; inset:0`で重なり、`::after`の`linear-gradient(100deg, ...)`でテキスト側を不透明に、反対側を薄く見せる。
+  - オーバーレイ色はセクション背景色に合わせて上書きする: `.sec-light`系は白系（デフォルト）、`.sec-dark .sec-image::after`はネイビー系、`.sec-seizyunto .sec-image::after`はクリーム系（`#faf8f3`〜`#f2ead8`）。
+  - モバイル（max-width:768px）では`.sec-image { display: none; }`で非表示。
+  - 適用例: Section01（`lp-shinkyu-hero.png`）、Section04（`lp-shinkyu-market.jpg`）、Section05（`lp-shinkyu-seijunto-scene2.jpg`）。
+
+## 完了済みタスク（このLPの改修分）
+
+- header subtext「鍼灸院経営支援」追加（ナビの`.nav-tagline`）
+- FV見出し内「値上げ」のゴールドハイライト（`.accent`クラス）
+- Hero Slider本体（CSS/HTML/JS）実装完了
+  - スライド①「社会の変化を、地域の可能性に変える。」
+  - スライド②「未病という、新しい価値。」
+  - スライド③「人生100年時代を、もっと面白く。」
+  - 矢印・ドット・自動再生・下部バー「Agequake Philosophy」まで実装済み
+  - **ユーザー提供の新しい3枚の写真に差し替え完了**（`lp-shinkyu-slide1/2/3.jpg`、1400px幅・quality 78で再エンコード）。
+    - スライド①: 日本の町・谷・川・山の空撮写真
+    - スライド②: 整巡湯のパッケージ（小川・ハーブ・バスソルトと一緒の写真）
+    - スライド③: 和の雰囲気のフラットレイ（ポストカード・抹茶・うちわ・カメラ・帽子・「華」の書）
+- FV見出し「腕を上げるほど、なぜ値上げが／怖くなるのか。」を2行に調整。
+  - `.fv-content`の`max-width`を640px→800pxに、`.fv-main`の`font-size`を56px→48pxに変更し、`<br>`位置はそのままで2行に収まるようにした。
+- FVの「施術シーン」画像（`lp-shinkyu-hero.png`：白衣の施術者が解剖図を見ているカット）を、FV背景からSection 01（「先生に、一つだけ聞いてもいいですか。」/ Section 01 — The Limit）に移動し、上記「セクション背景画像パターン」に統一。
+  - 当初はflex 2カラム（右側パネル固定幅360px）で実装したが、その後「セクション背景画像パターン」（フルセクション背景＋オーバーレイ）に変更済み。
+  - FV側の`.fv-bg`・`.fv-bg::after`は完全に削除済み（FVはネイビーグラデーション背景のみ）。
+- Section 04（Market）に「セクション背景画像パターン」を適用。
+  - 添付の市場成長グラフ画像を`lp-shinkyu-market.jpg`（1600×900, quality 78）として保存し、`.sec-dark`用のネイビー系オーバーレイ（`.sec-dark .sec-image::after`）を追加。
+- Section 05（Solution / 整巡湯）の`.product-scenes`（scene1/scene2の2枚＋キャプション）を削除し、scene2画像（整巡湯を温泉に注ぐシーン）を「セクション背景画像パターン」で全面背景化。
+  - `.sec-seizyunto`用にクリーム系オーバーレイ（`.sec-seizyunto .sec-image::after`、`#faf8f3`〜`#f2ead8`）を追加。
+  - `lp-shinkyu-seijunto-scene1.jpg`は現在どこからも参照されていない未使用ファイル（削除は未実施）。
+- ナビ・フッターのロゴマーク追加。
+  - ユーザー提供のAgequake新ロゴ（1024×1024、"A"マーク＋AGEQUAKE文字＋MANAGEMENT CONSULTING）から、アイコン部分のみをPillowでクロップして`logo-mark.png`（270×240）として保存。
+  - ナビ: `.nav-brand`（flex）でロゴ画像＋「Agequake」＋タグラインをまとめ、`<a href="#">`でページトップへのリンクに。
+  - フッター: `.footer-brand`で同様にロゴ画像＋「Agequake」をまとめ、同じく`<a href="#">`でページトップへ。
+  - ページトップ（`#top`相当）は明示的なid追加ではなく`href="#"`（ページ先頭へジャンプ）で対応。
+
+## 未完了タスク（次回セッションで継続予定）
+
+1. **本番反映の判断**（ユーザー指示待ち）
+   - Hero Slider画像差し替え、FV見出し2行化、Section 01/04/05の背景画像パターン適用、ナビ・フッターロゴ追加は、すべてローカルのみ・未push。
+   - 内容確認→OKが出てからpush予定。
+2. `lp-shinkyu-seijunto-scene1.jpg`が未使用ファイルとして残っている（削除するか判断）。
+
+## チャット添付画像の取得について（メモ）
+
+- チャット添付の画像は、`/tmp`（`C:\Users\Owner\AppData\Local\Temp`）配下の`*.tmp`ファイルとして見つかる場合がある（タイムスタンプ・サイズ・寸法で直近の添付を特定）。見つかった場合はそのまま`cp`してagequake/フォルダにコピーし、Pillowで処理する。
+- 見つからない場合は、ユーザーに「agequake/フォルダに画像ファイルを直接配置してもらう」よう依頼する（過去にHero Slider画像・ロゴ画像でこのパターンを使用）。
+
+## 過去に洗い出し済みだが未対応（優先度低・参考）
+
+- legal.html の所在地・連絡先電話番号が「個別案内」のプレースホルダーのまま（正式な記載が必要であれば住所等を確定後に更新）
+- index.htmlの一部画像（pillar-analysis.jpg / pillar-design.jpg / pillar-region.jpg）が404（lp-shinkyu.html導線とは別の箇所）
+- アコーディオン（`.accordion-trigger`）に`aria-expanded`属性が未設定（アクセシビリティ改善余地）
+
 # メモ

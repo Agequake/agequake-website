@@ -28,14 +28,21 @@ nav {
   top: 0;
   z-index: 200;
 }
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-mark { height: 32px; width: auto; display: block; }
 .nav-logo { font-size: 20px; font-weight: 900; color: #1a1a2e; letter-spacing: 3px; }
 .nav-tagline { font-size: 10px; color: #aaa; letter-spacing: 2px; margin-top: 2px; }
+.nav-logo-text { height: 34px; width: auto; display: block; }
 .nav-cta {
   background: #c9a84c; color: #1a1a2e; padding: 10px 22px; border-radius: 4px;
   font-size: 13px; font-weight: bold; letter-spacing: 1px; cursor: pointer;
   border: none; text-decoration: none; transition: opacity 0.2s;
 }
 .nav-cta:hover { opacity: 0.85; }
+.nav-links { display: flex; align-items: center; gap: 14px; }
+.nav-links a { color: rgba(26,26,46,0.45); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+.nav-links a:hover { color: #c9a84c; }
+.nav-sep { color: rgba(26,26,46,0.15); font-size: 11px; }
 
 /* ========== PAGE HERO ========== */
 .page-hero {
@@ -88,6 +95,27 @@ nav {
 }
 .form-textarea { min-height: 100px; resize: vertical; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.zip-row { display: flex; gap: 10px; }
+.zip-row .form-input { flex: 1; }
+.zip-btn {
+  flex-shrink: 0; padding: 0 18px; background: #1a1a2e; color: white;
+  border: none; border-radius: 4px; font-size: 13px; font-weight: bold;
+  letter-spacing: 0.5px; cursor: pointer; transition: opacity 0.2s; white-space: nowrap;
+}
+.zip-btn:hover { opacity: 0.85; }
+.zip-btn:disabled { opacity: 0.5; cursor: default; }
+.form-hint { margin-top: 6px; font-size: 11px; color: #999; line-height: 1.6; }
+.zip-status { margin-top: 6px; font-size: 12px; min-height: 16px; }
+.zip-status.is-success { color: #3a7d5c; }
+.zip-status.is-error { color: #c0392b; }
+.zip-status.is-loading { color: #999; }
+select.form-input {
+  appearance: none; -webkit-appearance: none; -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 16px center; background-size: 11px 8px;
+  padding-right: 40px; cursor: pointer;
+}
+select.form-input:disabled { color: #aaa; cursor: default; }
 .form-check {
   display: flex; align-items: flex-start; gap: 10px;
   padding: 16px 18px; background: #faf8f3; border: 1px solid #e8e3d8;
@@ -126,7 +154,11 @@ footer {
   background: #0d1b2a; color: rgba(255,255,255,0.4);
   padding: 48px 80px; font-size: 12px; line-height: 2;
 }
-.footer-logo { font-size: 18px; font-weight: 900; color: white; letter-spacing: 3px; margin-bottom: 6px; }
+.footer-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 6px; }
+.footer-logo-mark { height: 28px; width: auto; display: block; }
+.footer-logo { font-size: 18px; font-weight: 900; color: white; letter-spacing: 3px; }
+.footer-logo-text-wrap { background: #faf8f3; padding: 6px 14px; border-radius: 4px; display: inline-flex; align-items: center; }
+.footer-logo-text { height: 22px; width: auto; display: block; }
 .footer-tag { font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 2px; margin-bottom: 24px; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 16px; font-size: 11px; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 20px; }
@@ -137,7 +169,8 @@ footer {
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   nav { padding: 14px 20px; }
-  .nav-tagline { display: none; }
+  .nav-logo-text { height: 26px; }
+  .nav-links { display: none; }
   .nav-cta { padding: 8px 14px; font-size: 12px; letter-spacing: 0; }
   .page-hero { padding: 48px 24px; }
   .page-hero h1 { font-size: 24px; }
@@ -152,10 +185,19 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <a href="lp-shinkyu.html" style="text-decoration:none; color:inherit;">
-    <div class="nav-logo">Agequake</div>
-    <div class="nav-tagline">鍼灸院経営支援</div>
+  <a href="lp-shinkyu.html" class="nav-brand">
+    <img src="logo-mark.png" alt="Agequake" class="nav-logo-mark">
+    <img src="logo-text.png" alt="Agequake Management Consulting" class="nav-logo-text">
   </a>
+  <div class="nav-links">
+    <a href="company.html">会社概要</a>
+    <span class="nav-sep">|</span>
+    <a href="legal.html">特定商取引法に基づく表記</a>
+    <span class="nav-sep">|</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <span class="nav-sep">|</span>
+    <a href="form.html">無料サンプル申し込み</a>
+  </div>
   <a href="lp-shinkyu.html" class="nav-cta">◀ ページに戻る</a>
 </nav>
 
@@ -197,29 +239,74 @@ footer {
           <input type="text" id="name" name="name" class="form-input" placeholder="山田 太郎" required>
         </div>
 
+        <div class="form-group">
+          <label class="form-label" for="zip">
+            郵便番号
+            <span class="form-required">必須</span>
+          </label>
+          <div class="zip-row">
+            <input type="text" id="zip" name="zip" class="form-input" placeholder="123-4567" inputmode="numeric" maxlength="8" autocomplete="postal-code" required>
+            <button type="button" id="zipLookupBtn" class="zip-btn">住所を検索</button>
+          </div>
+          <p class="form-hint">郵便番号（7桁）を入力すると、都道府県・市区町村・町名を自動入力します。</p>
+          <p class="zip-status" id="zipStatus"></p>
+        </div>
+
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="zip">
-              郵便番号
+            <label class="form-label" for="prefecture">
+              都道府県
               <span class="form-required">必須</span>
             </label>
-            <input type="text" id="zip" name="zip" class="form-input" placeholder="123-4567" inputmode="numeric" required>
+            <select id="prefecture" name="prefecture" class="form-input" required>
+              <option value="">選択してください</option>
+              <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option>
+              <option>秋田県</option><option>山形県</option><option>福島県</option><option>茨城県</option>
+              <option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option>
+              <option>東京都</option><option>神奈川県</option><option>新潟県</option><option>富山県</option>
+              <option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option>
+              <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+              <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option>
+              <option>奈良県</option><option>和歌山県</option><option>鳥取県</option><option>島根県</option>
+              <option>岡山県</option><option>広島県</option><option>山口県</option><option>徳島県</option>
+              <option>香川県</option><option>愛媛県</option><option>高知県</option><option>福岡県</option>
+              <option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option>
+              <option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+            </select>
           </div>
           <div class="form-group">
-            <label class="form-label" for="tel">
-              電話番号
+            <label class="form-label" for="city">
+              市区町村
               <span class="form-required">必須</span>
             </label>
-            <input type="tel" id="tel" name="tel" class="form-input" placeholder="00-0000-0000" required>
+            <select id="city" name="city" class="form-input" required disabled>
+              <option value="">都道府県を選択してください</option>
+            </select>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="address">
-            ご住所（サンプルお届け先）
+          <label class="form-label" for="town">
+            町名・番地
             <span class="form-required">必須</span>
           </label>
-          <input type="text" id="address" name="address" class="form-input" placeholder="都道府県・市区町村・番地・建物名" required>
+          <input type="text" id="town" name="town" class="form-input" placeholder="○○町1-2-3" autocomplete="address-line1" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="building">
+            建物名・部屋番号
+            <span class="form-optional">任意</span>
+          </label>
+          <input type="text" id="building" name="building" class="form-input" placeholder="○○ビル3F" autocomplete="address-line2">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="tel">
+            電話番号
+            <span class="form-optional">任意</span>
+          </label>
+          <input type="tel" id="tel" name="tel" class="form-input" placeholder="00-0000-0000">
         </div>
 
         <div class="form-group">
@@ -269,7 +356,12 @@ footer {
 
 <!-- ========== FOOTER ========== -->
 <footer>
-  <div class="footer-logo">Agequake</div>
+  <a href="lp-shinkyu.html" class="footer-brand">
+    <img src="logo-mark.png" alt="Agequake" class="footer-logo-mark">
+    <div class="footer-logo-text-wrap">
+      <img src="logo-text.png" alt="Agequake Management Consulting" class="footer-logo-text">
+    </div>
+  </a>
   <div class="footer-tag">社会の変化を、地域の可能性に変える。</div>
   <div style="margin-bottom:28px;">
     施術院経営支援を起点に、AI活用・地域経済・シニアマーケットなど<br>
@@ -288,8 +380,108 @@ footer {
 </footer>
 
 <script>
+const zipInput = document.getElementById('zip');
+const zipBtn = document.getElementById('zipLookupBtn');
+const zipStatus = document.getElementById('zipStatus');
+const prefectureSelect = document.getElementById('prefecture');
+const citySelect = document.getElementById('city');
+const townInput = document.getElementById('town');
+
+function setZipStatus(text, type) {
+  zipStatus.textContent = text;
+  zipStatus.className = 'zip-status' + (type ? ' is-' + type : '');
+}
+
+// 都道府県ごとの市区町村一覧（初回のみ取得してキャッシュ）
+let addressDataPromise = null;
+function getAddressData() {
+  if (!addressDataPromise) {
+    addressDataPromise = fetch('https://geolonia.github.io/japanese-addresses/api/ja.json')
+      .then(function(res) {
+        if (!res.ok) throw new Error('address data fetch failed');
+        return res.json();
+      });
+  }
+  return addressDataPromise;
+}
+
+// 都道府県を選択すると、その都道府県の市区町村一覧を選択肢に反映
+async function loadCities(prefectureName, selectedCity) {
+  citySelect.disabled = true;
+  citySelect.innerHTML = '<option value="">読み込み中...</option>';
+  try {
+    const data = await getAddressData();
+    const cities = data[prefectureName] || [];
+    citySelect.innerHTML = '<option value="">選択してください</option>';
+    cities.forEach(function(city) {
+      const opt = document.createElement('option');
+      opt.value = city;
+      opt.textContent = city;
+      citySelect.appendChild(opt);
+    });
+    if (selectedCity) {
+      citySelect.value = selectedCity;
+    }
+    citySelect.disabled = false;
+  } catch (err) {
+    citySelect.innerHTML = '<option value="">取得に失敗しました（手動入力可）</option>';
+    citySelect.disabled = false;
+  }
+}
+
+prefectureSelect.addEventListener('change', function() {
+  if (this.value) {
+    loadCities(this.value);
+  } else {
+    citySelect.innerHTML = '<option value="">都道府県を選択してください</option>';
+    citySelect.disabled = true;
+  }
+});
+
+// 郵便番号から都道府県・市区町村・町名を自動入力
+async function lookupZip() {
+  const digits = zipInput.value.replace(/[^0-9]/g, '');
+  if (digits.length !== 7) {
+    setZipStatus('郵便番号は7桁で入力してください', 'error');
+    return;
+  }
+  setZipStatus('住所を検索しています...', 'loading');
+  zipBtn.disabled = true;
+  try {
+    const res = await fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + digits);
+    const data = await res.json();
+    if (data.status === 200 && data.results && data.results.length > 0) {
+      const r = data.results[0];
+      prefectureSelect.value = r.address1;
+      await loadCities(r.address1, r.address2);
+      townInput.value = r.address3 || '';
+      setZipStatus('✓ 住所を自動入力しました。番地以降をご入力ください。', 'success');
+    } else {
+      setZipStatus('該当する住所が見つかりませんでした。都道府県以下を直接ご入力ください。', 'error');
+    }
+  } catch (err) {
+    setZipStatus('住所の取得に失敗しました。お手数ですが直接ご入力ください。', 'error');
+  } finally {
+    zipBtn.disabled = false;
+  }
+}
+
+zipInput.addEventListener('input', function() {
+  const digits = this.value.replace(/[^0-9]/g, '');
+  if (digits.length === 7) {
+    lookupZip();
+  } else {
+    setZipStatus('', '');
+  }
+});
+zipBtn.addEventListener('click', lookupZip);
+
 document.getElementById('sampleForm').addEventListener('submit', function(e) {
   e.preventDefault();
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
   document.getElementById('formContent').style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
   window.scrollTo({ top: document.querySelector('.form-wrap').offsetTop - 80, behavior: 'smooth' });
