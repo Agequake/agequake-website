@@ -157,6 +157,71 @@ nav {
 }
 .info-table td { font-size: 14px; color: #333; padding: 16px 0; line-height: 1.9; }
 
+/* ===== 温泉研究所セクション ===== */
+.onsenlab-sec {
+  padding: 96px 24px;
+  background: #faf8f3;
+}
+.onsenlab-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.onsenlab-inner.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.onsenlab-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #a8893c;
+  display: block;
+  margin-bottom: 12px;
+}
+.onsenlab-rule {
+  width: 48px;
+  height: 1px;
+  background: #c9a84c;
+  margin: 0 auto 28px;
+  opacity: 0.5;
+}
+.onsenlab-headline {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 600;
+  color: #1a1a2e;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  margin-bottom: 28px;
+}
+.onsenlab-body {
+  font-size: 14px;
+  color: #555;
+  line-height: 2.2;
+  margin-bottom: 40px;
+}
+.onsenlab-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  border: 1px solid #1a1a2e;
+  color: #1a1a2e;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.onsenlab-btn:hover {
+  background: #1a1a2e;
+  color: #f5efe4;
+  border-color: #1a1a2e;
+}
+
 /* ===== 事業内容（Business） ===== */
 .business-list {
   display: flex;
@@ -391,6 +456,27 @@ footer {
   </div>
 </section>
 
+<!-- 温泉研究所 -->
+<section class="onsenlab-sec">
+  <div class="onsenlab-inner" id="onsenlab-block">
+    <span class="onsenlab-eyebrow">研究・文化・湯治</span>
+    <div class="onsenlab-rule"></div>
+    <h2 class="onsenlab-headline">温泉を、もっと深く知る。</h2>
+    <p class="onsenlab-body">
+      温泉研究所は、日本に古くから根づく湯治文化や養生の知恵を見つめ直し、<br>
+      現代に活かすための非営利研究活動です。<br>
+      温泉の歴史、文化、療養、地域性など、多角的な視点から情報を発信しています。
+    </p>
+    <a
+      href="https://onsen-lab.jp"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="onsenlab-btn"
+      aria-label="温泉研究所のウェブサイトを別タブで開く"
+    >温泉研究所を見る</a>
+  </div>
+</section>
+
 <footer>
   <a href="lp-shinkyu.html" class="footer-brand">
     <img src="logo-mark.png" alt="Agequake" class="footer-logo-mark">
@@ -414,5 +500,12 @@ footer {
   </div>
   <div class="footer-bottom">© 2022-2026 Agequake All Rights Reserved.</div>
 </footer>
+<script>
+  const el = document.getElementById('onsenlab-block');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  obs.observe(el);
+</script>
 </body>
 </html>
