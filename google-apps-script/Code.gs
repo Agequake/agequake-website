@@ -39,7 +39,8 @@ var FORM_CONFIG = {
       { header: '電話番号',         field: 'tel' },
       { header: 'メールアドレス',   field: 'email' },
       { header: 'ご要望・ご質問',   field: 'message' },
-      { header: '対応状況',         type: 'status', default: '未対応' }
+      { header: '対応状況',         type: 'status', default: '未対応' },
+      { header: '送信ID',           type: 'submissionId' }
     ]
   }
 
@@ -77,6 +78,10 @@ function doPost(e) {
     var payload = body.payload || body;
     var formName = payload.form_name || payload.formName || 'unknown-form';
     var data = payload.data || payload.human_fields || {};
+    // NetlifyのOutgoing webhookはレスポンスの受け取り方によって同じ送信を
+    // 複数回リトライしてくることがある（Apps ScriptのWeb Appは302リダイレクトを
+    // 挟むため、リトライを誘発しやすい）。送信ごとに一意なIDで重複を検知する。
+    var submissionId = payload.id || payload.submission_id || '';
 
     var config = FORM_CONFIG[formName];
     var columns;
@@ -89,15 +94,23 @@ function doPost(e) {
         .concat(Object.keys(data).map(function (k) {
           return { header: k, field: k };
         }))
-        .concat([{ header: '対応状況', type: 'status', default: '未対応' }]);
+        .concat([
+          { header: '対応状況', type: 'status', default: '未対応' },
+          { header: '送信ID', type: 'submissionId' }
+        ]);
       config = { sheetName: formName, columns: columns };
     }
 
     var sheet = getOrCreateSheet(config.sheetName, columns);
 
+    if (submissionId && isDuplicateSubmission(sheet, columns, submissionId)) {
+      return jsonResponse({ ok: true, deduped: true, sheet: config.sheetName });
+    }
+
     var row = columns.map(function (col) {
       if (col.type === 'timestamp') return new Date();
       if (col.type === 'status') return col.default || '';
+      if (col.type === 'submissionId') return submissionId;
       var v = data[col.field];
       return v !== undefined && v !== null ? v : '';
     });
@@ -110,6 +123,23 @@ function doPost(e) {
   } finally {
     lock.releaseLock();
   }
+}
+
+function isDuplicateSubmission(sheet, columns, submissionId) {
+  var idColIndex = -1;
+  for (var i = 0; i < columns.length; i++) {
+    if (columns[i].type === 'submissionId') { idColIndex = i; break; }
+  }
+  if (idColIndex === -1) return false;
+
+  var lastRow = sheet.getLastRow();
+  if (lastRow <= 1) return false;
+
+  var idValues = sheet.getRange(2, idColIndex + 1, lastRow - 1, 1).getValues();
+  for (var r = 0; r < idValues.length; r++) {
+    if (idValues[r][0] === submissionId) return true;
+  }
+  return false;
 }
 
 function getOrCreateSheet(sheetName, columns) {
@@ -142,6 +172,7 @@ function testDoPost() {
     postData: {
       contents: JSON.stringify({
         payload: {
+          id: 'test-' + new Date().getTime(),
           form_name: 'sample-form',
           data: {
             clinicName: 'テスト施術院',
