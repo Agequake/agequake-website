@@ -2,6 +2,12 @@
 
 `agequake.jp/form.html`（無料サンプル申込フォーム）の送信内容を、Netlify Forms保存・Outlook通知に加えて、Googleスプレッドシート「無料サンプル申込一覧」にも自動で1行追加するための手順です。
 
+## 重複記録について（重要）
+
+検証時、Netlifyの Outgoing webhook が1回の送信に対して複数回リトライし、同じ内容が数行重複して記録される現象を確認しました（Apps ScriptのWeb Appは応答時に302リダイレクトを返す仕様のため、Netlify側が失敗と判断してリトライしていると見られます）。
+
+対策として `Code.gs` は Netlify から届く送信ごとの一意なID（`payload.id`）をスプレッドシートの「送信ID」列に記録し、同じIDの送信が既に記録済みの場合はスキップする重複排除ロジックを実装済みです。そのため通常利用でこの現象を意識する必要はありません。
+
 ## 全体の流れ
 
 ```
@@ -57,7 +63,7 @@ Apps Script エディタで関数選択を `testDoPost` にして実行し、対
    - Event to listen for: **New form submission**
    - URL to notify: 手順3で控えたURLの末尾に `?secret=<SHARED_SECRETと同じ文字列>` を付けたもの
      - 例: `https://script.google.com/macros/s/xxxxxxxx/exec?secret=agequake-form-hook-2026`
-   - Form: `sample-form` のみ対象にする（複数フォームがある場合はフォームごとに個別設定、または「すべてのフォーム」を選び、Apps Script側のFORM_CONFIGで振り分ける）
+   - Form: 「すべてのフォーム」のままでよい（Apps Script側のFORM_CONFIGでフォーム名ごとに振り分けるため、Netlify側を都度絞り込む必要はない）
 5. 保存する
 
 ※ Netlifyのメニュー名称・階層はUIアップデートで変わることがあります。「Forms」「Notifications」「Outgoing webhook」のキーワードで探してください。
