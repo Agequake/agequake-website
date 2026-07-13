@@ -2,11 +2,28 @@
 
 `agequake.jp/form.html`（無料サンプル申込フォーム）の送信内容を、Netlify Forms保存・Outlook通知に加えて、Googleスプレッドシート「無料サンプル申込一覧」にも自動で1行追加するための手順です。
 
-## 重複記録について（重要）
+## 重複記録・記録が止まる問題について（重要）
 
-検証時、Netlifyの Outgoing webhook が1回の送信に対して複数回リトライし、同じ内容が数行重複して記録される現象を確認しました（Apps ScriptのWeb Appは応答時に302リダイレクトを返す仕様のため、Netlify側が失敗と判断してリトライしていると見られます）。
+これまでに2つの不具合が見つかり、いずれも `Code.gs` 側で対策済みです。
 
-対策として `Code.gs` は Netlify から届く送信ごとの一意なID（`payload.id`）をスプレッドシートの「送信ID」列に記録し、同じIDの送信が既に記録済みの場合はスキップする重複排除ロジックを実装済みです。そのため通常利用でこの現象を意識する必要はありません。
+**① 重複記録（1回の送信が数行に増える）**
+
+Netlifyの Outgoing webhook が1回の送信に対して複数回リトライし、同じ内容が数行重複して記録されることがありました。対策として `Code.gs` は Netlify から届く送信ごとの一意なID（`payload.id`）をスプレッドシートの「送信ID」列に記録し、同じIDの送信が既に記録済みの場合はスキップする重複排除ロジックを実装しています。
+
+**② ある時点から新規送信が一切記録されなくなる（今回の本質的な原因）**
+
+Netlifyの Outgoing webhook には「送信先が4xx/5xxエラーを6回連続で返すと、そのWebhookを自動的に無効化する」という仕様があります（Site configuration > Notifications > Emails and webhooks の画面に「1 hook has been disabled for failing 6 times in a row」のように表示されます）。
+
+以前の `Code.gs` には次の2つのバグがあり、これがHTTP 500エラーを引き起こして自動無効化を誘発していました。
+
+- `doGet` が未定義だったため、GETリクエスト（疎通確認など）が来ると「関数が見つからない」エラーでHTTP 500を返していた
+- `LockService.getScriptLock().waitLock()` が `try` の外にあり、ロック競合時に投げられる例外がキャッチされずHTTP 500を返していた（Apps ScriptのWeb Appは本来常にHTTP 200を返す設計だが、tryの外で例外が発生するとこの原則が崩れる）
+
+対策として、`doGet` ハンドラを追加し、`waitLock()` を例外を投げない `tryLock()` に変更してtry内に移動しました。これにより、どんなリクエストが来ても常にHTTP 200が返るようになり、Netlify側の自動無効化が発生しなくなります。
+
+**Webhookが「Disabled」と表示されている場合の対処**
+
+上記の修正を反映してデプロイし直しても、Netlify側で一度無効化されたWebhookは自動的には有効に戻りません。Site configuration > Notifications > Emails and webhooks の該当のWebhookを「編集通知」から開き、内容を変更せずそのまま「保存」するだけで再度有効になります（Netlifyの公式な再有効化手順です）。
 
 ## 全体の流れ
 
