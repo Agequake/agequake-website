@@ -2,28 +2,21 @@
 
 `agequake.jp/form.html`（無料サンプル申込フォーム）の送信内容を、Netlify Forms保存・Outlook通知に加えて、Googleスプレッドシート「無料サンプル申込一覧」にも自動で1行追加するための手順です。
 
-## 重複記録・記録が止まる問題について（重要）
+## Outgoing webhookをやめてNetlify Function方式に変更した理由（重要）
 
-これまでに2つの不具合が見つかり、いずれも `Code.gs` 側で対策済みです。
+以前は Site configuration > Notifications の「Outgoing webhook」を使ってApps Scriptへ通知していましたが、次の問題があったため **Netlify Function（`netlify/functions/submission-created.js`）経由でApps ScriptへPOSTする方式に変更しました**。現在Netlify側にOutgoing webhookの設定はありません。
 
 **① 重複記録（1回の送信が数行に増える）**
 
-Netlifyの Outgoing webhook が1回の送信に対して複数回リトライし、同じ内容が数行重複して記録されることがありました。対策として `Code.gs` は Netlify から届く送信ごとの一意なID（`payload.id`）をスプレッドシートの「送信ID」列に記録し、同じIDの送信が既に記録済みの場合はスキップする重複排除ロジックを実装しています。
+Outgoing webhookが1回の送信に対して複数回リトライし、同じ内容が数行重複して記録されることがありました。対策として `Code.gs` は送信ごとの一意なID（`payload.id`）をスプレッドシートの「送信ID」列に記録し、同じIDの送信が既に記録済みの場合はスキップする重複排除ロジックを実装しています（この対策は現在も有効です）。
 
-**② ある時点から新規送信が一切記録されなくなる（今回の本質的な原因）**
+**② ある時点から新規送信が一切記録されなくなる（Outgoing webhook方式の本質的な弱点）**
 
-Netlifyの Outgoing webhook には「送信先が4xx/5xxエラーを6回連続で返すと、そのWebhookを自動的に無効化する」という仕様があります（Site configuration > Notifications > Emails and webhooks の画面に「1 hook has been disabled for failing 6 times in a row」のように表示されます）。
+NetlifyのOutgoing webhookには「送信先が4xx/5xxエラーを6回連続で返すと、そのWebhookを自動的に無効化する」という仕様があります。以前の `Code.gs` のバグ（`doGet`未定義、`waitLock()`がtryの外にある）でHTTP 500が発生し、これが自動無効化を誘発して記録が突然止まる事故が起きました。バグ自体は修正済みですが、「送信先が何らかの理由で一時的にエラーを返すと、ユーザーの知らないところで通知そのものが止まる」というOutgoing webhook方式のリスク自体は仕組み上なくなりません。
 
-以前の `Code.gs` には次の2つのバグがあり、これがHTTP 500エラーを引き起こして自動無効化を誘発していました。
+**→ 対策: Netlify Functionへの移行**
 
-- `doGet` が未定義だったため、GETリクエスト（疎通確認など）が来ると「関数が見つからない」エラーでHTTP 500を返していた
-- `LockService.getScriptLock().waitLock()` が `try` の外にあり、ロック競合時に投げられる例外がキャッチされずHTTP 500を返していた（Apps ScriptのWeb Appは本来常にHTTP 200を返す設計だが、tryの外で例外が発生するとこの原則が崩れる）
-
-対策として、`doGet` ハンドラを追加し、`waitLock()` を例外を投げない `tryLock()` に変更してtry内に移動しました。これにより、どんなリクエストが来ても常にHTTP 200が返るようになり、Netlify側の自動無効化が発生しなくなります。
-
-**Webhookが「Disabled」と表示されている場合の対処**
-
-上記の修正を反映してデプロイし直しても、Netlify側で一度無効化されたWebhookは自動的には有効に戻りません。Site configuration > Notifications > Emails and webhooks の該当のWebhookを「編集通知」から開き、内容を変更せずそのまま「保存」するだけで再度有効になります（Netlifyの公式な再有効化手順です）。
+Netlifyの「フォーム送信イベントで自動起動する関数」機能（`netlify/functions/submission-created.js` というファイル名にすることで登録される、Netlifyの命名規約）を使うことで、Outgoing webhookの「6回失敗で自動無効化」という仕組みそのものを回避しています。この関数はフォーム送信のたびに直接Netlify側から呼び出され、内部でApps ScriptへPOSTします。Apps Script側が仮にエラーを返しても、Netlify Forms自体の送信記録やフォーム送信者への応答には一切影響しません。
 
 ## 全体の流れ
 
@@ -32,7 +25,7 @@ Netlifyの Outgoing webhook には「送信先が4xx/5xxエラーを6回連続�
    ↓
 Netlify Forms が受信・保存（既存機能、修正不要）
    ↓
-Netlify の Outgoing webhook 通知が発火
+Netlify Function（netlify/functions/submission-created.js）が発火
    ↓
 Google Apps Script の Web App (doPost) が受信
    ↓
@@ -71,19 +64,20 @@ HTML側の追加修正は不要です。現状の `form.html` は既にNetlify F
 
 Apps Script エディタで関数選択を `testDoPost` にして実行し、対象スプレッドシートに「無料サンプル申込一覧」シートとテスト行が1件追加されることを確認してください。
 
-## 手順4: Netlify側でOutgoing webhookを設定する
+## 手順4: Netlify Functionを設定する
 
-1. Netlifyのサイトダッシュボードを開く
-2. **Site configuration（Site settings）> Forms > Form notifications**（環境によっては単に「Notifications」）を開く
-3. **Add notification > Outgoing webhook** を選択
-4. 設定:
-   - Event to listen for: **New form submission**
-   - URL to notify: 手順3で控えたURLの末尾に `?secret=<SHARED_SECRETと同じ文字列>` を付けたもの
-     - 例: `https://script.google.com/macros/s/xxxxxxxx/exec?secret=agequake-form-hook-2026`
-   - Form: 「すべてのフォーム」のままでよい（Apps Script側のFORM_CONFIGでフォーム名ごとに振り分けるため、Netlify側を都度絞り込む必要はない）
-5. 保存する
+Outgoing webhookは使いません。代わりにリポジトリ内の `netlify/functions/submission-created.js` がフォーム送信のたびに自動起動し、Apps ScriptへPOSTします。
 
-※ Netlifyのメニュー名称・階層はUIアップデートで変わることがあります。「Forms」「Notifications」「Outgoing webhook」のキーワードで探してください。
+1. リポジトリのルートに `netlify.toml`（`[functions]` セクションで `directory = "netlify/functions"` を指定）と `netlify/functions/submission-created.js` が含まれていることを確認する（このリポジトリには既に含まれています）
+2. Netlifyのサイトダッシュボードで **Site configuration > Environment variables** を開き、次の2つを設定する:
+   - `APPS_SCRIPT_URL`: 手順3で控えたWeb AppのURL（`.../exec` の形式、`?secret=...` は付けない）
+   - `APPS_SCRIPT_SECRET`: `Code.gs` の `SHARED_SECRET` と同じ文字列
+   - どちらも「Contains secret values」をオンにし、Production / Deploy Previews / Branch deploys など必要なデプロイ環境にチェックを入れる
+3. サイトをデプロイする（GitHub連携なら通常のpushで自動デプロイされる）
+
+これで、Site configuration > Notifications の「Form submission notifications」にはメール通知のみが残り、Outgoing webhookの項目は不要になります（残っている場合は削除して構いません）。
+
+※ Netlifyのメニュー名称・階層はUIアップデートで変わることがあります。「Environment variables」「Functions」のキーワードで探してください。
 
 ## 手順5: 本番テスト
 
@@ -101,6 +95,6 @@ Apps Script エディタで関数選択を `testDoPost` にして実行し、対
 1. `form.html` と同様に、新しいフォームにも `<form name="◯◯-form" data-netlify="true" netlify>` と `<input type="hidden" name="form-name" value="◯◯-form">` を設定する（既存フォームと同じ作法）
 2. `Code.gs` の `FORM_CONFIG` オブジェクトに、そのフォーム名をキーにしたエントリを追加する（シート名・列構成を指定）
 3. Apps Script を編集したら **デプロイ > デプロイを管理 > 編集(鉛筆アイコン) > バージョン「新バージョン」を選択 > デプロイ** で再デプロイする（URLは変わらないのでNetlify側の設定変更は不要）
-4. 該当フォームのNetlify側 Outgoing webhook 通知先を、同じApps Script URLに設定する（Form指定を「すべてのフォーム」にしておけば、フォーム追加のたびにNetlify側を設定し直す必要もありません）
+4. Netlify Function（`netlify/functions/submission-created.js`）は全フォームの送信に対して発火するため、フォームを追加してもNetlify側の設定をやり直す必要はありません
 
 `FORM_CONFIG` に未登録のフォームが送信されてきた場合も、受信データのキーをそのまま列にした自動シートが作られるため、記録が失われることはありません（後から `FORM_CONFIG` を整えて綺麗な列構成に直せます）。

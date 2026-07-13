@@ -1,7 +1,8 @@
 /**
  * Netlify Forms → Google Sheets 連携用 Web App
  * -------------------------------------------------------------
- * Netlify Forms の「Outgoing webhook」通知から呼び出される想定。
+ * Netlify Function（netlify/functions/submission-created.js）から
+ * 呼び出される想定（Outgoing webhookは使用していない）。
  * 複数フォームに対応できる汎用構成にしてあるので、
  * 新しいフォームを追加するときは FORM_CONFIG にエントリを追加するだけでOK。
  *
@@ -14,9 +15,9 @@
  *      - 実行するユーザー: 自分
  *      - アクセスできるユーザー: 全員
  *    でデプロイし、発行された /exec で終わるURLを控える
- * 4. Netlify側の Outgoing webhook 通知の宛先URLに
- *      <そのURL>?secret=<SHARED_SECRETと同じ文字列>
- *    を設定する
+ * 4. NetlifyのEnvironment variablesに APPS_SCRIPT_URL（そのURL）と
+ *    APPS_SCRIPT_SECRET（SHARED_SECRETと同じ文字列）を設定する
+ *    （詳細は google-apps-script/README.md 参照）
  */
 
 // Netlifyからの不正POST対策の簡易シークレット。必ず変更すること。
@@ -89,14 +90,12 @@ function doPost(e) {
     }
 
     var body = JSON.parse(e.postData.contents);
-    // Netlifyのoutgoing webhookは提出内容を { payload: {...} } でラップして送る場合と
-    // フラットに送る場合があるため、両方に対応する
+    // Netlify Function（submission-created.js）は提出内容を { payload: {...} } で
+    // ラップして送ってくる。念のためフラットな形式にも対応する。
     var payload = body.payload || body;
     var formName = payload.form_name || payload.formName || 'unknown-form';
     var data = payload.data || payload.human_fields || {};
-    // NetlifyのOutgoing webhookはレスポンスの受け取り方によって同じ送信を
-    // 複数回リトライしてくることがある（Apps ScriptのWeb Appは302リダイレクトを
-    // 挟むため、リトライを誘発しやすい）。送信ごとに一意なIDで重複を検知する。
+    // 呼び出し元がリトライした場合に備え、送信ごとに一意なIDで重複を検知する。
     var submissionId = payload.id || payload.submission_id || '';
 
     var config = FORM_CONFIG[formName];
