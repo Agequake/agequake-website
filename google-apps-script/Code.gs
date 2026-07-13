@@ -57,10 +57,26 @@ var FORM_CONFIG = {
   // }
 };
 
+function doGet(e) {
+  // NetlifyやモニタリングツールからのGETアクセス（疎通確認など）に対して
+  // 関数未定義エラー（500）を返さないためのハンドラ。
+  // これが無いと、GETリクエストが来た際にApps ScriptがHTTPエラーを返し、
+  // Netlifyの「6回連続失敗でWebhookを自動無効化」する仕組みが発動してしまう。
+  return jsonResponse({ ok: true, message: 'This endpoint accepts POST requests from Netlify Forms webhooks.' });
+}
+
 function doPost(e) {
   var lock = LockService.getScriptLock();
-  lock.waitLock(10000);
+  var lockAcquired = false;
   try {
+    // waitLock()は取得できないと例外を投げ、それがtryの外だとApps ScriptがHTTP 500を
+    // 返してしまう（Netlifyの自動無効化を誘発する）。tryLock()は例外を投げず真偽値を
+    // 返すだけなので、必ずjsonResponseで200を返せるようtry内でtryLock()を使う。
+    lockAcquired = lock.tryLock(10000);
+    if (!lockAcquired) {
+      return jsonResponse({ ok: false, error: 'lock timeout, please retry' });
+    }
+
     if (SHARED_SECRET) {
       var providedSecret = e && e.parameter ? e.parameter.secret : null;
       if (providedSecret !== SHARED_SECRET) {
@@ -121,7 +137,7 @@ function doPost(e) {
   } catch (err) {
     return jsonResponse({ ok: false, error: String(err) });
   } finally {
-    lock.releaseLock();
+    if (lockAcquired) lock.releaseLock();
   }
 }
 
@@ -149,6 +165,14 @@ function getOrCreateSheet(sheetName, columns) {
     sheet = ss.insertSheet(sheetName);
     sheet.appendRow(columns.map(function (c) { return c.header; }));
     sheet.setFrozenRows(1);
+    return sheet;
+  }
+  // 既存シートの場合、後からFORM_CONFIGに列を追加していても（例: 重複排除用の
+  // 「送信ID」列を追加したときなど）ヘッダー行が追従するようにする。
+  var existingHeaderCount = sheet.getLastColumn();
+  if (existingHeaderCount < columns.length) {
+    var missingHeaders = columns.slice(existingHeaderCount).map(function (c) { return c.header; });
+    sheet.getRange(1, existingHeaderCount + 1, 1, missingHeaders.length).setValues([missingHeaders]);
   }
   return sheet;
 }
