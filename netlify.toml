@@ -1,2 +1,8 @@
 [functions]
   directory = "netlify/functions"
+
+[build.environment]
+  # google-apps-script/Code.gs はGoogle Apps Script側で使うSHARED_SECRETを
+  # 直書きしている（Netlifyのビルド成果物には含まれない）。
+  # Netlify環境変数 APPS_SCRIPT_SECRET と値が一致するため誤検知されるのを防ぐ。
+  SECRETS_SCAN_OMIT_PATHS = "google-apps-script/**"
