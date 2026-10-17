@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agequake｜社会の変化を、地域の可能性に変える。</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NHNKTPSDZG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NHNKTPSDZG');
+</script>
+<meta name="description" content="Agequakeは、社会の変化が生む制度の隙間や未対応の領域を発見し、持続可能な仕組みに変えるコンサルティングカンパニーです。施術院経営支援をはじめ、課題起点のソリューションを展開しています。">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Agequake｜社会の変化を、地域の可能性に変える。">
+<meta property="og:description" content="社会の変化が生む歪みを発見し、持続可能な仕組みに変えるコンサルティングカンパニー。">
+<meta property="og:url" content="https://agequake.jp/">
+<meta property="og:image" content="https://agequake.jp/lp-shinkyu-slide1.jpg">
+<meta property="og:site_name" content="Agequake">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  background: #faf8f3;
+  color: #1a1a2e;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ========== NAV ========== */
+nav {
+  background: white; padding: 16px 48px; display: flex; justify-content: space-between;
+  align-items: center; box-shadow: 0 1px 8px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 200;
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-mark { height: 32px; width: auto; display: block; }
+.nav-logo-text { height: 34px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 14px; }
+.nav-links a { color: rgba(26,26,46,0.45); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+.nav-links a:hover { color: #c9a84c; }
+.nav-sep { color: rgba(26,26,46,0.15); font-size: 11px; }
+.nav-cta {
+  background: #c9a84c; color: #1a1a2e; padding: 10px 22px; border-radius: 4px;
+  font-size: 13px; font-weight: bold; letter-spacing: 1px; text-decoration: none; transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ========== HERO ========== */
+.hero {
+  position: relative;
+  min-height: calc(100vh - 66px);
+  display: flex;
+  align-items: center;
+  color: white;
+  background: #0d1b2a url('lp-shinkyu-slide1.jpg') center / cover no-repeat;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(100deg, rgba(13,27,42,0.94) 0%, rgba(26,26,46,0.82) 48%, rgba(15,52,96,0.45) 100%);
+}
+.hero-inner { position: relative; z-index: 1; padding: 96px 80px; max-width: 880px; }
+.hero-eyebrow {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 15px; letter-spacing: 4px; text-transform: uppercase;
+  color: #c9a84c; margin-bottom: 28px;
+}
+.hero-main {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 46px; font-weight: 600; line-height: 1.55; letter-spacing: 0.04em;
+  margin-bottom: 32px;
+}
+.hero-rule { width: 48px; height: 2px; background: #c9a84c; margin-bottom: 28px; }
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.75); line-height: 2.1; max-width: 560px; }
+.hero-actions { margin-top: 44px; display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-gold {
+  background: #c9a84c; color: #1a1a2e; padding: 14px 32px; border-radius: 4px;
+  font-size: 14px; font-weight: bold; letter-spacing: 1px; text-decoration: none; transition: opacity 0.2s;
+}
+.btn-gold:hover { opacity: 0.85; }
+.btn-line {
+  border: 1px solid rgba(255,255,255,0.5); color: white; padding: 14px 32px; border-radius: 4px;
+  font-size: 14px; letter-spacing: 1px; text-decoration: none; transition: background 0.2s, border-color 0.2s;
+}
+.btn-line:hover { background: rgba(255,255,255,0.08); border-color: white; }
+
+/* ========== SECTIONS ========== */
+.sec { padding: 112px 24px; }
+.sec-light { background: #faf8f3; }
+.sec-warm { background: #f3eee3; }
+.sec-dark { background: linear-gradient(135deg, #0d1b2a 0%, #1a1a2e 45%, #0f3460 100%); color: white; }
+.sec-inner { max-width: 1040px; margin: 0 auto; }
+.sec-narrow { max-width: 720px; margin: 0 auto; }
+.sec-label {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 14px; letter-spacing: 4px; text-transform: uppercase;
+  color: #a8893c; display: block; margin-bottom: 14px;
+}
+.sec-dark .sec-label { color: #c9a84c; }
+.sec-title {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 32px; font-weight: 600; line-height: 1.6; letter-spacing: 0.04em; margin-bottom: 28px;
+}
+.sec-rule { width: 48px; height: 2px; background: #c9a84c; margin-bottom: 32px; }
+.sec-body { font-size: 15px; color: #555; line-height: 2.2; }
+.sec-body + .sec-body { margin-top: 20px; }
+.sec-dark .sec-body { color: rgba(255,255,255,0.72); }
+.sec-body strong { color: #1a1a2e; }
+.sec-dark .sec-body strong { color: #c9a84c; font-weight: normal; }
+
+/* ========== ABOUT（歪み → 仕組み） ========== */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.shift {
+  border: 1px solid #e3dccb; background: white; border-radius: 8px; padding: 40px 36px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+.shift-row { display: flex; gap: 18px; align-items: flex-start; }
+.shift-row + .shift-row { margin-top: 8px; }
+.shift-key {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #a8893c;
+  min-width: 92px; padding-top: 4px;
+}
+.shift-val { font-size: 15px; font-weight: bold; color: #1a1a2e; line-height: 1.8; }
+.shift-val small { display: block; font-weight: normal; font-size: 13px; color: #777; }
+.shift-arrow { color: #c9a84c; font-size: 18px; margin: 4px 0 4px 110px; }
+
+/* ========== APPROACH ========== */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 56px; }
+.step { background: rgba(255,255,255,0.04); border-top: 2px solid #c9a84c; padding: 32px 26px 36px; }
+.step-num {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 34px; color: #c9a84c; line-height: 1; margin-bottom: 6px;
+}
+.step-en {
+  font-family: 'Cormorant Garamond', serif; font-size: 12px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 18px;
+}
+.step-title { font-size: 17px; font-weight: bold; margin-bottom: 12px; }
+.step-body { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 2; }
+
+/* ========== SOLUTIONS ========== */
+.sol-lead { max-width: 640px; }
+.sol-list { display: flex; flex-direction: column; gap: 32px; margin-top: 56px; }
+.sol {
+  display: grid; grid-template-columns: 42% 1fr; background: white;
+  border: 1px solid #e8e3d8; border-radius: 8px; overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+.sol-img { min-height: 300px; background-size: cover; background-position: center; position: relative; }
+.sol-img-plain {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1a1a2e 45%, #0f3460 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.sol-img-plain span {
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px;
+  letter-spacing: 3px; color: rgba(201,168,76,0.75);
+}
+.sol-body { padding: 44px 44px 40px; display: flex; flex-direction: column; }
+.sol-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.sol-num {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #a8893c;
+}
+.sol-badge {
+  font-size: 11px; letter-spacing: 1px; padding: 2px 10px; border-radius: 999px;
+  border: 1px solid #c9a84c; color: #a8893c;
+}
+.sol-badge.live { background: #c9a84c; color: #1a1a2e; border-color: #c9a84c; }
+.sol-target { font-size: 12px; color: #888; letter-spacing: 1px; margin-bottom: 10px; }
+.sol-title {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 23px; font-weight: 600; line-height: 1.6; margin-bottom: 16px;
+}
+.sol-text { font-size: 14px; color: #555; line-height: 2.1; }
+.sol-link {
+  margin-top: auto; padding-top: 28px; align-self: flex-start;
+  color: #1a1a2e; font-size: 13px; font-weight: bold; letter-spacing: 1px; text-decoration: none;
+  border-bottom: 1px solid #c9a84c; padding-bottom: 2px; transition: color 0.2s;
+}
+.sol-link:hover { color: #a8893c; }
+.sol-soon { margin-top: auto; padding-top: 28px; font-size: 12px; color: #999; letter-spacing: 1px; }
+
+/* ========== MISSION / VISION ========== */
+.mv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.mv {
+  background: white; border: 1px solid #e8e3d8; border-radius: 8px; padding: 36px 30px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+}
+.mv-key {
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px;
+  letter-spacing: 4px; text-transform: uppercase; color: #a8893c; margin-bottom: 14px;
+}
+.mv-text {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 19px; font-weight: 600; line-height: 1.75; color: #1a1a2e;
+}
+.mv-more { margin-top: 40px; text-align: center; }
+.mv-more a {
+  display: inline-block; padding: 14px 40px; border: 1px solid #1a1a2e; color: #1a1a2e;
+  text-decoration: none; font-size: 13px; letter-spacing: 2px; transition: background 0.25s, color 0.25s;
+}
+.mv-more a:hover { background: #1a1a2e; color: #f5efe4; }
+
+/* ========== CONTACT ========== */
+.contact { text-align: center; }
+.contact .sec-rule { margin: 0 auto 32px; }
+.contact-actions { margin-top: 44px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.contact-note { margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.45); line-height: 2; }
+
+/* ========== FADE IN ========== */
+.fade { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.fade.is-visible { opacity: 1; transform: none; }
+
+/* ========== FOOTER ========== */
+footer {
+  background: #0d1b2a; color: rgba(255,255,255,0.4); padding: 48px 80px; font-size: 12px; line-height: 2;
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 6px; }
+.footer-logo-mark { height: 28px; width: auto; display: block; }
+.footer-logo-text-wrap { background: #faf8f3; padding: 6px 14px; border-radius: 4px; display: inline-flex; align-items: center; }
+.footer-logo-text { height: 22px; width: auto; display: block; }
+.footer-tag { font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 2px; margin-bottom: 24px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 16px; font-size: 11px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 20px; }
+.footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+.footer-links a:hover { color: #c9a84c; }
+.footer-sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+
+@media (max-width: 960px) {
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .mv-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 16px; }
+  .nav-logo-text { height: 26px; }
+  .nav-links { display: none; }
+  .nav-cta { padding: 8px 14px; font-size: 12px; letter-spacing: 0; }
+  .hero { min-height: auto; }
+  .hero-inner { padding: 72px 20px 80px; }
+  .hero-main { font-size: 28px; }
+  .hero-sub { font-size: 14px; }
+  .sec { padding: 72px 20px; }
+  .sec-title { font-size: 23px; }
+  .sec-body { font-size: 14px; }
+  .sec-body br, .hero-sub br, .sol-text br { display: none; }
+  .shift { padding: 28px 20px; }
+  .shift-row { flex-direction: column; gap: 0; }
+  .shift-arrow { margin-left: 0; }
+  .steps { grid-template-columns: 1fr; }
+  .sol { grid-template-columns: 1fr; }
+  .sol-img { min-height: 180px; }
+  .sol-body { padding: 28px 22px 30px; }
+  .sol-title { font-size: 20px; }
+  .mv-text { font-size: 17px; }
+  footer { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="logo-mark.png" alt="Agequake" class="nav-logo-mark">
+    <img src="logo-text.png" alt="Agequake Management Consulting" class="nav-logo-text">
+  </a>
+  <div class="nav-links">
+    <a href="#about">私たちについて</a>
+    <span class="nav-sep">|</span>
+    <a href="#approach">アプローチ</a>
+    <span class="nav-sep">|</span>
+    <a href="#solutions">ソリューション</a>
+    <span class="nav-sep">|</span>
+    <a href="company.html">会社概要</a>
+  </div>
+  <a href="#contact" class="nav-cta">お問い合わせ</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Management Consulting</p>
+    <h1 class="hero-main">社会の変化を、<br>地域の可能性に変える。</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">
+      社会が変わるとき、制度や市場が追いつかない<br>
+      「隙間」が必ず生まれます。Agequakeは、<br>
+      その隙間を発見し、持続可能な仕組みに変える<br>
+      コンサルティングカンパニーです。
+    </p>
+    <div class="hero-actions">
+      <a href="#solutions" class="btn-gold">ソリューションを見る</a>
+      <a href="#contact" class="btn-line">ご相談・お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="sec sec-light" id="about">
+  <div class="sec-inner about-grid">
+    <div class="fade">
+      <span class="sec-label">About Us</span>
+      <h2 class="sec-title">商品からではなく、<br>課題から考える。</h2>
+      <div class="sec-rule"></div>
+      <p class="sec-body">
+        高齢化、人口減少、働き方や価値観の変化。<br>
+        社会の変化は、既存の制度やビジネスモデルでは<br>
+        対応しきれない<strong>歪み</strong>を生み出します。
+      </p>
+      <p class="sec-body">
+        私たちは特定の商品を売る会社ではありません。<br>
+        まず課題を見つけ、その課題に最も適した手段を選び、<br>
+        現場で回り続ける<strong>仕組み</strong>として実装します。
+      </p>
+    </div>
+    <div class="shift fade" aria-label="Agequakeの考え方">
+      <div class="shift-row">
+        <div class="shift-key">Change</div>
+        <div class="shift-val">社会の変化<small>高齢化・人口減少・価値観の多様化</small></div>
+      </div>
+      <div class="shift-arrow">↓</div>
+      <div class="shift-row">
+        <div class="shift-key">Gap</div>
+        <div class="shift-val">生まれる歪み<small>制度の隙間・まだ誰も対応していない領域</small></div>
+      </div>
+      <div class="shift-arrow">↓</div>
+      <div class="shift-row">
+        <div class="shift-key">System</div>
+        <div class="shift-val">持続可能な仕組み<small>現場で回り、地域に残り続ける解決策</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== APPROACH ========== -->
+<section class="sec sec-dark" id="approach">
+  <div class="sec-inner">
+    <div class="sec-narrow fade" style="margin-left:0;">
+      <span class="sec-label">Our Approach</span>
+      <h2 class="sec-title">発見から、定着まで。</h2>
+      <div class="sec-rule"></div>
+      <p class="sec-body">
+        戦略を描いて終わりにはしません。<br>
+        現場で実際に動き、成果が出続ける状態になるまで伴走します。
+      </p>
+    </div>
+    <div class="steps fade">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-en">Discover</div>
+        <div class="step-title">課題の発見</div>
+        <div class="step-body">業界の構造と現場の声から、表面化していない本当の課題を特定します。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-en">Design</div>
+        <div class="step-title">仕組みの設計</div>
+        <div class="step-body">課題に最も合う手段を選び、収益と継続性を両立するモデルを設計します。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-en">Implement</div>
+        <div class="step-title">現場への実装</div>
+        <div class="step-body">商材・ツール・導入資料まで用意し、現場ですぐに動く形で届けます。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-en">Sustain</div>
+        <div class="step-title">定着と展開</div>
+        <div class="step-body">成果を検証し、同じ構造を持つ別の業界や地域へと展開していきます。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SOLUTIONS ========== -->
+<section class="sec sec-warm" id="solutions">
+  <div class="sec-inner">
+    <div class="sol-lead fade">
+      <span class="sec-label">Solutions</span>
+      <h2 class="sec-title">課題ごとに、最適な仕組みを。</h2>
+      <div class="sec-rule"></div>
+      <p class="sec-body">
+        Agequakeのソリューションは、すべて一つの課題から生まれています。<br>
+        業界ごとに異なる課題に、それぞれ専用の仕組みでお応えします。
+      </p>
+    </div>
+
+    <div class="sol-list">
+      <!-- Solution 01 -->
+      <article class="sol fade">
+        <div class="sol-img" style="background-image:url('lp-shinkyu-hero.png');" role="img" aria-label="施術院のイメージ"></div>
+        <div class="sol-body">
+          <div class="sol-meta">
+            <span class="sol-num">Solution 01</span>
+            <span class="sol-badge live">提供中</span>
+          </div>
+          <div class="sol-target">鍼灸院・整体院・整骨院の経営者さま</div>
+          <h3 class="sol-title">施術院経営支援</h3>
+          <p class="sol-text">
+            技術を磨いても、料金に反映しにくい。<br>
+            施術院が抱えるこの構造的な課題に、温泉研究所監修の入浴剤「整巡湯」を<br>
+            活用したメニュー設計で向き合います。無料サンプルからお試しいただけます。
+          </p>
+          <a href="lp-shinkyu.html" class="sol-link">詳しく見る →</a>
+        </div>
+      </article>
+
+      <!-- Solution 02 -->
+      <article class="sol fade">
+        <div class="sol-img" style="background-image:url('solution-ryokan.jpg');" role="img" aria-label="露天風呂の湯けむり"></div>
+        <div class="sol-body">
+          <div class="sol-meta">
+            <span class="sol-num">Solution 02</span>
+            <span class="sol-badge">準備中</span>
+          </div>
+          <div class="sol-target">旅館・小規模ホテル・日帰り温浴施設さま</div>
+          <h3 class="sol-title">湯治文化ブランディング</h3>
+          <p class="sol-text">
+            日本の湯治文化と温泉研究所の知見を、宿泊プランやご当地限定の<br>
+            お土産として形にし、訪日外国人をはじめとする旅行者に<br>
+            「持ち帰れる温泉体験」を届けます。
+          </p>
+          <div class="sol-soon">詳細ページを準備しています</div>
+        </div>
+      </article>
+
+      <!-- Solution 03 -->
+      <article class="sol fade">
+        <div class="sol-img sol-img-plain"><span>Well-being</span></div>
+        <div class="sol-body">
+          <div class="sol-meta">
+            <span class="sol-num">Solution 03</span>
+            <span class="sol-badge">準備中</span>
+          </div>
+          <div class="sol-target">企業・介護事業者・サロンさま</div>
+          <h3 class="sol-title">未病・健康経営支援</h3>
+          <p class="sol-text">
+            病気になる前、介護が必要になる前の段階に着目し、<br>
+            温浴を起点としたセルフケアの仕組みを<br>
+            職場や施設に取り入れるお手伝いをします。
+          </p>
+          <div class="sol-soon">詳細ページを準備しています</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MISSION / VISION ========== -->
+<section class="sec sec-light">
+  <div class="sec-inner">
+    <div class="fade" style="text-align:center;">
+      <span class="sec-label">Philosophy</span>
+      <h2 class="sec-title" style="margin-bottom:0;">私たちが大切にしていること</h2>
+    </div>
+    <div class="mv-grid fade">
+      <div class="mv">
+        <div class="mv-key">Philosophy</div>
+        <div class="mv-text">社会の変化を、<br>地域の可能性に変える。</div>
+      </div>
+      <div class="mv">
+        <div class="mv-key">Mission</div>
+        <div class="mv-text">社会課題を、<br>持続可能な仕組みに変える。</div>
+      </div>
+      <div class="mv">
+        <div class="mv-key">Vision</div>
+        <div class="mv-text">地域から、<br>未来のモデルを創る。</div>
+      </div>
+    </div>
+    <div class="mv-more fade"><a href="company.html">会社概要を見る</a></div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="sec sec-dark contact" id="contact">
+  <div class="sec-narrow fade">
+    <span class="sec-label">Contact</span>
+    <h2 class="sec-title">まずは、お話を聞かせてください。</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-body">
+      業界や規模を問わず、事業の課題についてお気軽にご相談ください。<br>
+      どのソリューションが合うか分からない段階でも構いません。
+    </p>
+    <div class="contact-actions">
+      <a href="mailto:agequake@outlook.com?subject=%E3%81%94%E7%9B%B8%E8%AB%87%E3%83%BB%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B" class="btn-gold">メールで相談する</a>
+      <a href="lp-shinkyu.html" class="btn-line">施術院の方はこちら</a>
+    </div>
+    <p class="contact-note">
+      agequake@outlook.com ／ TEL 080-4027-7206<br>
+      営業電話は一切いたしません。
+    </p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <a href="index.html" class="footer-brand">
+    <img src="logo-mark.png" alt="Agequake" class="footer-logo-mark">
+    <div class="footer-logo-text-wrap">
+      <img src="logo-text.png" alt="Agequake Management Consulting" class="footer-logo-text">
+    </div>
+  </a>
+  <div class="footer-tag">社会の変化を、地域の可能性に変える。</div>
+  <div style="margin-bottom:28px;">
+    社会の変化から生まれる課題を発見し、<br>
+    持続可能な仕組みに変えるコンサルティングカンパニーです。
+  </div>
+  <div class="footer-links">
+    <a href="company.html">会社概要</a>
+    <span class="footer-sep">|</span>
+    <a href="lp-shinkyu.html">施術院経営支援</a>
+    <span class="footer-sep">|</span>
+    <a href="legal.html">特定商取引法に基づく表記</a>
+    <span class="footer-sep">|</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </div>
+  <div class="footer-bottom">© 2022-2026 Agequake All Rights Reserved.</div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

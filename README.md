@@ -1,13 +1,13 @@
-# Agequake — 鍼灸院向けLP（整巡湯 無料サンプル申し込みサイト）
+# Agequake — コーポレートサイト（経営コンサルティング）＋ ソリューション別LP
 
 ## 本番URL
-- **メイン**: https://agequake.jp → lp-shinkyu.html へ自動リダイレクト
-- **LP直URL**: https://agequake.jp/lp-shinkyu.html
+- **コーポレートトップ**: https://agequake.jp （index.html）
+- **施術院向けLP（Solution 01）**: https://agequake.jp/lp-shinkyu.html ※営業メールはこちらへ直接誘導
 
 ## デプロイ構成
 - GitHub: `github.com/Agequake/agequake-website`（mainブランチ）
 - Netlify: Push → 自動デプロイ（通常1〜2分で反映）
-- `_redirects` により `agequake.jp/` → `lp-shinkyu.html` へ301リダイレクト済み
+- `agequake.jp/` は index.html（コーポレートトップ）を表示（旧 `_redirects` のLPへの301は廃止）
 
 ---
 
@@ -15,7 +15,8 @@
 
 | ファイル | URL | 役割 |
 |---|---|---|
-| lp-shinkyu.html | agequake.jp/lp-shinkyu.html | メインLP（鍼灸院向け整巡湯無料サンプル申し込み） |
+| index.html | agequake.jp/ | コーポレートトップ（理念・アプローチ・ソリューション一覧・お問い合わせ） |
+| lp-shinkyu.html | agequake.jp/lp-shinkyu.html | Solution 01：施術院経営支援LP（整巡湯無料サンプル申し込み） |
 | form.html | agequake.jp/form.html | 無料サンプル申し込みフォーム |
 | company.html | agequake.jp/company.html | 会社概要 |
 | legal.html | agequake.jp/legal.html | 特定商取引法に基づく表記 |
@@ -37,6 +38,7 @@
 | lp-shinkyu-seijunto.png | Section05 整巡湯商品画像 |
 | lp-shinkyu-seijunto-scene2.jpg | Section05背景（整巡湯を温泉に注ぐシーン） |
 | lp-shinkyu-avatar-a/b/c.jpg | お客様の声のアバター写真 |
+| solution-ryokan.jpg | index.html Solution 02（旅館・温浴施設向け）カード画像 |
 | flow-sample.jpg | Section06背景（整巡湯サンプル・導入ガイド） |
 
 ---
@@ -99,9 +101,9 @@ Agequake（エイジクエイク）／代表: 新堀 博
 ### ミッション
 社会課題を、持続可能な仕組みに変える。
 
-### 中核事業
-整巡湯（温泉研究所監修の入浴剤）を経営改善の道具として、施術院の経営体力向上を支援する。
-商品販売ではなくコンサルティングが事業の本質。
+### 事業
+経営コンサルティング。社会の変化から生まれる課題を発見し、業界ごとに仕組みとして実装する。
+施術院経営支援（整巡湯を活用）は Solution 01 であり、Agequakeのソリューションの一つ。
 
 ### ターゲット
 施術院（鍼灸院・整骨院・整体院等）の経営者
