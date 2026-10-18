@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>湯治文化ブランディング | Agequake</title>
+<!-- ドラフト中は検索結果に出さない（公開時に削除） -->
+<meta name="robots" content="noindex, nofollow">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NHNKTPSDZG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NHNKTPSDZG');
+</script>
+<meta name="description" content="日本の湯治文化を、海外の旅行者に届く物語と滞在体験に。温泉研究所監修のもと、旅館・温浴施設・温泉地の魅力を世界へ発信し、訪問までの導線を整えます。">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="湯治文化ブランディング | Agequake">
+<meta property="og:description" content="日本の湯治文化を、海外の旅行者に届く物語と滞在体験に。">
+<meta property="og:url" content="https://agequake.jp/lp-wa.html">
+<meta property="og:image" content="https://agequake.jp/solution-ryokan.jpg">
+<meta property="og:site_name" content="Agequake">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  background: #faf8f3;
+  color: #1a1a2e;
+  font-size: 16px;
+  line-height: 1.8;
+  /* 日本語を文節単位で折り返す（行頭に2〜3文字だけ残るのを防ぐ） */
+  word-break: auto-phrase;
+}
+.mincho { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; }
+.en { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+
+/* ========== NAV ========== */
+nav {
+  background: white; padding: 16px 48px; display: flex; justify-content: space-between;
+  align-items: center; box-shadow: 0 1px 8px rgba(0,0,0,0.07); position: sticky; top: 0; z-index: 200;
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-mark { height: 32px; width: auto; display: block; }
+.nav-logo-text { height: 34px; width: auto; display: block; }
+.nav-links { display: flex; align-items: center; gap: 14px; }
+.nav-links a { color: rgba(26,26,46,0.45); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+.nav-links a:hover { color: #c9a84c; }
+.nav-sep { color: rgba(26,26,46,0.15); font-size: 11px; }
+.nav-cta {
+  background: #c9a84c; color: #1a1a2e; padding: 10px 22px; border-radius: 4px;
+  font-size: 13px; font-weight: bold; letter-spacing: 1px; text-decoration: none; transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ========== HERO ========== */
+.hero {
+  position: relative; min-height: calc(100vh - 66px); display: flex; align-items: center;
+  color: white; background: #0d1b2a url('solution-ryokan.jpg') center / cover no-repeat; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(100deg, rgba(13,27,42,0.92) 0%, rgba(26,26,46,0.78) 50%, rgba(13,27,42,0.35) 100%);
+}
+.hero-inner { position: relative; z-index: 1; padding: 96px 80px; max-width: 900px; }
+.hero-eyebrow { font-size: 15px; letter-spacing: 4px; text-transform: uppercase; color: #c9a84c; margin-bottom: 28px; }
+.hero-main { font-size: 44px; font-weight: 600; line-height: 1.6; letter-spacing: 0.06em; margin-bottom: 28px; }
+.hero-rule { width: 48px; height: 2px; background: #c9a84c; margin-bottom: 28px; }
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.78); line-height: 2.1; max-width: 580px; }
+.hero-en { margin-top: 28px; font-size: 18px; color: rgba(255,255,255,0.55); letter-spacing: 1px; }
+.hero-actions { margin-top: 44px; display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-gold {
+  background: #c9a84c; color: #1a1a2e; padding: 14px 32px; border-radius: 4px;
+  font-size: 14px; font-weight: bold; letter-spacing: 1px; text-decoration: none; transition: opacity 0.2s;
+}
+.btn-gold:hover { opacity: 0.85; }
+.btn-line {
+  border: 1px solid rgba(255,255,255,0.5); color: white; padding: 14px 32px; border-radius: 4px;
+  font-size: 14px; letter-spacing: 1px; text-decoration: none; transition: background 0.2s, border-color 0.2s;
+}
+.btn-line:hover { background: rgba(255,255,255,0.08); border-color: white; }
+
+/* ========== SECTIONS ========== */
+.sec { padding: 112px 24px; }
+.sec-light { background: #faf8f3; }
+.sec-washi { background: #f4ede0; }
+.sec-dark { background: linear-gradient(135deg, #0d1b2a 0%, #1a1a2e 45%, #0f3460 100%); color: white; }
+.sec-inner { max-width: 1040px; margin: 0 auto; }
+.sec-narrow { max-width: 720px; margin: 0 auto; }
+.sec-center { text-align: center; }
+.sec-label {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-size: 14px; letter-spacing: 4px; text-transform: uppercase;
+  color: #8a6a2f; display: block; margin-bottom: 14px;
+}
+.sec-dark .sec-label { color: #c9a84c; }
+.sec-title {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 32px; font-weight: 600; line-height: 1.6; letter-spacing: 0.04em; margin-bottom: 28px;
+}
+.sec-rule { width: 48px; height: 2px; background: #c9a84c; margin-bottom: 32px; }
+.sec-center .sec-rule { margin-left: auto; margin-right: auto; }
+.sec-body { font-size: 15px; color: #555; line-height: 2.2; }
+.sec-body + .sec-body { margin-top: 20px; }
+.sec-dark .sec-body { color: rgba(255,255,255,0.72); }
+.sec-body strong { color: #1a1a2e; }
+.sec-dark .sec-body strong { color: #c9a84c; font-weight: normal; }
+
+/* ========== 01 QUESTION ========== */
+.contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+.contrast-card { background: white; border: 1px solid #e8e3d8; border-radius: 8px; padding: 36px 32px; }
+.contrast-card.is-new { border-color: #c9a84c; box-shadow: 0 6px 28px rgba(201,168,76,0.15); }
+.contrast-key { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #999; margin-bottom: 10px; }
+.contrast-card.is-new .contrast-key { color: #8a6a2f; }
+.contrast-title { font-size: 20px; font-weight: 600; margin-bottom: 14px; }
+.contrast-list { list-style: none; font-size: 14px; color: #555; line-height: 2.1; }
+.contrast-list li::before { content: '—　'; color: #c9a84c; }
+.landing {
+  margin-top: 48px; padding: 28px 32px; background: #1a1a2e; color: white; border-radius: 8px;
+  font-size: 15px; line-height: 2.1;
+}
+.landing strong { color: #c9a84c; font-weight: normal; }
+
+/* ========== 02 STORY（湯治とは） ========== */
+.story-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
+.story-points { list-style: none; margin-top: 8px; }
+.story-points li { display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid #e3dccb; }
+.story-points li:first-child { border-top: 1px solid #e3dccb; }
+.story-kanji { font-size: 30px; color: #8a6a2f; line-height: 1.2; min-width: 40px; }
+.story-ttl { font-size: 15px; font-weight: bold; margin-bottom: 4px; }
+.story-txt { font-size: 13px; color: #666; line-height: 2; }
+.en-sample {
+  margin-top: 40px; background: white; border-left: 3px solid #c9a84c; padding: 26px 28px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+}
+.en-sample-label { font-size: 11px; letter-spacing: 2px; color: #8a6a2f; margin-bottom: 10px; }
+.en-sample p { font-family: 'Cormorant Garamond', serif; font-size: 19px; line-height: 1.7; color: #1a1a2e; }
+
+/* ========== 03 APPROACH（3つの方向） ========== */
+.dirs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 56px; }
+.dir { background: rgba(255,255,255,0.04); border-top: 2px solid #c9a84c; padding: 36px 28px 40px; }
+.dir-num { font-size: 40px; color: #c9a84c; line-height: 1; margin-bottom: 8px; }
+.dir-en { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 18px; }
+.dir-title { font-size: 19px; font-weight: 600; line-height: 1.6; margin-bottom: 16px; }
+.dir-body { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 2.1; }
+.dir-out { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: rgba(255,255,255,0.5); line-height: 2; }
+.dir-out b { color: #c9a84c; font-weight: normal; letter-spacing: 1px; }
+
+/* ========== 04 PRODUCT（禅之湯） ========== */
+.product-grid { display: grid; grid-template-columns: 0.8fr 1fr; gap: 72px; align-items: center; }
+.product-img { width: 100%; max-width: 380px; display: block; margin: 0 auto; border-radius: 4px; box-shadow: 0 18px 48px rgba(60,40,10,0.18); }
+.product-name { font-size: 15px; color: #8a6a2f; letter-spacing: 4px; margin-bottom: 6px; }
+.product-copy { font-size: 36px; font-weight: 600; letter-spacing: 0.08em; line-height: 1.5; margin-bottom: 24px; }
+.product-uses { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px; }
+.use { background: white; border: 1px solid #e3dccb; border-radius: 6px; padding: 18px 20px; }
+.use-ttl { font-size: 14px; font-weight: bold; margin-bottom: 4px; }
+.use-ttl span { color: #b8322a; margin-right: 6px; }
+.use-txt { font-size: 12px; color: #666; line-height: 1.9; }
+.spec { margin-top: 28px; font-size: 12px; color: #888; line-height: 2; }
+
+/* ========== 05 SUPERVISION ========== */
+.lab-link {
+  display: inline-block; margin-top: 36px; padding: 14px 40px; border: 1px solid #1a1a2e; color: #1a1a2e;
+  text-decoration: none; font-size: 13px; letter-spacing: 2px; transition: background 0.25s, color 0.25s;
+}
+.lab-link:hover { background: #1a1a2e; color: #f5efe4; }
+
+/* ========== 06 FLOW ========== */
+.flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px; counter-reset: f; }
+.flow-step { background: white; border: 1px solid #e8e3d8; border-radius: 8px; padding: 30px 24px; position: relative; }
+.flow-num { font-size: 13px; letter-spacing: 3px; color: #8a6a2f; margin-bottom: 10px; }
+.flow-ttl { font-size: 16px; font-weight: bold; margin-bottom: 10px; }
+.flow-txt { font-size: 13px; color: #666; line-height: 2; }
+.faq { margin-top: 72px; }
+.faq-item { border-bottom: 1px solid #e3dccb; }
+.faq-item summary {
+  list-style: none; cursor: pointer; padding: 22px 40px 22px 0; font-size: 15px; font-weight: bold; position: relative;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::before { content: 'Q.'; font-family: 'Cormorant Garamond', serif; font-style: italic; color: #c9a84c; margin-right: 12px; font-size: 18px; }
+.faq-item summary::after { content: '+'; position: absolute; right: 8px; top: 18px; font-size: 22px; color: #c9a84c; transition: transform 0.2s; }
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-a { padding: 0 0 24px 30px; font-size: 14px; color: #555; line-height: 2.1; }
+
+/* ========== CTA ========== */
+.cta-sec { text-align: center; }
+.cta-sec .sec-rule { margin: 0 auto 32px; }
+.cta-actions { margin-top: 44px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-note { margin-top: 24px; font-size: 12px; color: rgba(255,255,255,0.45); line-height: 2; }
+
+/* ========== FADE ========== */
+.fade { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.fade.is-visible { opacity: 1; transform: none; }
+
+/* ========== FOOTER ========== */
+footer { background: #0d1b2a; color: rgba(255,255,255,0.4); padding: 48px 80px; font-size: 12px; line-height: 2; }
+.footer-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 6px; }
+.footer-logo-mark { height: 28px; width: auto; display: block; }
+.footer-logo-text-wrap { background: #faf8f3; padding: 6px 14px; border-radius: 4px; display: inline-flex; align-items: center; }
+.footer-logo-text { height: 22px; width: auto; display: block; }
+.footer-tag { font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 2px; margin-bottom: 24px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 16px; font-size: 11px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 20px; }
+.footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 12px; transition: color 0.2s; }
+.footer-links a:hover { color: #c9a84c; }
+.footer-sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+
+@media (max-width: 960px) {
+  .story-grid, .product-grid { grid-template-columns: 1fr; gap: 48px; }
+  .dirs { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  nav { padding: 14px 16px; }
+  .nav-logo-text { height: 26px; }
+  .nav-links { display: none; }
+  .nav-cta { padding: 8px 14px; font-size: 12px; letter-spacing: 0; }
+  .hero { min-height: auto; }
+  .hero-inner { padding: 72px 20px 80px; }
+  .hero-main { font-size: 27px; }
+  .hero-sub { font-size: 14px; }
+  .hero-en { font-size: 16px; }
+  .sec { padding: 72px 20px; }
+  .sec-title { font-size: 23px; }
+  .sec-body { font-size: 14px; }
+  .pc-only { display: none; }
+  .sec-body br, .hero-sub br, .dir-body br, .landing br { display: none; }
+  .contrast { grid-template-columns: 1fr; }
+  .contrast-card { padding: 28px 22px; }
+  .landing { padding: 24px 20px; font-size: 14px; }
+  .en-sample { padding: 22px 20px; }
+  .en-sample p { font-size: 17px; }
+  .dir { padding: 30px 22px 32px; }
+  .product-copy { font-size: 28px; }
+  .product-uses { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: 1fr; }
+  footer { padding: 40px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="logo-mark.png" alt="Agequake" class="nav-logo-mark">
+    <img src="logo-text.png" alt="Agequake Management Consulting" class="nav-logo-text">
+  </a>
+  <div class="nav-links">
+    <a href="#story">湯治とは</a>
+    <span class="nav-sep">|</span>
+    <a href="#approach">3つの取り組み</a>
+    <span class="nav-sep">|</span>
+    <a href="#product">禅之湯</a>
+    <span class="nav-sep">|</span>
+    <a href="#flow">ご相談の流れ</a>
+  </div>
+  <a href="#contact" class="nav-cta">ご相談はこちら</a>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow en">Toji Culture Branding</p>
+    <h1 class="hero-main mincho">湯治は、日本が世界に<br>誇れる旅のかたちです。</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">
+      湯に浸かり、その土地に滞在し、心身を整える。<br>
+      古くから受け継がれてきた湯治の文化を、<br>
+      海外の旅行者に届く物語と滞在体験に変えていきます。
+    </p>
+    <p class="hero-en en">Toji — the Japanese way of healing through hot springs.</p>
+    <div class="hero-actions">
+      <a href="#approach" class="btn-gold">取り組みを見る</a>
+      <a href="#contact" class="btn-line">ご相談・お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 01 QUESTION ========== -->
+<section class="sec sec-light">
+  <div class="sec-inner">
+    <div class="sec-narrow fade" style="margin-left:0;">
+      <span class="sec-label">01 — Perspective</span>
+      <h2 class="sec-title">その温泉の魅力は、海外の旅行者に<br class="pc-only">どこまで伝わっているでしょうか。</h2>
+      <div class="sec-rule"></div>
+      <p class="sec-body">
+        海外の旅行者が日本の温泉について目にする情報の多くは、<br>
+        「入り方」や「マナー」の説明にとどまっています。<br>
+        その湯がなぜ大切にされてきたのか、その土地でどう過ごすのか。<br>
+        本当に伝えたい価値は、まだ言葉になっていないことが少なくありません。
+      </p>
+    </div>
+
+    <div class="contrast fade">
+      <div class="contrast-card">
+        <div class="contrast-key en">As it is</div>
+        <div class="contrast-title mincho">「入浴施設」として伝わる温泉</div>
+        <ul class="contrast-list">
+          <li>入り方・マナーの案内が中心</li>
+          <li>立ち寄って、短時間で次の目的地へ</li>
+          <li>他の温泉地との違いが伝わりにくい</li>
+        </ul>
+      </div>
+      <div class="contrast-card is-new">
+        <div class="contrast-key en">What it can be</div>
+        <div class="contrast-title mincho">「文化体験」として伝わる湯治</div>
+        <ul class="contrast-list">
+          <li>湯の歴史や土地の物語とともに伝わる</li>
+          <li>滞在すること自体が旅の目的になる</li>
+          <li>「ここでしか得られない時間」として選ばれる</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="landing fade">
+      新しい設備を用意する必要はありません。すでにある湯と土地の魅力に、<br>
+      <strong>伝わる言葉と、過ごし方の設計</strong>を加えることから始められます。
+    </p>
+  </div>
+</section>
+
+<!-- ========== 02 STORY ========== -->
+<section class="sec sec-washi" id="story">
+  <div class="sec-inner story-grid">
+    <div class="fade">
+      <span class="sec-label">02 — What is Toji</span>
+      <h2 class="sec-title">湯治とは、湯とともに<br>「暮らす」ことでした。</h2>
+      <div class="sec-rule"></div>
+      <p class="sec-body">
+        かつて人々は、農閑期や季節の変わり目に温泉地へ出かけ、<br>
+        数日から数週間をかけて湯に浸かり、心身を整えてきました。<br>
+        湯治は、単なる入浴ではなく、その土地の湯・食・人と<br>
+        ゆっくり向き合う、日本ならではの滞在の文化です。
+      </p>
+      <div class="en-sample">
+        <div class="en-sample-label">英語発信のイメージ / English sample</div>
+        <p>For centuries, people in Japan have travelled to hot spring towns not just to bathe, but to stay — resting, eating local food, and restoring body and mind. This is toji.</p>
+      </div>
+    </div>
+    <ul class="story-points fade">
+      <li>
+        <div class="story-kanji mincho">湯</div>
+        <div>
+          <div class="story-ttl">その土地の湯</div>
+          <div class="story-txt">泉質や湧き出る由来など、湯そのものに宿る物語。</div>
+        </div>
+      </li>
+      <li>
+        <div class="story-kanji mincho">食</div>
+        <div>
+          <div class="story-ttl">郷土の食</div>
+          <div class="story-txt">滞在を支えてきた、土地の恵みを活かした料理。</div>
+        </div>
+      </li>
+      <li>
+        <div class="story-kanji mincho">景</div>
+        <div>
+          <div class="story-ttl">自然と町並み</div>
+          <div class="story-txt">四季の移ろいや、湯けむりの立つ温泉街の風景。</div>
+        </div>
+      </li>
+      <li>
+        <div class="story-kanji mincho">人</div>
+        <div>
+          <div class="story-ttl">受け継がれる文化</div>
+          <div class="story-txt">祭り、工芸、もてなし。地域の人が守ってきた営み。</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 03 APPROACH ========== -->
+<section class="sec sec-dark" id="approach">
+  <div class="sec-inner">
+    <div class="sec-narrow fade" style="margin-left:0;">
+      <span class="sec-label">03 — Our Approach</span>
+      <h2 class="sec-title">伝える、過ごしてもらう、<br>訪れてもらう。</h2>
+      <div class="sec-rule"></div>
+      <p class="sec-body">
+        湯治文化ブランディングは、3つの取り組みを組み合わせて進めます。<br>
+        どこから始めるかは、地域や施設の状況に合わせてご提案します。
+      </p>
+    </div>
+    <div class="dirs fade">
+      <div class="dir">
+        <div class="dir-num en">01</div>
+        <div class="dir-en">Story &amp; Language</div>
+        <div class="dir-title mincho">湯治文化の<br>物語化・英語発信</div>
+        <p class="dir-body">湯治の歴史や、その土地ならではの温泉文化をわかりやすく紹介。背景にある価値まで伝わる英語の文章を添え、海外へ発信します。</p>
+        <div class="dir-out"><b>例えば</b>　施設・温泉地の紹介文、英語版の館内案内、Webや印刷物向けの文章</div>
+      </div>
+      <div class="dir">
+        <div class="dir-num en">02</div>
+        <div class="dir-en">Stay &amp; Experience</div>
+        <div class="dir-title mincho">地域資源を活かした<br>滞在体験づくり</div>
+        <p class="dir-body">温泉に加え、郷土料理、自然、伝統文化を組み合わせ、その地域で過ごすこと自体が魅力となる滞在体験を企画します。</p>
+        <div class="dir-out"><b>例えば</b>　湯治をテーマにした宿泊プラン、地域の食や文化と組み合わせた体験の企画</div>
+      </div>
+      <div class="dir">
+        <div class="dir-num en">03</div>
+        <div class="dir-en">Path to Visit</div>
+        <div class="dir-title mincho">海外旅行者を<br>地域へつなぐ導線づくり</div>
+        <p class="dir-body">興味を持った海外旅行者が、訪問先や滞在方法を具体的に検討できるよう、Webでの情報発信から宿泊・体験の予約案内までを整えます。</p>
+        <div class="dir-out"><b>例えば</b>　英語の情報ページ、アクセスや滞在モデルの案内、予約までの案内の整理</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 04 PRODUCT ========== -->
+<section class="sec sec-washi" id="product">
+  <div class="sec-inner product-grid">
+    <div class="fade">
+      <img src="wa-zennoyu-package.jpg" alt="禅之湯 パッケージ（デザイン案）" class="product-img">
+    </div>
+    <div class="fade">
+      <span class="sec-label">04 — Zen-no-yu</span>
+      <p class="product-name mincho">禅之湯</p>
+      <h2 class="product-copy mincho">湯治を、家で。</h2>
+      <div class="sec-rule"></div>
+      <p class="sec-body">
+        旅の思い出は、帰り道で終わらせなくてもいい。<br>
+        禅之湯は、日本の湯治文化に着想を得た、温泉研究所監修の薬用入浴剤です。<br>
+        滞在のひとときを、旅のあとの毎日の入浴へとつなぎます。
+      </p>
+      <div class="product-uses">
+        <div class="use">
+          <div class="use-ttl"><span>◆</span>滞在体験の一部として</div>
+          <div class="use-txt">湯治をテーマにした宿泊プランや客室に、旅の締めくくりの一包として。</div>
+        </div>
+        <div class="use">
+          <div class="use-ttl"><span>◆</span>持ち帰れる湯治として</div>
+          <div class="use-txt">その土地の物語とともに手渡す、旅の記憶を持ち帰るためのお土産として。</div>
+        </div>
+      </div>
+      <p class="spec">
+        薬用入浴剤（医薬部外品）／温泉研究所 監修／ひのきの香り／内容量25g（一回分）<br>
+        ※パッケージはデザイン案です。仕様は確定後に掲載します。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 05 SUPERVISION ========== -->
+<section class="sec sec-light">
+  <div class="sec-narrow sec-center fade">
+    <span class="sec-label">05 — Supervision</span>
+    <h2 class="sec-title">温泉研究所の知見とともに。</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-body">
+      温泉研究所は、日本に古くから根づく湯治文化や養生の知恵を見つめ直し、<br>
+      現代に活かすための非営利の研究活動です。<br>
+      温泉の歴史、文化、療養、地域性など多角的な視点からの知見をもとに、<br>
+      物語の裏付けとなる内容づくりを行います。
+    </p>
+    <a href="https://onsen-lab.jp" target="_blank" rel="noopener noreferrer" class="lab-link" aria-label="温泉研究所のウェブサイトを別タブで開く">温泉研究所を見る</a>
+  </div>
+</section>
+
+<!-- ========== 06 FLOW ========== -->
+<section class="sec sec-washi" id="flow">
+  <div class="sec-inner">
+    <div class="sec-narrow sec-center fade">
+      <span class="sec-label">06 — Flow</span>
+      <h2 class="sec-title">まずは、その土地のお話を<br>聞かせてください。</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="flow fade">
+      <div class="flow-step">
+        <div class="flow-num en">Step 01</div>
+        <div class="flow-ttl">ヒアリング</div>
+        <div class="flow-txt">施設や温泉地の現状、お客様の層、これから目指したい姿を伺います。</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">Step 02</div>
+        <div class="flow-ttl">地域資源の棚卸し</div>
+        <div class="flow-txt">湯の由来、食、自然、文化など、物語の種になる資源を一緒に洗い出します。</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">Step 03</div>
+        <div class="flow-ttl">企画・制作</div>
+        <div class="flow-txt">物語と英語の文章、滞在体験、案内の導線を、状況に合わせて形にします。</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num en">Step 04</div>
+        <div class="flow-ttl">発信・改善</div>
+        <div class="flow-txt">実際の反応を見ながら、伝え方や体験の内容を磨き続けます。</div>
+      </div>
+    </div>
+
+    <div class="faq sec-narrow fade">
+      <details class="faq-item">
+        <summary>小規模な旅館や日帰り施設でも相談できますか。</summary>
+        <p class="faq-a">はい。規模を問わずご相談いただけます。施設単体だけでなく、温泉地全体での取り組みとしてのご相談も承ります。</p>
+      </details>
+      <details class="faq-item">
+        <summary>英語が話せるスタッフがいなくても大丈夫でしょうか。</summary>
+        <p class="faq-a">英語の文章や案内はこちらで用意します。まずは、現場の皆さまが無理なく使える形を一緒に考えるところから始めます。</p>
+      </details>
+      <details class="faq-item">
+        <summary>3つの取り組みのうち、一部だけお願いすることはできますか。</summary>
+        <p class="faq-a">できます。たとえば「まずは英語の紹介文から」など、必要なところから始めていただけます。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="sec sec-dark cta-sec" id="contact">
+  <div class="sec-narrow">
+    <span class="sec-label">Contact</span>
+    <h2 class="sec-title">湯治の文化を、<br>次の旅人へ届けませんか。</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-body">
+      まだ構想の段階でも構いません。<br>
+      施設や地域の魅力について、まずはお気軽にお聞かせください。
+    </p>
+    <div class="cta-actions">
+      <a href="mailto:agequake@outlook.com?subject=%E6%B9%AF%E6%B2%BB%E6%96%87%E5%8C%96%E3%83%96%E3%83%A9%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87" class="btn-gold">メールで相談する</a>
+    </div>
+    <p class="cta-note">
+      agequake@outlook.com ／ TEL 080-4027-7206<br>
+      営業電話は一切いたしません。
+    </p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <a href="index.html" class="footer-brand">
+    <img src="logo-mark.png" alt="Agequake" class="footer-logo-mark">
+    <div class="footer-logo-text-wrap">
+      <img src="logo-text.png" alt="Agequake Management Consulting" class="footer-logo-text">
+    </div>
+  </a>
+  <div class="footer-tag">社会の変化を、地域の可能性に変える。</div>
+  <div style="margin-bottom:28px;">
+    社会の変化から生まれる課題を発見し、<br>
+    持続可能な仕組みに変えるコンサルティングカンパニーです。
+  </div>
+  <div class="footer-links">
+    <a href="index.html">トップ</a>
+    <span class="footer-sep">|</span>
+    <a href="company.html">会社概要</a>
+    <span class="footer-sep">|</span>
+    <a href="legal.html">特定商取引法に基づく表記</a>
+    <span class="footer-sep">|</span>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </div>
+  <div class="footer-bottom">© 2022-2026 Agequake All Rights Reserved.</div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
