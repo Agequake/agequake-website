@@ -1,5 +1,5 @@
 # Simple static file HTTP server for local preview
-param([int]$Port = 3000, [string]$Root = $PSScriptRoot)
+param([int]$Port = 3000, [string]$Root = (Join-Path $PSScriptRoot 'public'))
 
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:$Port/")

@@ -11,6 +11,19 @@
 
 ---
 
+## フォルダ構成（公開／非公開）
+
+| 場所 | 公開 | 中身 |
+|---|---|---|
+| `public/` | **公開**（Netlifyがこのフォルダだけを公開） | HTML・サイトで使う画像 |
+| リポジトリ直下 | 非公開 | CLAUDE.md・README・導入ガイド(pptx)・netlify.toml・serve.ps1 |
+| `assets-design/` | 非公開 | デザイン素材（元画像など） |
+| `google-apps-script/` | 非公開 | Apps Scriptのコード |
+| `netlify/functions/` | 非公開（サーバー側で実行） | フォーム通知用のNetlify Function |
+
+- サイトに載せるファイル（HTML・画像）は必ず `public/` に置く
+- 社内資料・戦略メモ・素材は `public/` に入れない
+
 ## ページ構成（公開中）
 
 | ファイル | URL | 役割 |
@@ -25,6 +38,8 @@
 ---
 
 ## 使用画像一覧
+
+画像はすべて `public/` 内。
 
 | ファイル | 用途 |
 |---|---|
@@ -64,7 +79,7 @@
 ```powershell
 .\serve.ps1 -Port 3600
 ```
-→ http://localhost:3600/lp-shinkyu.html
+→ http://localhost:3600/ （`public/` の中身を表示）
 
 ※ `.claude/launch.json` でポート3600に設定済み。Claude Codeのプレビュー機能も使用可。
 
