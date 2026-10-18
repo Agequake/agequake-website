@@ -19,6 +19,8 @@
 - Mission：社会課題を、持続可能な仕組みに変える。
 - Vision：地域から、未来のモデルを創る。
 
+**公開／非公開の分離**：公開されるのは `public/` フォルダの中だけ（netlify.toml の publish 設定）。HTML・サイト用画像は `public/` に置き、CLAUDE.md・README・資料・デザイン素材は `public/` に入れない。
+
 **サイト構成**：agequake.jp のトップ（index.html）はコンサルティング会社としてのコーポレートページ。施術院向けLP（lp-shinkyu.html）はその中の「Solution 01」という位置づけ。新しい業界向けLP（lp-wa.html 等）を作ったら、index.html の Solutions セクションのカードを「準備中」から差し替えてリンクする。
 
 Agequakeの本質は「社会変化によって生まれる歪み（制度の隙間・未対応領域）を発見し、それを持続可能な仕組みに変える会社」。整巡湯は第一事業であり、Agequakeそのものではない。商品起点ではなく**課題起点**で考える会社。
