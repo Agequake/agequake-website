@@ -30,6 +30,7 @@
 |---|---|---|
 | index.html | agequake.jp/ | コーポレートトップ（理念・アプローチ・ソリューション一覧・お問い合わせ） |
 | lp-shinkyu.html | agequake.jp/lp-shinkyu.html | Solution 01：施術院経営支援LP（整巡湯無料サンプル申し込み） |
+| lp-wa.html | agequake.jp/lp-wa.html | Solution 02：湯治文化ブランディングLP（禅之湯）。問い合わせはメール |
 | form.html | agequake.jp/form.html | 無料サンプル申し込みフォーム |
 | company.html | agequake.jp/company.html | 会社概要 |
 | legal.html | agequake.jp/legal.html | 特定商取引法に基づく表記 |
