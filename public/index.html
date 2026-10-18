@@ -12,7 +12,7 @@
   gtag('js', new Date());
   gtag('config', 'G-NHNKTPSDZG');
 </script>
-<meta name="description" content="Agequakeは、社会の変化が生む制度の隙間や未対応の領域を発見し、持続可能な仕組みに変えるコンサルティングカンパニーです。施術院経営支援をはじめ、課題起点のソリューションを展開しています。">
+<meta name="description" content="Agequakeは、社会の変化が生む制度の隙間や未対応の領域を発見し、持続可能な仕組みに変えるコンサルティングカンパニーです。地方創生・観光支援、施術院経営支援など、AIでは代わりのきかない「人と地域」の価値を活かした課題起点のコンサルティングを行っています。">
 
 <!-- OGP -->
 <meta property="og:type" content="website">
@@ -36,6 +36,8 @@ body {
   color: #1a1a2e;
   font-size: 16px;
   line-height: 1.8;
+  /* 日本語を文節単位で折り返す（行頭に2〜3文字だけ残るのを防ぐ） */
+  word-break: auto-phrase;
 }
 
 /* ========== NAV ========== */
@@ -151,6 +153,27 @@ nav {
 .step-title { font-size: 17px; font-weight: bold; margin-bottom: 12px; }
 .step-body { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 2; }
 
+/* ========== FOCUS ========== */
+.focus-head { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: end; }
+.focus-ai {
+  border-left: 3px solid #c9a84c; background: white; padding: 28px 30px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05); font-size: 14px; color: #555; line-height: 2.1;
+}
+.focus-ai strong { color: #1a1a2e; }
+.focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.focus { background: white; border: 1px solid #e8e3d8; border-radius: 8px; padding: 36px 30px; box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
+.focus-num {
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 13px;
+  letter-spacing: 3px; text-transform: uppercase; color: #a8893c; margin-bottom: 12px;
+}
+.focus-title {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 21px; font-weight: 600; line-height: 1.6; margin-bottom: 14px;
+}
+.focus-text { font-size: 14px; color: #555; line-height: 2.1; }
+.focus-tags { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+.focus-tags span { font-size: 11px; letter-spacing: 1px; padding: 3px 10px; border-radius: 999px; border: 1px solid #e3dccb; color: #8a6a2f; }
+
 /* ========== SOLUTIONS ========== */
 .sol-lead { max-width: 640px; }
 .sol-list { display: flex; flex-direction: column; gap: 32px; margin-top: 56px; }
@@ -243,6 +266,8 @@ footer {
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .steps { grid-template-columns: 1fr 1fr; }
   .mv-grid { grid-template-columns: 1fr; }
+  .focus-head { grid-template-columns: 1fr; gap: 32px; }
+  .focus-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
   nav { padding: 14px 16px; }
@@ -282,6 +307,8 @@ footer {
     <a href="#about">私たちについて</a>
     <span class="nav-sep">|</span>
     <a href="#approach">アプローチ</a>
+    <span class="nav-sep">|</span>
+    <a href="#focus">注力領域</a>
     <span class="nav-sep">|</span>
     <a href="#solutions">ソリューション</a>
     <span class="nav-sep">|</span>
@@ -382,6 +409,50 @@ footer {
         <div class="step-en">Sustain</div>
         <div class="step-title">定着と展開</div>
         <div class="step-body">成果を検証し、同じ構造を持つ別の業界や地域へと展開していきます。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOCUS ========== -->
+<section class="sec sec-light" id="focus">
+  <div class="sec-inner">
+    <div class="focus-head">
+      <div class="fade">
+        <span class="sec-label">Focus Areas</span>
+        <h2 class="sec-title">AIの時代に、<br>人と地域にしかない価値を。</h2>
+        <div class="sec-rule"></div>
+        <p class="sec-body">
+          AIはこれから、多くの業種や仕事に組み込まれていきます。<br>
+          だからこそ、<strong>その場所で、その人から</strong>しか得られない価値は、<br>
+          これまで以上に大切になると私たちは考えています。
+        </p>
+      </div>
+      <p class="focus-ai fade">
+        湯に浸かる時間、旅先での出会い、人の手による施術。
+        こうした<strong>「体験」と「人の手」の仕事は、AIでは代わりがききません。</strong>
+        Agequakeは、AIの影響を受けにくいこれらの分野を軸に、地域と事業者が長く価値を生み続けるための仕組みをつくります。
+      </p>
+    </div>
+
+    <div class="focus-grid fade">
+      <div class="focus">
+        <div class="focus-num">Area 01</div>
+        <h3 class="focus-title">地方創生</h3>
+        <p class="focus-text">地域に眠る文化や資源を掘り起こし、地域の外から人と収益を呼び込み続ける仕組みに変えます。</p>
+        <div class="focus-tags"><span>地域資源</span><span>伝統文化</span><span>地域ブランディング</span></div>
+      </div>
+      <div class="focus">
+        <div class="focus-num">Area 02</div>
+        <h3 class="focus-title">観光支援</h3>
+        <p class="focus-text">温泉や湯治、郷土の食や自然を、訪日旅行者にも伝わる体験として磨き、訪れるまでの導線を整えます。</p>
+        <div class="focus-tags"><span>インバウンド</span><span>湯治・温泉</span><span>滞在体験</span></div>
+      </div>
+      <div class="focus">
+        <div class="focus-num">Area 03</div>
+        <h3 class="focus-title">人の手が生きる仕事</h3>
+        <p class="focus-text">施術やケアなど、人の手と経験に価値がある仕事が、その価値に見合った対価を得られる経営を支えます。</p>
+        <div class="focus-tags"><span>施術院</span><span>ケア</span><span>未病</span></div>
       </div>
     </div>
   </div>
